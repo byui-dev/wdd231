@@ -1,6 +1,5 @@
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
-    try {
         // Set current year
         const yearElement = document.getElementById('year');
         if (yearElement) {
@@ -12,7 +11,4 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lastModifiedElement) {
             lastModifiedElement.textContent = `Last Updated: ${document.lastModified}`;
         }
-    } catch (error) {
-        console.error('Page initialization error:', error);
-    }
 });

@@ -1,19 +1,21 @@
-// Initialize page
-document.addEventListener('DOMContentLoaded', () => {
-    try {
-
-        // Set current year
-        const yearElement = document.getElementById('year');
-        if (yearElement) {
-            yearElement.textContent = new Date().getFullYear();
-        }
-
-        // Set last modified date
-        const lastModifiedElement = document.getElementById('lastModified');
-        if (lastModifiedElement) {
-            lastModifiedElement.textContent = `Last Updated: ${document.lastModified}`;
-        }
-    } catch (error) {
-        console.error('Page initialization error:', error);
+// Update the copyright year and last modified date
+function updateDateInformation() {
+    // Set the current year for copyright
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        const currentYear = new Date().getFullYear();
+        yearElement.textContent = currentYear;
     }
+    
+    // Set the last modified date
+    const lastModifiedElement = document.getElementById('lastModified');
+    if (lastModifiedElement) {
+        const lastModified = document.lastModified;
+        lastModifiedElement.textContent = `Last Updated: ${lastModified}`;
+    }
+}
+
+// Run when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    updateDateInformation();
 });
