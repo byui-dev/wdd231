@@ -1,4 +1,4 @@
-// Menu toggle foe mobile
+// Menu toggle for mobile
         document.getElementById('menuToggle').addEventListener('click', function() {
             document.getElementById('mainMenu').classList.toggle('active');
         });
@@ -112,6 +112,19 @@
         thirdCard.appendChild(tabsContainer);
 
         // Create items container
-        
+        const itemsContainer = document.createElement('div');
+        cardsContainer.className = 'items-container';
+        cardsContainer.id = 'itemsContainer';
 
+        // Create items with color that will match their category
+        itemsData.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'item';
+            itemElement.dataset.category = item.category;
+
+        // Set the color based on item's category
+
+        }
+        
+        
  
