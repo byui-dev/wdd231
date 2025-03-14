@@ -1,152 +1,117 @@
-const courses = [
-    {
-        subject: 'CSE',
-        number: 110,
-        title: 'Introduction to Programming',
-        credits: 2,
-        certificate: 'Web and Computer Programming',
-        description: 'This course introduces students to programming fundamentals such as variables, loops, and input/output.',
-        technology: ['Python'],
-        completed: true
-    },
-    {
-        subject: 'WDD',
-        number: 130,
-        title: 'Web Fundamentals',
-        credits: 2,
-        certificate: 'Web and Computer Programming',
-        description: 'This course covers the basics of web design and development with HTML and CSS.',
-        technology: ['HTML', 'CSS'],
-        completed: true
-    },
-    {
-        subject: 'CSE',
-        number: 210,
-        title: 'Programming with Classes',
-        credits: 2,
-        certificate: 'Web and Computer Programming',
-        description: 'This course introduces object-oriented programming concepts like encapsulation and polymorphism.',
-        technology: ['C#'],
-        completed: true
-    },
-    {
-        subject: 'WDD',
-        number: 231,
-        title: 'Frontend Web Development I',
-        credits: 2,
-        certificate: 'Web and Computer Programming',
-        description: 'This course focuses on user experience, performance optimization, and basic API usage.',
-        technology: ['HTML', 'CSS', 'JavaScript'],
-        completed: false
-    }
-];
+// Menu toggle foe mobile
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('mainMenu').classList.toggle('active');
+        });
 
-// Function to create course cards
-function createCourseCards(courseList) {
-    const courseContainer = document.getElementById('courseContainers');
+        // Data for the cards
+        const cardsData = [
+            {
+                id:1,
+                title: "Course Work"
+            },
+            {
+                id:2,
+                title: "Mahikeng,South Africa"
+                image: "url for the picture"
+            },
+            {   
+                id:3,
+                title: "Web and Computer Programming Certificate"
+            },
+        ];
 
-    if (!courseContainer) {
-        console.error('Card container not found');
-        return;
-    }
+        // Define category colors
+        const categoryColors = {
+            "completed": "#3498db",     // For completed courses
+            "notCompleted": "#e74c3c", // For courses not completed
+            "all": "#8e44ad"           // For all courses
+        };
 
-    // Clear existing cards
-    courseContainer.innerHTML = '';
+        // Data for the colored items
+        const itemsData = [
+            {id:1, courseName: "Introduction to Programming", color: "#3498db", category: "completed" },
+            {id:2, courseName: "Web Fundamentals", color: "#3498db", category: "completed"},
+            {id:3, courseName: "Programming with Classes", color: "#3498db", category: "completed"},
+            {id:4, courseName: "Frontend Web Development I", color: "#e74c3c", category: "notCompleted"}
+        ];
+ 
+        // Filter categories and include all courses
+        const categories = [
+            { courseName : "All", filter: null, color: categoryColors.all},
+            { courseName : "CSE", filter: "completed", color: categoryColors.completed},
+            { courseName: "WDD", filter: "notCompleted", color: categoryColors.notCompleted }
+        ];
 
-    if (!courseList || courseList.length === 0) {
-        courseContainer.innerHTML = `<p>No courses found. Please try another filter.</p>`;
-        return;
-    }
+        // function to create the cards
+        function createCards() {
+            const container = document.getElementById('cardsContainer');
 
-    // Loop through each course and create cards with animation delay
-    courseList.forEach((course, index) => {
-        const card = document.createElement('div');
-        card.className = 'course-card';
+            // Create the first two cards
+            for (let i = 0; i < 2; i++);
+                 const card = document.createElement('div');
+                 card.className = 'card';
+
+                 const heading = document.createElement('h2');
+                 heading.textContent = cardsData[i].title;
+                 card.appendChild(heading);
+
+                 const content = document.createElement('p');
+                 content.textContent = cardsData[i].content;
+                 card.appendChild(content);
+
+                 // Add image for the second card
+                 if (cardsData[i].image) {
+                    const image = document.createElement('img');
+                    image.src = cardsData[i].image;
+                    image.alt = cardsData[i].title;
+                    image.className = "card-image";
+                    card.appendChild(image);
+                 }
+
+                 container.appendChild(card);
+        }
+
+        // Create the third card 
+        const thirdCard = document.createElement('div');
+        thirdCard.className = 'card card-full';
+
+        const thirdHeading = document.createElement('h2');
+        thirdHeading.textContent = cardsData[2].title;
+        thirdCard.appendChild(thirdHeading);
+
+        const thirdContent = document.createElement('p');
+        thirdContent.textContent = cardsData[2].content;
+        thirdCard.appendChild(thirdContent);
+
+        // Create tabs with color coding
+        const tabsContainer = document.createElement('div');
+        tabsContainer.className = 'tabs';
+
+        categories.forEach((category, index) => {
+            const tab = document.createElement('button');
+            tab.className = 'tab';
+            if (index === 0) tab.classList.add('active');
+            tab.textContent = category.name;
+            tab.dataset.filter = category.filter;
+
+            // Set the tab color based on category
+            tab.style.backgroundColor = category.color;
+
+            tab.addEventListener('click', function() {
+                // Set active tab
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter items
+                filterItems(category.filter);
+            });
+
+            tabsContainer.appendChild(tab);
+        });
+
+        thirdCard.appendChild(tabsContainer);
+
+        // Create items container
         
-        // Add animation delay based on index
-        card.style.animationDelay = `${index * 0.1}s`;
 
-        // Add a class to indicate completion status for styling
-        if (course.completed) {
-            card.classList.add('completed');
-        } else {
-            card.classList.add('in-progress');
-        }
-
-        card.innerHTML = `
-        <div class="course-info">
-             <h3>${course.title || 'Unknown course'}</h3>
-             <p><strong>Subject:</strong> ${course.subject || 'Not Specified'}</p>
-             <p><strong>Number:</strong> ${course.number || 'Not Specified'}</p>
-             <p><strong>Credits:</strong> ${course.credits || 'Not Specified'}</p>
-             <p><strong>Certificate:</strong> ${course.certificate || 'Not Specified'}</p>
-             <p><strong>Description:</strong> ${course.description || 'Description unavailable'}</p>
-             <p><strong>Technology:</strong> ${course.technology ? course.technology.join(', ') : 'Not Specified'}</p>
-             <p><strong>Completed:</strong> <span class="completion-status">${course.completed ? 'Yes' : 'No'}</span></p>
-        </div>  
-    `;    
-
-        courseContainer.appendChild(card);
-    });
-}
-
-// Filter courses based on completion status
-function filterCourses(completed) {
-    if (completed === 'all') {
-        return courses;
-    }
-
-    // Convert completed to boolean (true or false)
-    const isCompleted = completed === 'true';
-    return courses.filter(course => course.completed === isCompleted);
-}
-
-// Sort courses by the specified property
-function sortCourses(courseList, sortBy = 'number') {
-    return [...courseList].sort((a, b) => {
-        if (sortBy === 'title') {
-            return a.title.localeCompare(b.title);
-        } else if (sortBy === 'number') {
-            return a.number - b.number;
-        }
-        return 0;
-    });
-}
-
-// Update the course display
-function updateCourseDisplay() {
-    const completionFilter = document.getElementById('completionFilter');
-    const sortBySelect = document.getElementById('sortBy');
-    
-    // Get filtered courses
-    const filteredCourses = filterCourses(completionFilter.value);
-    
-    // Sort the filtered courses
-    const sortedCourses = sortCourses(filteredCourses, sortBySelect.value);
-    
-    // Create cards with the final list
-    createCourseCards(sortedCourses);
-}
-
-// Initialize course display and filters
-function initializeCourseDisplay() {
-    const completionFilter = document.getElementById('completionFilter');
-    const sortBySelect = document.getElementById('sortBy');
-    
-    // Add event listeners to the filters
-    if (completionFilter) {
-        completionFilter.addEventListener('change', updateCourseDisplay);
-    }
-    
-    if (sortBySelect) {
-        sortBySelect.addEventListener('change', updateCourseDisplay);
-    }
-    
-    // Initial display
-    updateCourseDisplay();
-}
-
-// Run functions when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    initializeCourseDisplay();
-});
+ 

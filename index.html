@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chamber of Commerce Website</title>
+    <title>Obakeng Diphala Homepage</title>
     <meta name="description"
         content="This websites provides information about businesses in the Chamber of Commerce in Mahikeng">
     <meta name="author" content="Obakeng Kennedy Diphala">
@@ -28,30 +28,27 @@
 
 <body>
     <header>
-        <div class="profile">
-            <img src="images/obakeng_picture.jpg" alt="Obakeng Kennedy Diphala - Profile Picture">
-            <span>Obakeng Kennedy Diphala</span>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
 
-        <nav>
-            <button class="hamburger" aria-label="Toggle menu">☰</button>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="#">Chamber</a></li>
-                <li><a href="#">GitHub Profile</a></li>
-                <li><a href="#">LinkedIn</a></li>
-            </ul>
-        </nav>
+        <div class="profile-container">
+            <img src="images/obakeng_picture.jpg" alt="Obakeng Kennedy Diphala - Profile Picture">
+            <span>Obakeng K. Diphala</span>
+        </div>
+
+        <ul class="main-menu"id="mainMenu">
+            <li><a href="index.html">Home</a></li><li>
+            <li><a href="#">Chamber</a></li>
+            <li><a href="#">GitHub Profile</a></li>
+            <li><a href="#">LinkedIn</a></li>
+        </ul>
     </header>
 
     <main>
-        <h1>Home</h1>
-        <h2>Course Work</h2>
-        <h2>Mahikeng, South Africa</h2>
-        <img src="images/mahikeng_picture.jpg" alt="Picture of Mahikeng">
-        <h2>Web and Computer Programming Certificate</h2>
-
-        <div class="course-containers" id="courseContainers">
+        <div class="cards-container" id="cardsContainer">
             <!-- Course cards will be dynamically inserted here by JavaScript-->
         </div>
     </main>
