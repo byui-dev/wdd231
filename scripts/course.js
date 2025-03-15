@@ -10,7 +10,7 @@ const courses = [
         technology: [
             'Python'
         ],
-        completed: true // Changed to true for demonstration
+        completed: true 
     },
     {
         subject: 'WDD',
@@ -23,7 +23,7 @@ const courses = [
             'HTML',
             'CSS'
         ],
-        completed: true // Changed to true for demonstration
+        completed: true
     },
     {
         subject: 'CSE',
@@ -35,7 +35,7 @@ const courses = [
         technology: [
             'Python'
         ],
-        completed: true // Changed to true for demonstration
+        completed: true 
     },
     {
         subject: 'CSE',
@@ -47,7 +47,7 @@ const courses = [
         technology: [
             'C#'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'WDD',
@@ -61,7 +61,7 @@ const courses = [
             'CSS',
             'JavaScript'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'WDD',
