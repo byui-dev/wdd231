@@ -1,92 +1,97 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@media screen and (min-width: 768px) {
+    /* General layout changes */
+    body {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
+    /* Header adjustments */
+    header {
+        grid-template-columns: 60px auto 44px;
+        padding: 1.5rem;
+    }
 
-header {
-    font-family: "Roboto", sans-serif;
-    font-weight: 200;
-    display: flex;
-    align-items: center;
-    background-color: cadetblue;
-    width: 10px 20px; 
-}
+    /* Navigation changes */
+    #myButton {
+        display: none; /* Hide hamburger menu on larger screens */
+    }
+    
+    nav {
+        background-color: blue;
+    }
+    
+    ul.menuLinks {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    ul.menuLinks li {
+        border-top: none;
+        flex: 1;
+        text-align: center;
+    }
+    
+    ul.menuLinks li a {
+        padding: 1rem;
+        transition: background-color 0.3s;
+    }
+    
+    ul.menuLinks li a:hover {
+        background-color: rgba(0,0,0,0.3);
+    }
 
-body {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-}
+    /* Card layout changes */
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .card {
+        margin-bottom: 0; /* Remove margin since we're using grid gap */
+    }
+    
+    .card-full {
+        grid-column: 1 / -1; /* Make the card span the full width */
+    }
 
-header, 
-main {
-    margin: 0 auto;  
-}
+    /* Tab adjustments */
+    .tabs {
+        justify-content: center;
+        margin: 1.5rem 0;
+    }
+    
+    .tab {
+        padding: 0.75rem 1.5rem;
+        font-size: 1.1rem;
+    }
 
-h1 {
-    font-size: 2rem;
-}
+    /* Course items display */
+    .items-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    .item {
+        padding: 1rem;
+        transition: transform 0.2s;
+    }
+    
+    .item:hover {
+        transform: translateY(-5px);
+    }
 
-nav {
-  margin: 0 auto;
-  max-width: 800px;  
-}
-
-nav ul {
-    list-style-type: none;
-}
-
-nav a {
-    display: block;
-    text-align: center;
-    padding: 1rem;
-    text-decoration: none;
-}
-
-nav a:hover {
-    text-decoration: overline;
-}
-
-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 15px;
-}
-
-span {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-footer {
-    font-family: "Roboto", sans-serif;
-    font-weight: 200;
-    background-color: cadetblue;
-    width: 10px 20px; 
-}
-
-
-
-/* Larger views **********************************************************************/
-@media (min-width: 769px) {
-   .hamburger {
-       display: none;
-   } 
-   
-   .nav-links {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    background: none;
-   }  
-  
-   nav ul {
-    display: flex;
-   }
-   
-   nav ul li {
-    flex: 1 1 100%;
-   }
+    /* Footer adjustments */
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+    }
+    
+    footer p {
+        margin: 0;
+    }
 }

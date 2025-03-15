@@ -1,38 +1,28 @@
-// Initialize navigation behavior
-function initializeNavigation() {
-    const navLinks = document.querySelectorAll('nav ul li a');
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-links');
-
-    // Toggle mobile menu
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
-    }
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            // Only prevent default for # links
-            if (link.getAttribute('href') === '#') {
-                e.preventDefault();
-            }
-
-            // Remove active class from all links
-            navLinks.forEach(l => l.classList.remove('active'));
-
-            // Add active class to clicked link
-            link.classList.add('active');
-            
-            // Close mobile menu after clicking a link
-            if (navMenu) {
-                navMenu.classList.remove('show');
-            }
-        });
-    });
-}
-
-// Run when DOM is loaded
+// navigation.js
 document.addEventListener('DOMContentLoaded', () => {
-    initializeNavigation();
+    const menuButton = document.getElementById('myButton');
+    const menuLinks = document.querySelector('.menuLinks');
+    
+    // Toggle menu when button is clicked
+    menuButton.addEventListener('click', () => {
+        menuButton.classList.toggle('open');
+        menuLinks.classList.toggle('open');
+    });
+    
+    // Add current-menu-item class to the active page's menu item
+    const currentPage = window.location.pathname.split('/').pop();
+    const menuItems = document.querySelectorAll('.menuLinks li a');
+    
+    menuItems.forEach(item => {
+        if (item.getAttribute('href') === currentPage) {
+            item.parentElement.classList.add('current-menu-item');
+        }
+    });
+
+ 
+    document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuButton.classList.contains('open')) {
+        menuButton.classList.remove('open');
+        menuLinks.classList.remove('open');
+    }
 });

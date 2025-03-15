@@ -5,49 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obakeng Diphala Homepage</title>
-    <meta name="description"
-        content="This websites provides information about businesses in the Chamber of Commerce in Mahikeng">
+    <meta name="description" content="This is the home page for my website">
     <meta name="author" content="Obakeng Kennedy Diphala">
 
-    <!-- Mobile-First Styles -->
-    <link rel="stylesheet" href="styles/small.css" media="only screen and (max-width: 768px)">
-
-    <!-- Normalize-->
+    <!-- Normalize first -->
     <link rel="stylesheet" href="styles/normalize.css">
+    
+    <!-- Mobile-First Styles -->
+    <link rel="stylesheet" href="styles/small.css">
 
     <!-- Large Screen Styles -->
-    <link rel="stylesheet" href="styles/larger.css" media="only screen and (min-width: 768px)">
-    <script src="scripts/date.js" defer></script>
-    <script src="scripts/course.js" defer></script>
-    <script src="scripts/navigation.js" defer></script>
+    <link rel="stylesheet" href="styles/larger.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+        
+    <!-- Scripts with defer attribute -->
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
 </head>
 
 <body>
     <header>
-        <div class="menu-toggle" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <div class="profile-container">
-            <img src="images/obakeng_picture.jpg" alt="Obakeng Kennedy Diphala - Profile Picture">
-            <span>Obakeng K. Diphala</span>
-        </div>
-
-        <ul class="main-menu"id="mainMenu">
-            <li><a href="index.html">Home</a></li><li>
-            <li><a href="#">Chamber</a></li>
-            <li><a href="#">GitHub Profile</a></li>
-            <li><a href="#">LinkedIn</a></li>
-        </ul>
+       <img src="images/obakeng_picture.jpg" width="34" height="40" alt="Obakeng K. Diphala">
+       <span>Obakeng K. Diphala</span>
+       <button id="myButton">
     </header>
 
+    <nav>
+        <ul class="menuLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Chamber</a></li>
+          <li><a href="#">GitHub Profile</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+    </nav>    
+    
     <main>
+        <h2>Home</h2>
         <div class="cards-container" id="cardsContainer">
             <!-- Course cards will be dynamically inserted here by JavaScript-->
         </div>
@@ -57,7 +56,5 @@
         <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
         <p id="lastModified"></p>
     </footer>
-
 </body>
-
 </html>
