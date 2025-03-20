@@ -10,7 +10,7 @@ const courses = [
         technology: [
             'Python'
         ],
-        completed: true 
+        completed: true
     },
     {
         subject: 'WDD',
@@ -35,7 +35,7 @@ const courses = [
         technology: [
             'Python'
         ],
-        completed: true 
+        completed: true
     },
     {
         subject: 'CSE',
@@ -79,186 +79,124 @@ const courses = [
     }
 ];
 
-// Data for the cards
-const cardsData = [
-    {
-        id: 1,
-        title: "Course Work",
-        content: "."
-    },
-    {
-        id: 2,
-        title: "Mahikeng, South Africa",
-        image: "images/mahikeng_pic.jpeg" // Placeholder image path
-    
-    },
-    {
-        id: 3,
-        title: "Web and Computer Programming Certificate",
-    }
-];
-
 // Define category colors
-const categoryColors = {
-    "CSE": "#3498db",     // Blue for CSE courses
-    "WDD": "#e74c3c",     // Red for WDD courses
-    "all": "#8e44ad",     // Purple for all courses
-    "completed": "#27ae60", // Green for completed courses
-    "notCompleted": "#f39c12" // Orange for not completed courses
+const statusColors = {
+    "Completed": "#27ae60",   // Green
+    "notCompleted": "#e74c3c"  // Red
 };
 
-// Filter categories
-const categories = [
-    { name: "All", filter: "all", color: categoryColors.all },
-    { name: "CSE", filter: "CSE", color: categoryColors.CSE },
-    { name: "WDD", filter: "WDD", color: categoryColors.WDD },
-    { name: "Completed", filter: "completed", color: categoryColors.completed },
-    { name: "Not Completed", filter: "notCompleted", color: categoryColors.notCompleted }
-];
-
-// function to create the cards
+// Function to create cards dynamically
 function createCards() {
-    const container = document.getElementById('cardsContainer');
-    if (!container) return; // Safety check
+    const mainContainer = document.querySelector('main');
+    if (!mainContainer) return; // Safety check
 
-    // Clear existing content
-    container.innerHTML = '';
+    // Clear previous content
+    mainContainer.innerHTML = '';
 
-    // Create the first two cards
-    for (let i = 0; i < 2; i++) {
-        const card = document.createElement('div');
-        card.className = 'card';
+    // ========== First Card ==========
+    const firstCard = document.createElement('div');
+    firstCard.className = 'card';
+    firstCard.innerHTML = `
+        <div class="card-header" style="background-color: #3498db; color: white;">
+            <h2>Course Work</h2>
+        </div>
+        <p>.</p>
+    `;
+    mainContainer.appendChild(firstCard);
 
-        const heading = document.createElement('h2');
-        heading.textContent = cardsData[i].title;
-        card.appendChild(heading);
+    // ========== Second Card ==========
+    const secondCard = document.createElement('div');
+    secondCard.className = 'card';
+    secondCard.innerHTML = `
+        <div class="card-header" style="background-color:  #3498db; color: white;">
+            <h2>Mahikeng, South Africa</h2>
+        </div>
+        <img src="image.jpg" alt="Sample Image" class="card-image">
+        <p>Mahikeng Museum</p>
+    `;
+    mainContainer.appendChild(secondCard);
 
-        const content = document.createElement('p');
-        content.textContent = cardsData[i].content;
-        card.appendChild(content);
-
-        // Add image for the second card
-        if (cardsData[i].image) {
-            const image = document.createElement('img');
-            image.src = cardsData[i].image;
-            image.alt = cardsData[i].title;
-            image.className = "card-image";
-            card.appendChild(image);
-        }
-
-        container.appendChild(card);
-    }
-
-    // Create the third card 
+    // ========== Third Card ==========
     const thirdCard = document.createElement('div');
-    thirdCard.className = 'card card-full';
+    thirdCard.className = 'card responsive-card';
 
-    const thirdHeading = document.createElement('h2');
-    thirdHeading.textContent = cardsData[2].title;
-    thirdCard.appendChild(thirdHeading);
+    // Third Card Heading
+    thirdCard.innerHTML = `
+        <div class="card-header" style="background-color:  #3498db; color: white;">
+            <h2>Web and Computer Programming Certificate/h2>
+        </div>
+    `;
 
-    const thirdContent = document.createElement('p');
-    thirdContent.textContent = cardsData[2].content;
-    thirdCard.appendChild(thirdContent);
+    // Filter Buttons Container
+    const filterTabsContainer = document.createElement('div');
+    filterTabsContainer.className = 'tab-container';
 
-    // Create tabs with color coding
-    const tabsContainer = document.createElement('div');
-    tabsContainer.className = 'tabs';
-
-    categories.forEach((category, index) => {
+    ["All", "CSE", "WDD"].forEach(category => {
         const tab = document.createElement('button');
         tab.className = 'tab';
-        if (index === 0) tab.classList.add('active');
-        tab.textContent = category.name;
-        tab.dataset.filter = category.filter;
-
-        // Set the tab color based on category
-        tab.style.backgroundColor = category.color;
-        tab.style.color = '#ffffff'; // White text for better contrast
-
-        tab.addEventListener('click', function() {
-            // Set active tab
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            this.classList.add('active');
-
-            // Filter items
-            filterItems(this.dataset.filter);
-        });
-
-        tabsContainer.appendChild(tab);
+        tab.textContent = category;
+        tab.addEventListener('click', () => filterItems(category));
+        filterTabsContainer.appendChild(tab);
     });
 
-    thirdCard.appendChild(tabsContainer);
+    thirdCard.appendChild(filterTabsContainer);
 
-    // Create items container
+    // Non-Clickable Status Buttons
+    const objectTabsContainer = document.createElement('div');
+    objectTabsContainer.className = 'tab-container';
+
+    dataObjects.forEach(item => {
+        const tab = document.createElement('button');
+        tab.className = 'object-tab';
+        tab.textContent = item.name;
+        tab.dataset.status = item.status;
+        tab.style.backgroundColor = statusColors[item.status];
+
+        // Hover Effect
+        tab.addEventListener('mouseover', function () {
+            this.style.backgroundColor = "#555";
+        });
+        tab.addEventListener('mouseout', function () {
+            this.style.backgroundColor = statusColors[item.status];
+        });
+
+        objectTabsContainer.appendChild(tab);
+    });
+
+    thirdCard.appendChild(objectTabsContainer);
+
+    // Content Area for Displaying Filtered Objects
     const itemsContainer = document.createElement('div');
     itemsContainer.className = 'items-container';
     itemsContainer.id = 'itemsContainer';
-
-    // Create items for each course
-    courses.forEach(course => {
-        const itemElement = document.createElement('div');
-        itemElement.className = 'item';
-        
-        // Set multiple data attributes for flexible filtering
-        itemElement.dataset.subject = course.subject;
-        itemElement.dataset.completed = course.completed ? "completed" : "notCompleted";
-        
-        // Set the color based on completion status
-        const backgroundColor = course.completed ? categoryColors.completed : categoryColors.notCompleted;
-        itemElement.style.backgroundColor = backgroundColor;
-        itemElement.style.color = '#ffffff'; // White text for better contrast
-
-        // Create the course code display - simplified to just show the code
-        const courseCode = document.createElement('div');
-        courseCode.className = 'course-code';
-        courseCode.textContent = `${course.subject} ${course.number}`;
-        courseCode.style.fontWeight = 'bold';
-        courseCode.style.fontSize = '1.2rem';
-        itemElement.appendChild(courseCode);
-
-        // Add click event to show more details
-        itemElement.addEventListener('click', function() {
-            alert(`${course.subject} ${course.number}: ${course.title}\n\nTechnologies: ${course.technology.join(', ')}\n\nDescription: ${course.description}\n\nStatus: ${course.completed ? 'Completed' : 'Not Completed'}`);
-        });
-
-        itemsContainer.appendChild(itemElement);
-    });
-
     thirdCard.appendChild(itemsContainer);
-    container.appendChild(thirdCard);
-    
-    // Initialize filtering to show all items by default
-    filterItems("all");
+
+    mainContainer.appendChild(thirdCard);
+
+    // Initialize with "All" filter
+    filterItems("All");
 }
 
-// Function to filter items
+// Function to filter displayed items
 function filterItems(filter) {
-    const items = document.querySelectorAll('.item');
+    const itemsContainer = document.getElementById('itemsContainer');
+    itemsContainer.innerHTML = ''; // Clear previous items
 
-    items.forEach(item => {
-        if (filter === "all") {
-            // Show all items
-            item.style.display = 'block';
-        } else if (filter === "completed" || filter === "notCompleted") {
-            // Filter by completion status
-            if (item.dataset.completed === filter) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        } else {
-            // Filter by subject (CSE or WDD)
-            if (item.dataset.subject === filter) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        }
+    let filteredData = dataObjects;
+    if (filter === "CSE") {
+        filteredData = dataObjects.filter(item => item.category === "CSE");
+    } else if (filter === "WDD") {
+        filteredData = dataObjects.filter(item => item.category === "WDD");
+    }
+
+    filteredData.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'item';
+        itemDiv.textContent = `${item.name} (${item.category})`;
+        itemDiv.style.backgroundColor = statusColors[item.status]; // Apply color based on status
+        itemsContainer.appendChild(itemDiv);
     });
 }
 
-// Initialize the page
-window.addEventListener('load', function() {
-    createCards();
-});
+// Initialize the cards when the page loads
+window.addEventListener('load', createCards);

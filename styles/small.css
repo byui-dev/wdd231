@@ -10,7 +10,7 @@ body {
 }
 
 header, footer {
-    background-color: #bbb;
+    background-color: navy;
     padding: 1rem;
 }
 
@@ -21,18 +21,19 @@ header {
 }
 
 header img {
-    border-radius: 50%; /* Makes the profile picture circular */
-    object-fit: cover; /* Ensures the image fills the dimensions without distortion */
+     width: 100px;
+     height: auto;
 }
 
 header span {
     font-weight: bold;
-    padding-left: 10px;
+    padding-left: 500px;
+    color: #FFF;
 }
 
 /* NAVIGATION */
 nav {
-    background-color: blue;
+    background-color: black;
 }
 
 #myButton::before {
@@ -186,4 +187,8 @@ footer {
     text-align: center;
     padding: 1rem;
     margin-top: 1rem;
+}
+
+footer p {
+    color: #FFF;
 }
