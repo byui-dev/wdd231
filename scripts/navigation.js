@@ -1,8 +1,9 @@
-const hamburgerElement = document.querySelector('#myButton');
-const navElement = document.querySelector('menuLinks');
-
-hamburgerElement.addEventListener('click', () => {
-    navElement.classList.toggle('open');
-    hamburgerElement.classList.toggle('open');
+// For navigation.js
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const menuNav = document.getElementById('menuNav');
     
-});
+    hamburger.addEventListener('click', function() {
+      menuNav.classList.toggle('open');
+    });
+  });
