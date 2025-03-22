@@ -1,0 +1,122 @@
+/* small.css */
+
+/* Hamburger Menu Styles */
+.header .hamburgerInitiate {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.header .hamburgerInitiate div {
+    width: 30px;
+    height: 3px;
+    background-color: #f0f0f0;
+}
+
+/* Hamburger "X" Transformation */
+.header .hamburgerInitiate.open div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.header .hamburgerInitiate.open div:nth-child(2) {
+    opacity: 0;
+}
+
+.header .hamburgerInitiate.open div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Mobile Navigation Styles */
+.header nav.mainNav {
+    display: none; /* Initially hidden */
+}
+
+.header nav.mainNav.active {
+    display: flex; /* Show when active class is added */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Adjust as needed */
+    right: 0;
+    background-color: black;
+    width: 150px; /* Adjust as needed */
+}
+
+.header nav.mainNav.active a {
+    margin: 10px;
+}
+
+/* General Mobile Styling for other elements if needed */
+/* Example for main elements to stack */
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero {
+    width: 100%;
+}
+
+.hero-image {
+    width: 100%;
+    height: 300px;
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+}
+
+.card-container-small, .card-container-large {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.card {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.card-weather {
+    display: flex;
+}
+
+.card-weather img{
+    height: 50px;
+    width: auto;
+}
+
+.card-weather div {
+    margin-left: 5px;
+}
+
+.card-forecast div {
+    display: flex;
+    justify-content: space-around;
+}
+ 
+footer { 
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: lightblue;
+}
+
+.footer-left, .footer-right {
+    display: flex;
+    flex-direction: column;
+}
+
+footer img {
+    height:  50px;
+    width: auto;
+}
+
+.footer-right {
+    margin-top: 20px;
+}
