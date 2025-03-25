@@ -1,64 +1,77 @@
-/* larger.css */
+@media screen and (min-width: 768px) {
 
-/* General Header Styles (Desktop) */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: lightblue;
-}
-
-.header img.pic {
-    height: 50px;
-    margin-right: 10px;
-}
-
-.header span {
-    margin-right: 5px;
-}
-
-.header nav.mainNav {
-    display: flex;
-}
-
-.header nav.mainNav a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: #f0f0f0;
-}
-
-/* Hide Hamburger on Larger Screens */
-.header .hamburgerInitiate {
-    display: none;
-}
-
-/* Media Query for Desktop (769px and above) */
-@media (min-width: 769px) { /* Adjust breakpoint to match small.css */
-    /* Show Navigation on Desktop */
-    .header nav.mainNav {
+    /*Navigation for larger screens */
+    .mainNav {
         display: flex;
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
     }
 
-    /* Hide Hamburger on Desktop */
-    .header .hamburgerInitiate {
+    .mainNav a {
+        border-bottom: none;
+        padding: 0.5rem 1rem;
+    }
+
+    /* Hide hamburger button on large screens*/
+    .hamburgerInitiate {
         display: none;
     }
-    /* Main element styling for desktop */
-    main {
-        flex-direction: row;
+
+    .hero {
+        height: 400px;
     }
 
-    .card-container-large .card {
-        width: calc(25% - 20px);
+    .hero-content {
+        max-width: 80%;
+        padding: 2rem;
     }
 
+    .hero-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-cta {
+        padding: 0.8rem 1.5rem;
+    }
+
+    /* Card layouts for medium screens*/
+    .card-container-small {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-container-large {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer layout*/
     footer {
         flex-direction: row;
         justify-content: space-between;
+        text-align: left;
     }
 
+    .footer-left,
     .footer-right {
-        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    /* Card layout for large screens*/
+    .card-container-large {
+        grid-template-columns: (3, 1fr);
+    }
+
+    /* Larger main container padding*/
+    main {
+        padding: 0 2rem;
     }
 }

@@ -14,6 +14,9 @@
     <!-- Large Screen Styles -->
     <link rel="stylesheet" href="styles/larger.css">
 
+    <!-- Normalizing the CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +25,7 @@
 
     <!-- Scripts with defer attribute -->
     <script src="scripts/date.js" defer></script>
-    <script src="scripts/course.js" defer></script>
+    <script src="scripts/cards.js" defer></script>
     <script src="scripts/navigation.js" defer></script>
 
     <link rel="icon" href="favicon_3.ico">
@@ -38,7 +41,7 @@
 
 <body>
      <header>
-         <img class="pic" src="images/obakeng_picture.jpg" alt="Mahikeng Mall">
+         <img class="pic" src="images/mcc_logo.png" alt="Mahikeng Chamber of Commerce logo">
          <span>Mahikeng Chamber of Commerce</span>
 
          <nav id="menuNav" class="mainNav">
@@ -55,24 +58,54 @@
          <div></div>
          </div>
      </header>
-<body>     
+
 <main>
+    <!--- Hero Section -->
     <section class="hero">
         <div class="hero-image">
+            <div class="hero-content">
+                <h1>Welcome to the Mahikeng Chamber of Commerce</h1>
+                <p>Supporting local businesses and promoting economic growth in our community.</p>
+                <a href="#" class="hero-cta">Join Today</a>
            </div>
-    </section>        
+          </div>
+    </section>      
+
+    <h2>Home</h2>
+
+    </main>
+    <!-- 3 cards container -->
         <div class="card-container-small">
             <div class="card card-text">    
-               </div> 
+                <h2>Events</h2>
+                <p>Add Event</p>
+            </div> 
             <div class="card card-weather">
-              </div>
+                <h2>Current Weather</h2>
+                <p>add weather icon</p>
+                <p>29 Degrees Celcius</p>
+                <p>Sunny</p>
+                <p>High: 31</p>
+                <p>Low: 21</p>
+                <p>Humidity: 14%</p>
+                <p>Sunrise: 6:00am</p>
+                <p>Sunset: 6:30pm</p>
+            </div>
             <div class="card card-forecast">
+                <h2>Weather Forecast</h2>
+                <p>30 Degrees Celcius</p>
+                <p>28 Degress Celcius</p>
+                <p>27 Degrees Celcius</p>
               </div>
             </div>     
+
+            <!-- 9 cards container -->         
             <div class="card-container-large">
+                <!--This will be populated dynamically via JSON-->
             </div>      
 </main>
 </body>
+
 
 
      <footer>
@@ -90,7 +123,4 @@
             <img src="images/south-african-flag.png" alt="South African flag representing the country of origin">
         </div>
     </footer>
-
-
-
 </html>
