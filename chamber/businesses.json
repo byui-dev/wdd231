@@ -3,7 +3,7 @@
     "name": "Tech Solutions",
     "type": "IT Services",
     "contact": "info@techsolutions.co.za",
-    "image": "images/business1.jpg",
+    "image": "images/tech_solutions.jpg",
     "address": "15 Montshiwa Street, Mahikeng",
     "website": "https://techsolutions.co.za"
   },
@@ -11,7 +11,7 @@
     "name": "Green Grocers",
     "type": "Retail",
     "contact": "sales@greengrocers.co.za",
-    "image": "images/business2.jpg",
+    "image": "images/green_grocers.jpg",
     "address": "42 Nelson Mandela Drive, Mahikeng",
     "website": "https://greengrocers.co.za"
   },
@@ -19,7 +19,7 @@
     "name": "Legal Partners",
     "type": "Legal Services",
     "contact": "contact@legalpartners.co.za",
-    "image": "images/business3.jpg",
+    "image": "images/legal_partners.jpg",
     "address": "7 University Drive, Mahikeng",
     "website": "https://legalpartners.co.za"
   },
@@ -27,7 +27,7 @@
     "name": "Coffee Haven",
     "type": "Food & Beverage",
     "contact": "orders@coffeehaven.co.za",
-    "image": "images/business4.jpg",
+    "image": "images/coffee_haven.jpg",
     "address": "22 Main Street, Mahikeng",
     "website": "https://coffeehaven.co.za"
   },
@@ -35,7 +35,7 @@
     "name": "Fitness First",
     "type": "Health & Wellness",
     "contact": "join@fitnessfirst.co.za",
-    "image": "images/business5.jpg",
+    "image": "images/fitness_first.jpg",
     "address": "101 Central Avenue, Mahikeng",
     "website": "https://fitnessfirst.co.za"
   },
@@ -43,7 +43,7 @@
     "name": "Auto Repairs",
     "type": "Automotive",
     "contact": "service@autorepairs.co.za",
-    "image": "images/business6.jpg",
+    "image": "images/auto_repairs.jpg",
     "address": "55 Industrial Road, Mahikeng",
     "website": "https://autorepairs.co.za"
   },
@@ -51,7 +51,7 @@
     "name": "Creative Design",
     "type": "Marketing",
     "contact": "hello@creativedesign.co.za",
-    "image": "images/business7.jpg",
+    "image": "images/creative_design.jpg",
     "address": "33 Innovation Hub, Mahikeng",
     "website": "https://creativedesign.co.za"
   },
@@ -59,7 +59,7 @@
     "name": "Home Decor",
     "type": "Retail",
     "contact": "shop@homedecor.co.za",
-    "image": "images/business8.jpg",
+    "image": "images/home_decor.jpg",
     "address": "18 Shopping District, Mahikeng",
     "website": "https://homedecor.co.za"
   },
@@ -67,7 +67,7 @@
     "name": "Financial Advisors",
     "type": "Finance",
     "contact": "advice@financialadvisors.co.za",
-    "image": "images/business9.jpg",
+    "image": "images/financial_advisors.jpg",
     "address": "27 Commerce Street, Mahikeng",
     "website": "https://financialadvisors.co.za"
   }
