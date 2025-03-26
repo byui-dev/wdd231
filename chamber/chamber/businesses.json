@@ -1,0 +1,94 @@
+{
+    "businesses": [
+        {
+            "name": "Kagiso Technologies",
+            "address": "48 Beyers Naude Drive, Mahikeng, 2745",
+            "phoneNumber": "+27 18 392 6000",
+            "websiteUrl": "https://www.kagisotechnologies.co.za",
+            "logoUrl": "path/to/kagiso-logo.png",
+            "membershipLevel": 3,
+            "additionalInfo": "Leading IT solutions provider in North West Province"
+        },
+        {
+            "name": "Mahikeng Agricultural Supplies",
+            "address": "27 Loop Street, Industrial Area, Mahikeng, 2745",
+            "phoneNumber": "+27 18 397 1234",
+            "websiteUrl": "https://www.mahikengag.com",
+            "logoUrl": "path/to/ag-supplies-logo.png",
+            "membershipLevel": 2,
+            "additionalInfo": "Comprehensive agricultural equipment and supplies"
+        },
+        {
+            "name": "Royal Bafokeng Platinum",
+            "address": "Lefaragae Office Park, Mahikeng, 2745",
+            "phoneNumber": "+27 18 484 7000",
+            "websiteUrl": "https://www.royalbafokengplatinum.com",
+            "logoUrl": "path/to/rbplat-logo.png",
+            "membershipLevel": 3,
+            "additionalInfo": "Major platinum mining and exploration company"
+        },
+        {
+            "name": "Mmabatho Printing Services",
+            "address": "22 Sekhing Street, CBD, Mahikeng, 2745",
+            "phoneNumber": "+27 18 381 5678",
+            "websiteUrl": "https://www.mmabathoprint.co.za",
+            "logoUrl": "path/to/printing-logo.png",
+            "membershipLevel": 1,
+            "additionalInfo": "Full-service printing and design studio"
+        },
+        {
+            "name": "North West Tourism Board",
+            "address": "Mmabatho Towers, Mahikeng, 2745",
+            "phoneNumber": "+27 18 397 3000",
+            "websiteUrl": "https://www.nwtourism.co.za",
+            "logoUrl": "path/to/tourism-logo.png",
+            "membershipLevel": 2,
+            "additionalInfo": "Promoting tourism and economic development in North West Province"
+        },
+        {
+            "name": "Mahikeng Legal Consultants",
+            "address": "15 Modiri Molema Drive, Mahikeng, 2745",
+            "phoneNumber": "+27 18 392 4567",
+            "websiteUrl": "https://www.mahikenglegal.com",
+            "logoUrl": "path/to/legal-logo.png",
+            "membershipLevel": 2,
+            "additionalInfo": "Specialized legal services for businesses and individuals"
+        },
+        {
+            "name": "Olive Tree Restaurant",
+            "address": "12 Boom Street, Mahikeng, 2745",
+            "phoneNumber": "+27 18 381 2345",
+            "websiteUrl": "https://www.olivetreerestaurant.co.za",
+            "logoUrl": "path/to/restaurant-logo.png",
+            "membershipLevel": 1,
+            "additionalInfo": "Local cuisine and fine dining experience"
+        },
+        {
+            "name": "NorthWest Tech Solutions",
+            "address": "45 Francis Baard Street, Mahikeng, 2745",
+            "phoneNumber": "+27 18 397 8901",
+            "websiteUrl": "https://www.nwtech.co.za",
+            "logoUrl": "path/to/tech-logo.png",
+            "membershipLevel": 3,
+            "additionalInfo": "Innovative IT consulting and software development"
+        },
+        {
+            "name": "Mahikeng Farmers Cooperative",
+            "address": "33 Sekhing Road, Industrial Area, Mahikeng, 2745",
+            "phoneNumber": "+27 18 392 2222",
+            "websiteUrl": "https://www.mahikengfarmers.co.za",
+            "logoUrl": "path/to/farmers-logo.png",
+            "membershipLevel": 2,
+            "additionalInfo": "Supporting local agricultural businesses and farmers"
+        },
+        {
+            "name": "Bophirima Business Solutions",
+            "address": "18 Beyers Naude Drive, Mahikeng, 2745",
+            "phoneNumber": "+27 18 381 9999",
+            "websiteUrl": "https://www.bophirimasolutions.com",
+            "logoUrl": "path/to/business-solutions-logo.png",
+            "membershipLevel": 3,
+            "additionalInfo": "Comprehensive business consulting and support services"
+        }
+    ]
+}
