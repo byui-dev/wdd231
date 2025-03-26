@@ -1,5 +1,5 @@
 // OpenWeatherMap API configuration
-const OPENWEATHER_API_KEY = 'YOUR_API_KEY_HERE';
+const OPENWEATHER_API_KEY = '48f7fa8f7c68b67d0092de51315e2fa6';
 const CITY = 'Mahikeng';
 const UNITS = 'imperial';
 
