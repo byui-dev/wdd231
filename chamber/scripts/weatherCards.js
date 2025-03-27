@@ -22,9 +22,9 @@ async function fetchCurrentWeather() {
         const data = await response.json();
         return {
             title: `Current Weather in ${CITY}`,
+            iconURL: getWeatherIconURL(data.weather[0].icon),
             temperature: `${Math.round(data.main.temp)}°F`,
             description: data.weather[0].description,
-            iconURL: getWeatherIconURL(data.weather[0].icon),
             humidity: `${data.main.humidity}%`,
             windSpeed: `${data.wind.speed} mph`
         };
