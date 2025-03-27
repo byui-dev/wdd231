@@ -54,9 +54,31 @@ async function fetchBusinessCards() {
         `;
     }    
 }
-
+ 
 // View toggle functionality
+function setUpViewToggle() {
+   const gridViewBtn = document.getElementById('grid-view-button');
+   const listViewBtn = document.getElementById('list-view-button');
+   const largeCardContainer = document.querySelector('.card-container-large');
 
+   gridViewBtn.addEventListener('click', () => {
+       largeCardContainer.classList.remove('list-view');
+       gridViewBtn.classList.add('active');
+       listViewBtn.classList.remove('active');
+   });
+
+   listViewBtn.addEventListener('click', () => {
+       largeCardContainer.classList.add('list-view');
+       listViewBtn.classList.add('active');
+       gridViewBtn.classList.remove('active');
+   });
+}
+
+// Initialize business directory when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', ()=> {
+    fetchBusinessCards();
+    setUpViewToggle();
+});
 
 
 
