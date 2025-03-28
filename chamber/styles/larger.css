@@ -1,31 +1,44 @@
-/* Desktop Styles */
-@media (min-width: 768px) {
+/* Larger Screen Styles */
+@media screen and (min-width: 768px) {
     header {
         flex-direction: row;
         justify-content: space-between;
         padding: 1rem 2rem;
     }
 
-    /* Hide hamburger on desktop */
     .hamburger {
         display: none;
     }
 
-    /* Display navigation menu in row */
     .mainNav {
         display: flex;
         flex-direction: row;
-        gap: 1rem;
+        width: auto;
     }
 
-    .business-card img {
-        max-width: 250px;
-        max-height: 200px;
+    .mainNav a {
+        margin-left: 1rem;
+        border-bottom: none;
     }
 
-    .grid {
-        display: grid;
+    .card-container-large.grid-view {
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
+    }
+
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-left,
+    .footer-right {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .card-container-large.grid-view {
+        grid-template-columns: repeat(4, 1fr);
     }
 }

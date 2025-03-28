@@ -1,121 +1,123 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const businessDirectory = new BusinessDirectory();
-    businessDirectory.init();
-});
+
 
 class BusinessDirectory {
     constructor() {
-        this.gridButton = document.querySelector('#grid');
-        this.listButton = document.querySelector('#list');
-        this.displayArea = document.querySelector('article.grid');
         this.businesses = [];
+        this.currentView = 'grid';
+        this.initializeEventListeners();
     }
 
-    init() {
-        this.setupViewTogglers();
-        this.fetchBusinessCards();
-    }
-
-    setupViewTogglers() {
-        if (!this.gridButton || !this.listButton || !this.displayArea) {
-            console.warn('View toggle elements not found');
-            return;
-        }
-
-        this.gridButton.addEventListener("click", () => this.toggleView('grid'));
-        this.listButton.addEventListener("click", () => this.toggleView('list'));
-    }
-
-    toggleView(viewType) {
-
-        this.displayArea.className = `grid ${viewType}`;
-    }
-
-    async fetchBusinessCards() {
+    // Fetch businesses from JSON data source
+    async fetchBusinesses() {
         try {
-
-            const response = await fetch('members.json');
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            this.businesses = await response.json();
-
-            this.validateAndRenderBusinesses();
+            const response = await fetch('data/businesses.json');
+            const data = await response.json();
+            this.businesses = data;
+            return this.businesses;
         } catch (error) {
-            this.handleFetchError(error);
+            console.error('Error fetching businesses:', error);
+            return [];
         }
     }
 
-    validateAndRenderBusinesses() {
-        if (!Array.isArray(this.businesses) || this.businesses.length === 0) {
-            this.displayError('No business data found');
-            return;
-        }
-
-        this.displayArea.innerHTML = '';
-
-        const validBusinesses = this.businesses.filter(this.validateBusinessData);
-
-        validBusinesses.forEach(business => {
-            const gridCard = this.createBusinessCard(business);
-            this.displayArea.appendChild(gridCard);
-        });
-    }
-
-    validateBusinessData(business) {
-        const requiredFields = ['name', 'address', 'contact', 'website', 'image', 'type'];
-        const isValid = requiredFields.every(field =>
-            business[field] && business[field].trim() !== ''
-        );
-
-        if (!isValid) {
-            console.warn(`Invalid business data:`, business);
-        }
-
-        return isValid;
-    }
-
-    createBusinessCard(business) {
+    // Create grid view card
+    createGridCard(business) {
         const card = document.createElement('div');
-        card.className = "business-card";
+        card.classList.add('business-card', 'grid-view');
         card.innerHTML = `
-            <img src="${this.sanitizeURL(business.image)}" alt="${this.sanitizeText(business.name)} logo">
-            <h3>${this.sanitizeText(business.name)}</h3>
-            <p class="business-type">${this.sanitizeText(business.type)}</p>
-            <p class="business-address">${this.sanitizeText(business.address)}</p>
-            <p class="business-contact">${this.sanitizeText(business.contact)}</p>
-            <a href="${this.sanitizeURL(business.website)}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+            <div class="card-image">
+                <img src="${business.imageUrl}" alt="${business.name} logo" loading="lazy">
+            </div>
+            <div class="card-content">
+                <h3>${business.name}</h3>
+                <p class="business-type">${business.type}</p>
+                <div class="business-details">
+                    <p><strong>Address:</strong> ${business.address}</p>
+                    <p><strong>Phone:</strong> ${business.phone}</p>
+                    <p><strong>Website:</strong> <a href="${business.website}" target="_blank">${business.website}</a></p>
+                    ${business.membershipLevel ? `<p><strong>Membership Level:</strong> ${business.membershipLevel}</p>` : ''}
+                </div>
+            </div>
         `;
         return card;
     }
 
-    sanitizeText(text) {
-        const tempDiv = document.createElement('div');
-        tempDiv.textContent = text;
-        return tempDiv.innerHTML;
-    }
-
-    sanitizeURL(url) {
-        try {
-            return new URL(url).toString();
-        } catch {
-            console.warn(`Invalid URL: ${url}`);
-            return '#';
-        }
-    }
-
-    handleFetchError(error) {
-        console.error('Error fetching business data:', error);
-        this.displayError('Unable to load business directory. Please try again later.');
-    }
-
-    displayError(message) {
-        this.displayArea.innerHTML = `
-            <div class="error-message">
-                <p>${this.sanitizeText(message)}</p>
+    // Create list view card
+    createListCard(business) {
+        const card = document.createElement('div');
+        card.classList.add('business-card', 'list-view');
+        card.innerHTML = `
+            <div class="card-content">
+                <h3>${business.name}</h3>
+                <p class="business-type">${business.type}</p>
+                <div class="business-details">
+                    <p><strong>Address:</strong> ${business.address}</p>
+                    <p><strong>Phone:</strong> ${business.phone}</p>
+                    <p><strong>Website:</strong> <a href="${business.website}" target="_blank">${business.website}</a></p>
+                    ${business.membershipLevel ? `<p><strong>Membership Level:</strong> ${business.membershipLevel}</p>` : ''}
+                </div>
             </div>
         `;
+        return card;
+    }
+
+    // Render businesses in specified view
+    async renderBusinesses(view = 'grid') {
+        // Ensure businesses are loaded
+        if (this.businesses.length === 0) {
+            await this.fetchBusinesses();
+        }
+
+        const container = document.querySelector('.card-container-large');
+
+        // Clear previous content
+        container.innerHTML = '';
+
+        // Set view class
+        container.classList.remove('grid-view', 'list-view');
+        container.classList.add(`${view}-view`);
+
+        // Create cards based on view
+        this.businesses.forEach(business => {
+            const card = view === 'grid'
+                ? this.createGridCard(business)
+                : this.createListCard(business);
+            container.appendChild(card);
+        });
+
+        this.currentView = view;
+    }
+
+    // Initialize event listeners
+    initializeEventListeners() {
+        document.addEventListener('DOMContentLoaded', () => {
+            const gridButton = document.getElementById('grid');
+            const listButton = document.getElementById('list');
+
+            gridButton.addEventListener('click', () => this.renderBusinesses('grid'));
+            listButton.addEventListener('click', () => this.renderBusinesses('list'));
+
+            // Initial render
+            this.renderBusinesses('grid');
+        });
+    }
+
+    // Optional: Filter businesses by type
+    filterBusinessesByType(type) {
+        return this.businesses.filter(business =>
+            business.type.toLowerCase().includes(type.toLowerCase())
+        );
+    }
+
+    // Optional: Sort businesses by membership level
+    sortBusinessesByMembershipLevel(ascending = true) {
+        return this.businesses.sort((a, b) =>
+            ascending
+                ? (a.membershipLevel - b.membershipLevel)
+                : (b.membershipLevel - a.membershipLevel)
+        );
     }
 }
+
+// Initialize the business directory
+const businessDirectory = new BusinessDirectory();

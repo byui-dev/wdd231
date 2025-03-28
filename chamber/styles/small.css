@@ -67,12 +67,14 @@ header span {
     top: 1rem;
     right: 1rem;
     cursor: pointer;
+    z-index: 100;
 }
 
 .hamburger div {
     width: 100%;
     height: 3px;
     background-color: white;
+    transition: all 0.3s ease;
 }
 
 /* Main Content Styles */
@@ -86,6 +88,7 @@ h2 {
     color: #2c3e50;
 }
 
+/* View Toggle Buttons */
 .menu {
     display: flex;
     justify-content: center;
@@ -100,6 +103,9 @@ h2 {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .menu button:hover {
@@ -112,39 +118,46 @@ hr {
     border-top: 1px solid #ddd;
 }
 
-/* Business Card Styles */
-.grid {
+/* Business Card Container */
+.card-container-large {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+    width: 100%;
 }
 
-.grid.list {
-    display: flex;
-    flex-direction: column;
-}
-
+/* Business Card Styles */
 .business-card {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     padding: 1rem;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: transform 0.3s ease;
+    text-align: center;
 }
 
 .business-card:hover {
     transform: scale(1.02);
 }
 
-.business-card img {
+.business-card .card-image {
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.business-card .card-image img {
     max-width: 200px;
     max-height: 150px;
     object-fit: contain;
-    margin-bottom: 0.5rem;
+}
+
+.business-card .card-content {
+    width: 100%;
 }
 
 .business-card h3 {
@@ -152,53 +165,58 @@ hr {
     color: #2c3e50;
 }
 
-.business-card p {
-    margin-bottom: 0.25rem;
+.business-card .business-type {
     color: #666;
+    font-style: italic;
+    margin-bottom: 0.5rem;
 }
 
-.business-card a {
-    margin-top: 0.5rem;
+.business-card .business-details {
+    text-align: left;
+    width: 100%;
+}
+
+.business-card .business-details p {
+    margin-bottom: 0.25rem;
+    color: #333;
+}
+
+.business-card .business-details a {
     color: #3498db;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.business-card a:hover {
+.business-card .business-details a:hover {
     color: #2980b9;
     text-decoration: underline;
 }
 
-/* List View Specific Styles */
-.grid.list .business-card {
+/* Grid and List View Modifications */
+.card-container-large.grid-view {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.card-container-large.list-view {
+    grid-template-columns: 1fr;
+}
+
+.card-container-large.list-view .business-card {
     flex-direction: row;
     align-items: center;
     text-align: left;
 }
 
-.grid.list .business-card img {
+.card-container-large.list-view .business-card .card-image {
+    margin-right: 1rem;
+    margin-bottom: 0;
+    flex: 0 0 100px;
+}
+
+.card-container-large.list-view .business-card .card-image img {
     max-width: 100px;
     max-height: 100px;
-    margin-right: 1rem;
 }
-
-.grid.list .business-card > div {
-    display: flex;
-    flex-direction: column;
-}
-
-/* For Grid view */
-article.grid.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-/* For List view */
-article.grid.list {
-    display: block;
-}
-
 
 /* Footer Styles */
 footer {
@@ -221,34 +239,27 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Show the menu when hamburger is clicked */
-.mainNav.responsive {
+/* Responsive Navigation */
+.mainNav.active {
     display: flex;
 }
 
-/* Hamburger icon toggle styles */
-.hamburger.open div {
-    background-color: transparent;
+/* Hamburger Animation */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
-.hamburger.open div:before {
-    content: '';
-    position: absolute;
-    background-color: white;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    transform: rotate(45deg);
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
 }
 
-.hamburger.open div:after {
-    content: '';
-    position: absolute;
-    background-color: white;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    transform: rotate(-45deg);
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Media Queries for Additional Responsiveness */
+@media screen and (max-width: 600px) {
+    .card-container-large.grid-view {
+        grid-template-columns: 1fr;
+    }
 }
