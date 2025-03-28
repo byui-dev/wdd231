@@ -27,20 +27,21 @@ class BusinessDirectory {
     }
 
     toggleView(viewType) {
-        // Ensure the base 'grid' class is always present
+
         this.displayArea.className = `grid ${viewType}`;
     }
 
     async fetchBusinessCards() {
         try {
-            const response = await fetch('businesses.json');
-            
+
+            const response = await fetch('members.json');
+
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
             this.businesses = await response.json();
-            
+
             this.validateAndRenderBusinesses();
         } catch (error) {
             this.handleFetchError(error);
@@ -54,9 +55,9 @@ class BusinessDirectory {
         }
 
         this.displayArea.innerHTML = '';
-        
+
         const validBusinesses = this.businesses.filter(this.validateBusinessData);
-        
+
         validBusinesses.forEach(business => {
             const gridCard = this.createBusinessCard(business);
             this.displayArea.appendChild(gridCard);
@@ -65,7 +66,7 @@ class BusinessDirectory {
 
     validateBusinessData(business) {
         const requiredFields = ['name', 'address', 'contact', 'website', 'image', 'type'];
-        const isValid = requiredFields.every(field => 
+        const isValid = requiredFields.every(field =>
             business[field] && business[field].trim() !== ''
         );
 

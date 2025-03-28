@@ -57,8 +57,7 @@ header span {
 }
 
 /* Hamburger Menu */
-.hamburger, 
-.hamburgerInitiate {
+.hamburger {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -70,8 +69,7 @@ header span {
     cursor: pointer;
 }
 
-.hamburger div, 
-.hamburgerInitiate div {
+.hamburger div {
     width: 100%;
     height: 3px;
     background-color: white;
@@ -208,4 +206,36 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Show the menu when hamburger is clicked */
+.mainNav.responsive {
+    display: flex;
+}
+
+/* Hamburger icon toggle styles */
+.hamburger.open div {
+    background-color: transparent;
+}
+
+.hamburger.open div:before {
+    content: '';
+    position: absolute;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    transform: rotate(45deg);
+}
+
+.hamburger.open div:after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    transform: rotate(-45deg);
 }

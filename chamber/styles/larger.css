@@ -1,54 +1,21 @@
-/* Styles for Larger Screens */
-@media screen and (min-width: 800px) {
-    /* Header Styles */
+/* Desktop Styles */
+@media (min-width: 768px) {
     header {
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
         padding: 1rem 2rem;
     }
 
-    header .pic {
-        max-width: 200px;
-        margin-right: 1rem;
-        margin-bottom: 0;
-    }
-
-    header span {
-        font-size: 1.5rem;
-        margin-right: auto;
-        margin-bottom: 0;
-    }
-
-    /* Navigation Styles */
-    .hamburger, 
-    .hamburgerInitiate {
+    /* Hide hamburger on desktop */
+    .hamburger {
         display: none;
     }
 
+    /* Display navigation menu in row */
     .mainNav {
         display: flex;
         flex-direction: row;
         gap: 1rem;
-    }
-
-    .mainNav a {
-        border-bottom: none;
-        padding: 0.5rem 1rem;
-        transition: background-color 0.3s ease;
-    }
-
-    .mainNav a:hover {
-        background-color: rgba(255,255,255,0.2);
-    }
-
-    /* Business Card Styles */
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid.list {
-        flex-direction: column;
     }
 
     .business-card img {
@@ -56,27 +23,9 @@
         max-height: 200px;
     }
 
-    /* Footer Styles */
-    footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-        padding: 1.5rem 2rem;
-    }
-
-    .footer-left, .footer-right {
-        margin-bottom: 0;
-    }
-}
-
-@media screen and (min-width: 1200px) {
     .grid {
+        display: grid;
         grid-template-columns: repeat(3, 1fr);
-    }
-
-    .business-card img {
-        max-width: 300px;
-        max-height: 250px;
+        gap: 2rem;
     }
 }
