@@ -5,7 +5,7 @@
         "address": "48 Beyers Naude Drive, Mahikeng, 2745",
         "contact": "+27 18 392 6000",
         "website": "https://www.kagisotechnologies.co.za",
-        "image": "data/images/kagiso_technologies.png",
+        "image": "images/kagiso_technologies.png",
         "membershipLevel": 3
     },
     {
@@ -14,7 +14,7 @@
         "address": "27 Loop Street, Industrial Area, Mahikeng, 2745",
         "contact": "+27 18 397 1234",
         "website": "https://www.mahikengag.com",
-        "image": "data/images/mahikeng_agricultural.png",
+        "image": "images/mahikeng_agricultural.png",
         "membershipLevel": 2
     },
     {
@@ -23,7 +23,7 @@
         "address": "Lefaragae Office Park, Mahikeng, 2745",
         "contact": "+27 18 484 7000",
         "website": "https://www.royalbafokengplatinum.com",
-        "image": "data/images/royal_bafokeng.png",
+        "image": "images/royal_bafokeng.png",
         "membershipLevel": 3
     },
     {
@@ -32,7 +32,7 @@
         "address": "22 Sekhing Street, CBD, Mahikeng, 2745",
         "contact": "+27 18 381 5678",
         "website": "https://www.mmabathoprint.co.za",
-        "image": "data/images/mmabatho_printing.png",
+        "image": "images/mmabatho_printing.png",
         "membershipLevel": 1
     },
     {
@@ -41,7 +41,7 @@
         "address": "15 Modiri Molema Drive, Mahikeng, 2745",
         "contact": "+27 18 392 4567",
         "website": "https://www.mahikenglegal.com",
-        "image": "data/images/mahikeng_legal.png",
+        "image": "images/mahikeng_legal.png",
         "membershipLevel": 1
     },
     {
@@ -50,7 +50,7 @@
         "address": "12 Boom Street, Mahikeng, 2745",
         "contact": "+27 18 381 2345",
         "website": "https://www.olivetreerestaurant.co.za",
-        "image": "data/images/olive_tree.png",
+        "image": "images/olive_tree.png",
         "membershipLevel": 1
     },
     {
@@ -59,7 +59,7 @@
         "address": "45 Francis Baard Street, Mahikeng, 2745",
         "contact": "+27 18 397 8901",
         "website": "https://www.nwtech.co.za",
-        "image": "data/images/northwest_tech.png",
+        "image": "images/northwest_tech.png",
         "membershipLevel": 2
     },
     {
@@ -68,7 +68,7 @@
         "address": "33 Sekhing Road, Industrial Area, Mahikeng, 2745",
         "contact": "+27 18 392 2222",
         "website": "https://www.mahikengfarmers.co.za",
-        "image": "data/images/mafikeng_farmers.png",
+        "image": "images/mafikeng_farmers.png",
         "membershipLevel": 1
     }
 ]
