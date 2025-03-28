@@ -41,7 +41,7 @@
         "address": "Mmabatho Towers, Mahikeng, 2745",
         "contact": "+27 18 397 3000",
         "website": "https://www.nwtourism.co.za",
-        "image": "images/northwest_tourism.png",
+        "image": "images/north_west.png",
         "membershipLevel": 2
     },
     {
@@ -80,4 +80,4 @@
         "image": "images/mafikeng_farmers.png",
         "membershipLevel": 1
     }
-  ]
+]

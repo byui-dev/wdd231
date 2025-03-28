@@ -14,14 +14,14 @@
     <meta property="og:image" content="https://i.postimg.cc/rFN2BsBk/mahikeng-pic.jpg">
     <meta property="og:url" content="https://byui-dev.github.io/wdd231/chamber/directory.html">
 
-    <!-- Normalizing the CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-
     <!-- Mobile-First Styles -->
     <link rel="stylesheet" href="styles/small.css">
 
     <!-- Large Screen Styles -->
     <link rel="stylesheet" href="styles/larger.css">
+
+    <!-- Normalizing the CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +31,7 @@
 
     <!-- Scripts with defer attribute -->
     <script src="scripts/date.js" defer></script>
+    <script src="scripts/weatherCards.js" defer></script>
     <script src="scripts/businesses.js" defer></script>
     <script src="scripts/navigation.js" defer></script>
 
@@ -58,6 +59,16 @@
     </header>
 
     <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-image">
+                <div class="hero-content">
+                    <h1>Welcome to the Mahikeng Chamber of Commerce</h1>
+                    <p>Supporting local businesses and promoting economic growth in our community.</p>
+                    <a href="#" class="hero-cta">Join Today</a>
+                </div>
+            </div>
+        </section>
 
         <h2>Mahikeng Chamber of Commerce Business Directory</h2>
 
@@ -66,7 +77,10 @@
             <button id="list">📄List</button>
         </div>
         <hr>
-        <article class="grid"></article>
+
+        <div class="card-container-small">
+            <!-- Small cards will be populated dynamically -->
+        </div>
 
         <div class="card-container-large">
             <!-- Large cards will be populated dynamically -->
@@ -85,6 +99,7 @@
             <p>&copy; <span id="year"></span> WDD231 Team Assignment</p>
             <p>Obakeng Kennedy Diphala</p>
             <p id="lastModified"></p>
+            <img src="images/south-african-flag.png" alt="South African flag representing the country of origin">
         </div>
     </footer>
 </body>
