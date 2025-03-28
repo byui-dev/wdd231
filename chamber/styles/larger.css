@@ -1,62 +1,82 @@
-/* Styles for screens larger than 768px (Tablets & Desktops) */
-@media screen and (min-width: 768px) {
-
-    /* Header Adjustments */
+/* Styles for Larger Screens */
+@media screen and (min-width: 800px) {
+    /* Header Styles */
     header {
         flex-direction: row;
         justify-content: space-between;
-        padding: 1.5rem 3rem;
+        align-items: center;
+        padding: 1rem 2rem;
     }
 
     header .pic {
         max-width: 200px;
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+
+    header span {
+        font-size: 1.5rem;
+        margin-right: auto;
+        margin-bottom: 0;
+    }
+
+    /* Navigation Styles */
+    .hamburger, 
+    .hamburgerInitiate {
+        display: none;
     }
 
     .mainNav {
         display: flex;
         flex-direction: row;
-        gap: 1.5rem;
+        gap: 1rem;
     }
 
     .mainNav a {
-        font-size: 1.1rem;
-        padding: 0.5rem 1rem;
         border-bottom: none;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
     }
 
-    .hamburgerInitiate {
-        display: none;
+    .mainNav a:hover {
+        background-color: rgba(255,255,255,0.2);
     }
 
-    /* Grid Layout */
+    /* Business Card Styles */
     .grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-        padding: 1rem;
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .business-card {
-        max-width: 400px;
-        padding: 1.5rem;
+    .grid.list {
+        flex-direction: column;
     }
 
-    .business-logo {
+    .business-card img {
+        max-width: 250px;
         max-height: 200px;
     }
 
-    .membership-badge {
-        top: 15px;
-        right: 15px;
-        font-size: 1rem;
-        padding: 7px 12px;
-    }
-
-    .list {
-        gap: 1.5rem;
-    }
-
+    /* Footer Styles */
     footer {
-        padding: 2rem;
-        font-size: 1.1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 1.5rem 2rem;
+    }
+
+    .footer-left, .footer-right {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .business-card img {
+        max-width: 300px;
+        max-height: 250px;
     }
 }

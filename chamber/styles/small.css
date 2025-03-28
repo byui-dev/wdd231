@@ -10,7 +10,6 @@ body {
     line-height: 1.6;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem;
     background-color: #f4f4f4;
 }
 
@@ -50,14 +49,15 @@ header span {
     text-decoration: none;
     padding: 0.5rem;
     text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .mainNav a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255,255,255,0.1);
 }
 
 /* Hamburger Menu */
+.hamburger, 
 .hamburgerInitiate {
     display: flex;
     flex-direction: column;
@@ -70,6 +70,7 @@ header span {
     cursor: pointer;
 }
 
+.hamburger div, 
 .hamburgerInitiate div {
     width: 100%;
     height: 3px;
@@ -113,30 +114,79 @@ hr {
     border-top: 1px solid #ddd;
 }
 
-/* Grid and Card Layout */
+/* Business Card Styles */
 .grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
 }
 
-.card-container-large {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+.grid.list {
+    display: flex;
+    flex-direction: column;
 }
 
 .business-card {
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     padding: 1rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     transition: transform 0.3s ease;
 }
 
 .business-card:hover {
     transform: scale(1.02);
+}
+
+.business-card img {
+    max-width: 200px;
+    max-height: 150px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.business-card h3 {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.business-card p {
+    margin-bottom: 0.25rem;
+    color: #666;
+}
+
+.business-card a {
+    margin-top: 0.5rem;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.business-card a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* List View Specific Styles */
+.grid.list .business-card {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+}
+
+.grid.list .business-card img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 1rem;
+}
+
+.grid.list .business-card > div {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Footer Styles */
@@ -145,6 +195,10 @@ footer {
     color: white;
     padding: 1rem;
     text-align: center;
+}
+
+.footer-left, .footer-right {
+    margin-bottom: 1rem;
 }
 
 footer a {
