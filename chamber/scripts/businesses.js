@@ -10,7 +10,7 @@ class BusinessDirectory {
     // Fetch businesses from JSON data source
     async fetchBusinesses() {
         try {
-            const response = await fetch('data/businesses.json');
+            const response = await fetch('data/members.json');
             const data = await response.json();
             this.businesses = data;
             return this.businesses;
