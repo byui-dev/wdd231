@@ -49,11 +49,11 @@ header span {
     text-decoration: none;
     padding: 0.5rem;
     text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mainNav a:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Hamburger Menu */
@@ -126,11 +126,19 @@ hr {
     width: 100%;
 }
 
+#cards-container.grid-view {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+#cards-container.list-view {
+    grid-template-columns: 1fr;
+}
+
 /* Business Card Styles */
 .business-card {
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -226,7 +234,8 @@ footer {
     text-align: center;
 }
 
-.footer-left, .footer-right {
+.footer-left,
+.footer-right {
     margin-bottom: 1rem;
 }
 
