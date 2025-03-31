@@ -96,8 +96,8 @@ async function createWeatherCards() {
     const currentWeatherCard = document.createElement('div');
     currentWeatherCard.className = 'card';
     currentWeatherCard.innerHTML = `
-       <img src="${currentWeather.iconURL}" alt="Weather Icon" class="weather-icon">
-       <div class="card-content">
+        <div class="card-content">
+            <img src="${currentWeather.iconURL}" alt="Weather Icon" class="weather-icon">
             <h3>${currentWeather.title}</h3>
             <p>Temperature: ${currentWeather.temperature}</p>
             <p>Conditions: ${currentWeather.description}</p>
@@ -109,11 +109,11 @@ async function createWeatherCards() {
     // Forecast Card
     const forecastCard = document.createElement('div');
     forecastCard.className = 'card';
-    
+
     let forecastHTML = `<div class="card-content">
         <h3>${forecastData.title}</h3>
     `;
-      
+
     forecastData.forecast.forEach(day => {
         forecastHTML += `
             <div class="forecast-day">
@@ -122,9 +122,9 @@ async function createWeatherCards() {
                  <p>${day.description}</p>
             </div>           
         `;
-    });    
+    });
 
-    forecastHTML += '</div>'; 
+    forecastHTML += '</div>';
     forecastCard.innerHTML = forecastHTML;
 
     // Upcoming events card
@@ -135,7 +135,7 @@ async function createWeatherCards() {
               <h3>Upcoming Events</h3>
               <p>The Mahikeng Chamber of Commerce Annual General Meeting, 17 April 2025, Venue: Mahikeng Chamber of Commerce Building</p>
          </div>
-    `;          
+    `;
 
     // Append cards to container
     smallCardContainer.appendChild(eventsCard);
