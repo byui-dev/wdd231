@@ -114,7 +114,7 @@ h2 {
 
 /* Hero Section */
 .hero {
-    background: url('chamber/images/mahikeng_picture.jpg') no-repeat center center/cover;
+    background: url('https://i.postimg.cc/rFN2BsBk/mahikeng-pic.jpg') no-repeat center center/cover;
     height: 300px;
     display: flex;
     justify-content: center;
@@ -147,7 +147,7 @@ h2 {
 }
 
 /* Weather Card Styles - New addition */
-.card {
+.card-container-small .card {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -155,32 +155,46 @@ h2 {
     transition: transform 0.3s ease;
 }
 
-.card:hover {
+.card-container-small .card:nth-child(3) {
+    /* Get the width and height of the 3rd card */
+    --max-width: max-content;
+    --max-height: max-content;
+    width: var(--max-width);
+    height: var(--max-height);
+}
+
+.card-container-small .card {
+    width: var(--max-width);
+    height: var(--max-height);
+}
+
+
+.card-container-small .card:hover {
     transform: scale(1.02);
 }
 
 /* Icon positioning */
-.card .card-content {
+.card-container-small .card .card-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.card h3 {
+.card-container-small .card h3 {
     margin-bottom: 0.5rem;
     color: #2c3e50;
     text-align: center;
     /* For the title to appear first*/
 }
 
-.card .weather-icon {
+.card-container-small .card .weather-icon {
     max-width: 80px;
     height: auto;
     margin: 0.5rem 0;
     /* For the icon to appear second*/
 }
 
-.card p {
+.card-container-small .card p {
     margin-bottom: 0.5rem;
     color: #333;
     /* For the description to appear last*/
@@ -204,6 +218,104 @@ h2 {
     justify-content: center;
     padding: 20px;
     margin-top: 2rem;
+}
+
+/* Spotlight card styles */
+.spotlight {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+}
+
+.spotlight-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spotlight-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.spotlight-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.spotlight-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.spotlight-card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.spotlight-card a:hover {
+    background-color: #0056b3;
+}
+
+.spotlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Card styles for card-container-small */
+.card-container-small {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.card-container-small .card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.card-container-small .card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.card-container-small .card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.card-container-small .card p {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.5rem;
 }
 
 /* Footer Styles */
