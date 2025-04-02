@@ -12,7 +12,7 @@
     <meta property="og:title" content="Obakeng Kennedy Diphala - Mahikeng Chamber of Commerce - Directory">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://i.postimg.cc/rFN2BsBk/mahikeng-pic.jpg">
-    <meta property="og:url" content="https://byui-dev.github.io/wdd231/chamber/directory.html">
+    <meta property="og:url" content="https://byui-dev.github.io/wdd231/chamber/index.html">
 
     <!-- Normalizing the CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
@@ -35,68 +35,38 @@
     <script src="scripts/navigation.js" defer></script>
 
     <link rel="icon" href="favicon_3.ico">
-
-    <style>
-        .hamburger {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
-
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: black;
-            margin: 5px 0;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .mainNav {
-            position: absolute;
-            top: 50px;
-            right: 10px;
-            background-color: white;
-            border: 1px solid #ccc;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-        }
-    </style>
 </head>
 
 <body>
     <header>
         <img class="pic" src="images/mcc_logo.png" alt="Mahikeng Chamber of Commerce logo">
-        <span>Mahikeng Chamber of Commerce</span>
-        <!-- Hamburger Menu -->
-        <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <span class="header-title">Mahikeng Chamber of Commerce</span>
+        <nav id="menuNav" class="mainNav">
+            <a href="index.html">Home</a>
+            <a href="directory.html">Directory</a>
+            <a href="join.html">Join</a>
+            <a href="discover.html">Discover</a>
+        </nav>
+    
+        <div class="hamburger">
             <div></div>
             <div></div>
             <div></div>
         </div>
-        <nav id="menuNav" class="mainNav hidden">
-            <a href="">Home</a>
-            <a href="directory.html">Directory</a>
-            <a href="#">Join</a>
-            <a href="#">Discover</a>
-        </nav>
     </header>
 
     <main>
         <h2>Mahikeng Chamber of Commerce Business Directory</h2>
 
         <div class="menu">
-            <button id="grid" aria-label="Switch to grid view">⏹️Grid</button>
+            <button id="grid" class="active" aria-label="Switch to grid view">⏹️Grid</button>
             <button id="list" aria-label="Switch to list view">📄List</button>
         </div>
         <hr>
         <article id="cards-container" class="grid">
-            <!-- Example card content for testing -->
+            <!-- Cards will be loaded here -->
         </article>
+
     </main>
 
     <footer>
@@ -113,15 +83,6 @@
             <p id="lastModified"></p>
         </div>
     </footer>
-
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const menuNav = document.getElementById('menuNav');
-
-        hamburger.addEventListener('click', () => {
-            menuNav.classList.toggle('hidden');
-        });
-    </script>
 </body>
 
 </html>

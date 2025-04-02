@@ -1,39 +1,62 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Cross-browser compatible version of navigation.js
+function initializeNavigation() {
     // Hamburger Menu Toggle
+    var hamburger = document.getElementById("hamburger");
+    var menuNav = document.getElementById("menuNav");
+
+    if (hamburger && menuNav) {
+        // Toggle menu
+        hamburger.addEventListener("click", function () {
+            var isExpanded = menuNav.classList.contains("hidden");
+            menuNav.classList.toggle("hidden");
+
+            // Update ARIA attributes
+            hamburger.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+
+            // Add/remove open class for animation
+            if (isExpanded) {
+                hamburger.classList.add("open");
+            } else {
+                hamburger.classList.remove("open");
+            }
+        });
+
+        // Close menu when clicking outside (fixed logic)
+        document.addEventListener("click", function (event) {
+            if (
+                !menuNav.classList.contains("hidden") &&
+                !menuNav.contains(event.target) &&
+                !hamburger.contains(event.target)
+            ) {
+                menuNav.classList.add("hidden");
+                hamburger.setAttribute("aria-expanded", "false");
+                hamburger.classList.remove("open");
+            }
+        });
+
+        // Add keyboard support
+        hamburger.addEventListener("keydown", function (event) {
+            // Enter or Space key
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                hamburger.click();
+            }
+        });
+    }
+}
+
+// Add event listener with browser compatibility
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeNavigation);
+} else {
+    initializeNavigation();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.getElementById("hamburger");
     const menuNav = document.getElementById("menuNav");
 
     hamburger.addEventListener("click", () => {
-        menuNav.classList.toggle("hidden");
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener("click", (event) => {
-        if (
-            menuNav.classList.contains("hidden") &&
-            !menuNav.contains(event.target) &&
-            !hamburger.contains(event.target)
-        ) {
-            menuNav.classList.remove("hidden");
-        }
-    });
-
-    // Grid/List Toggle
-    const gridButton = document.getElementById("grid");
-    const listButton = document.getElementById("list");
-    const cardsContainer = document.getElementById("cards-container");
-
-    gridButton.addEventListener("click", () => {
-        cardsContainer.classList.add("grid");
-        cardsContainer.classList.remove("list");
-        gridButton.classList.add("active");
-        listButton.classList.remove("active");
-    });
-
-    listButton.addEventListener("click", () => {
-        cardsContainer.classList.add("list");
-        cardsContainer.classList.remove("grid");
-        listButton.classList.add("active");
-        gridButton.classList.remove("active");
+        menuNav.classList.toggle("active");
     });
 });
