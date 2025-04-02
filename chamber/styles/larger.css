@@ -11,8 +11,12 @@
     }
 
     .mainNav {
+        position: static;
         display: flex;
         flex-direction: row;
+        background-color: transparent;
+        border: none;
+        padding: 0;
         width: auto;
     }
 
@@ -35,6 +39,19 @@
     .footer-right {
         margin-bottom: 0;
     }
+}
+
+/* Cards Styling for Larger Screens */
+#cards-container {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
 }
 
 @media screen and (min-width: 1024px) {

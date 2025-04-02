@@ -35,13 +35,44 @@
     <script src="scripts/navigation.js" defer></script>
 
     <link rel="icon" href="favicon_3.ico">
+
+    <style>
+        .hamburger {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 5px 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .mainNav {
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <img class="pic" src="images/mcc_logo.png" alt="Mahikeng Chamber of Commerce logo">
         <span>Mahikeng Chamber of Commerce</span>
-        <!-- Hamburger Menu-->
+        <!-- Hamburger Menu -->
         <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
             <div></div>
             <div></div>
@@ -53,13 +84,6 @@
             <a href="#">Join</a>
             <a href="#">Discover</a>
         </nav>
-
-        <!--Hamburger Menu Initiate-->
-        <div class="hamburgerInitiate" id="hamburgerInitiate">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
     </header>
 
     <main>
@@ -70,7 +94,9 @@
             <button id="list" aria-label="Switch to list view">📄List</button>
         </div>
         <hr>
-        <article id="cards-container" class="grid"></article>
+        <article id="cards-container" class="grid">
+            <!-- Example card content for testing -->
+        </article>
     </main>
 
     <footer>
@@ -87,6 +113,15 @@
             <p id="lastModified"></p>
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menuNav = document.getElementById('menuNav');
+
+        hamburger.addEventListener('click', () => {
+            menuNav.classList.toggle('hidden');
+        });
+    </script>
 </body>
 
 </html>
