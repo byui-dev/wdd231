@@ -1,29 +1,39 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.getElementById('hamburger');
+document.addEventListener("DOMContentLoaded", () => {
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById("hamburger");
+    const menuNav = document.getElementById("menuNav");
 
-    if (hamburger) {
-        hamburger.addEventListener('click', function () {
-            const nav = document.getElementById('menuNav');
-            nav.classList.toggle('responsive');
-
-            if (hamburger.parentElement) {
-                hamburger.parentElement.classList.toggle('open');
-            }
-        });
-    }
+    hamburger.addEventListener("click", () => {
+        menuNav.classList.toggle("hidden");
+    });
 
     // Close menu when clicking outside
-    document.addEventListener('click', function (event) {
-        const nav = document.getElementById('menuNav');
-
-        if (nav.classList.contains('responsive') &&
-            !nav.contains(event.target) &&
-            !hamburger.contains(event.target)) {
-            nav.classList.remove('responsive');
-
-            if (hamburger.parentElement) {
-                hamburger.parentElement.classList.remove('open');
-            }
+    document.addEventListener("click", (event) => {
+        if (
+            menuNav.classList.contains("hidden") &&
+            !menuNav.contains(event.target) &&
+            !hamburger.contains(event.target)
+        ) {
+            menuNav.classList.remove("hidden");
         }
+    });
+
+    // Grid/List Toggle
+    const gridButton = document.getElementById("grid");
+    const listButton = document.getElementById("list");
+    const cardsContainer = document.getElementById("cards-container");
+
+    gridButton.addEventListener("click", () => {
+        cardsContainer.classList.add("grid");
+        cardsContainer.classList.remove("list");
+        gridButton.classList.add("active");
+        listButton.classList.remove("active");
+    });
+
+    listButton.addEventListener("click", () => {
+        cardsContainer.classList.add("list");
+        cardsContainer.classList.remove("grid");
+        listButton.classList.add("active");
+        gridButton.classList.remove("active");
     });
 });
