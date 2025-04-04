@@ -1,0 +1,180 @@
+/* Add Hero Section Styling */
+.hero {
+    background-image: url('images/mahikeng-pic.jpg'); /* Add your hero image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    position: relative;
+}
+
+.hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    border-radius: 8px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Place content above overlay */
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.button {
+    display: inline-block;
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #c0392b;
+}
+
+/* Fix Hamburger Menu Issues */
+.hamburgerInitiate {
+    display: block;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.hamburgerInitiate div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Style Weather Cards */
+.card-container-small {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.card-container-small .weather-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card-container-small .weather-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Style Spotlight Section */
+.spotlight {
+    margin-bottom: 2rem;
+}
+
+.spotlight-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spotlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Container Styles */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.info-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Improve Footer Layout */
+@media screen and (min-width: 768px) {
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .footer-left, .footer-right {
+        margin-bottom: 0;
+    }
+}
+
+/* Media Queries for Larger Screens */
+@media screen and (min-width: 768px) {
+    /* Show navigation horizontally on larger screens */
+    .mainNav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: auto;
+    }
+    
+    .mainNav a {
+        border-bottom: none;
+        padding: 0.5rem 1rem;
+    }
+    
+    /* Hide hamburger on larger screens */
+    .hamburger, .hamburgerInitiate {
+        display: none;
+    }
+    
+    /* Weather cards in multiple columns */
+    .card-container-small {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Container in two columns */
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .card-container-small {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

@@ -81,7 +81,7 @@ header span {
 }
 
 /* Hamburger Menu Styles */
-.hamburger {
+.hamburger, .hamburgerInitiate {
     display: block;
     cursor: pointer;
     flex-direction: column;
@@ -91,7 +91,7 @@ header span {
     right: 10px;
 }
 
-.hamburger div {
+.hamburger div, .hamburgerInitiate div {
     width: 25px;
     height: 3px;
     background-color: white;
@@ -117,6 +117,129 @@ h2 {
     color: #2c3e50;
 }
 
+/* Hero Section Styling */
+.hero {
+    background-image: url('images/mcc_logo.png'); /* Add appropriate image path */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    position: relative;
+}
+
+.hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(44, 62, 80, 0.7); /* Dark overlay matching header color */
+    border-radius: 8px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Place content above overlay */
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #3498db; /* Matching footer link color */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+/* Weather Cards Section */
+.card-container-small {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.card-container-small .weather-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.card-container-small .weather-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Spotlight Section */
+.spotlight {
+    margin-bottom: 2rem;
+}
+
+.spotlight-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.spotlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.spotlight-card h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+/* Container Styles */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.info-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
 /* View Toggle buttons - consolidated styles */
 .menu {
     display: flex;
@@ -131,7 +254,7 @@ h2 {
     margin: 0 0.5rem;
     border: none;
     border-radius: 4px;
-    background-color: #007BFF;
+    background-color: #3498db; /* Matching footer link color */
     color: white;
     font-size: 1rem;
     -webkit-transition: background-color 0.3s ease;
@@ -144,11 +267,11 @@ h2 {
 }
 
 .menu button:hover {
-    background-color: #0056b3;
+    background-color: #2980b9;
 }
 
 .menu button.active {
-    background-color: #0056b3;
+    background-color: #2980b9;
 }
 
 /* Cards Container with fallbacks */
@@ -176,9 +299,9 @@ h2 {
 }
 
 #cards-container .card {
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     padding: 1rem;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #f9f9f9;
     margin-bottom: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -210,8 +333,12 @@ h2 {
 }
 
 #cards-container .card a {
-    color: #007BFF;
+    color: #3498db;
     text-decoration: none;
+}
+
+#cards-container .card a:hover {
+    text-decoration: underline;
 }
 
 #loading,
@@ -262,17 +389,20 @@ footer a:hover {
 }
 
 /* Hamburger Animation */
-.hamburger.open div:nth-child(1) {
+.hamburger.open div:nth-child(1), 
+.hamburgerInitiate.open div:nth-child(1) {
     -webkit-transform: rotate(45deg) translate(5px, 5px);
     -ms-transform: rotate(45deg) translate(5px, 5px);
     transform: rotate(45deg) translate(5px, 5px);
 }
 
-.hamburger.open div:nth-child(2) {
+.hamburger.open div:nth-child(2),
+.hamburgerInitiate.open div:nth-child(2) {
     opacity: 0;
 }
 
-.hamburger.open div:nth-child(3) {
+.hamburger.open div:nth-child(3),
+.hamburgerInitiate.open div:nth-child(3) {
     -webkit-transform: rotate(-45deg) translate(5px, -5px);
     -ms-transform: rotate(-45deg) translate(5px, -5px);
     transform: rotate(-45deg) translate(5px, -5px);
@@ -303,6 +433,64 @@ footer a:hover {
     .menu button {
         width: 100%;
         /* Full-width buttons */
+    }
+}
+
+/* Media Queries for Larger Screens */
+@media screen and (min-width: 768px) {
+    /* Show navigation horizontally on larger screens */
+    .mainNav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: auto;
+    }
+    
+    .mainNav a {
+        border-bottom: none;
+        padding: 0.5rem 1rem;
+    }
+    
+    /* Hide hamburger on larger screens */
+    .hamburger, .hamburgerInitiate {
+        display: none;
+    }
+    
+    /* Weather cards in multiple columns */
+    .card-container-small {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Container in two columns */
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* Improve Footer Layout */
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .footer-left, .footer-right {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .card-container-small {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* More space in hero section */
+    .hero {
+        padding: 6rem 2rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
     }
 }
 
