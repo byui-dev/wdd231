@@ -60,3 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
         menuNav.classList.toggle("active");
     });
 });
+
+function toggleMenu() {
+    const menuNav = document.getElementById('menuNav');
+    const hamburger = document.getElementById('hamburger');
+    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+
+    hamburger.setAttribute('aria-expanded', !isExpanded);
+    menuNav.classList.toggle('active');
+}

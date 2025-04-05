@@ -35,6 +35,7 @@ header span {
     /* Increase spacing between navigation links */
     display: flex;
     /* Show navigation on larger screens */
+    position: static;
 }
 
 .mainNav a {

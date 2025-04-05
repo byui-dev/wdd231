@@ -48,7 +48,7 @@
             <a href="discover.html">Discover</a>
         </nav>
         <!-- Hamburger Menu (visible only on mobile) -->
-        <div class="hamburger" id="hamburger">
+        <div class="hamburger" id="hamburger" aria-expanded="false" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
@@ -56,9 +56,9 @@
     </header>
 
     <main>
-        <div class="container">
+        <div class="form-and-modals">
             <div class="form-container">
-                <h2>Join the Mahikeng Chamber of Commerce</h2>
+                <h2>Become a Member</h2>
                 <form action="thank-you.html" method="post">
                     <!--First name field-->
                     <label for="firstName" title="Enter your first name">
@@ -70,7 +70,7 @@
                     <!--Last Name Field-->
                     <label for="lastName" title="Enter your last name">
                         Last Name:
-                        <input type="text" id="lastName" name="last_name" title="Enter your last name"
+                        . <input type="text" id="lastName" name="last_name" title="Enter your last name"
                             autocomplete="family-name" required>
                     </label>
 
@@ -122,13 +122,12 @@
                 </form>
             </div>
 
-            <div class="info-container" id="info-container">
-                <!--Cards will be added here dynamically-->
+            <div class="modals-section">
+                <h2 class="modals-heading">Membership Levels</h2>
+                <div class="modal-wrapper card-container">
+                    <!-- Membership cards will be inserted here dynamically by JavaScript -->
+                </div>
             </div>
-            <div id="modals-container">
-                <!-- Modals will be added here dynamically -->
-            </div>
-            <div id="modal-overlay" class="modal-overlay"></div>
         </div>
     </main>
 

@@ -1,67 +1,88 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const memberships = [
-        { name: "NP Membership Level", price: 0, benefits: ["Special Support for Non Profit Organizations", "Training"], link: "np-benefits.html" },
-        { name: "Bronze Membership Level", price: 10, benefits: ["Special Events", "Training"], link: "bronze-benefits.html" },
-        { name: "Silver Membership Level", price: 20, benefits: ["Special Events", "Training", "Event Discounts"], link: "silver-benefits.html" },
-        { name: "Gold Membership Level", price: 50, benefits: ["Special Events", "Training", "Advertising through main website", "Event Discounts"], link: "gold-benefits.html" },
-    ];
+// JSON file 
+const data = [
+    { id: 'np', name: 'NP Membership Level', price: 0, benefits: ['Special Support for Non Profit Organizations', 'Training'] },
+    { id: 'bronze', name: 'Bronze Membership Level', price: 10, benefits: ['Special Events', 'Training'] },
+    { id: 'silver', name: 'Silver Membership Level', price: 20, benefits: ['Special Events', 'Training', 'Event Discounts'] },
+    { id: 'gold', name: 'Gold Membership Level', price: 50, benefits: ['Special Events', 'Training', 'Advertising through main website', 'Event Discounts'] }
+];
 
-    const infoContainer = document.getElementById("info-container");
-    const modalsContainer = document.getElementById("modals-container");
-    const modalOverlay = document.getElementById("modal-overlay");
+async function loadModals() {
+    const wrapper = document.querySelector('.modal-wrapper');
 
-    if (!infoContainer || !modalsContainer || !modalOverlay) {
-        console.error("Required DOM elements are missing");
-        return;
-    }
-
-    memberships.forEach((membership, index) => {
+    data.forEach(modal => {
         // Create card
-        const card = document.createElement("div");
-        card.className = "card";
+        const card = document.createElement('div');
+        card.classList.add('modal-card');
         card.innerHTML = `
-            <h3>${membership.name}</h3>
-            <p>Price: $${membership.price}</p>
-            <p>Benefits: ${membership.benefits.join(", ")}</p>
+            <h3>${modal.name}</h3>
+            <p>$${modal.price}</p>
+            <button onclick="openModal('${modal.id}')">Show More</button>
         `;
-        card.addEventListener("click", () => openModal(index, modalOverlay));
-        infoContainer.appendChild(card);
+        wrapper.appendChild(card);
 
         // Create modal
-        const modal = document.createElement("div");
-        modal.className = "modal";
-        modal.id = `modal-${index}`;
-        modal.innerHTML = `
-            <h2>${membership.name}</h2>  
-            <p>${membership.benefits.join(", ")}</p>
-            <p><strong>Price: $${membership.price}</strong></p>
-            <a href="${membership.link}" target="_blank" class="more-info">More Info</a>
-            <button class="close-modal">Close</button> 
+        const dialog = document.createElement('dialog');
+        dialog.classList.add('modal');
+        dialog.setAttribute('id', modal.id);
+        dialog.innerHTML = `
+            <h3>${modal.name}</h3>
+            <ul>
+                ${modal.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+            </ul>
+            <button onclick="closeModal('${modal.id}')">Close</button>
         `;
-        modal.querySelector(".close-modal").addEventListener("click", () => closeModal(index, modalOverlay));
-        modalsContainer.appendChild(modal);
+        document.body.appendChild(dialog);
     });
+}
 
-    modalOverlay.addEventListener("click", () => {
-        document.querySelectorAll(".modal").forEach(modal => {
-            modal.classList.remove("active");
-            modal.setAttribute("aria-hidden", "true");
-        });
-        modalOverlay.classList.remove("active");
-    });
+function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.showModal();
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    modal.close();
+}
+
+// Load modals when the document is ready
+document.addEventListener('DOMContentLoaded', loadModals);
+
+function createCard(title, description) {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+    document.querySelector('.card-container').appendChild(card);
+}
+
+// Example usage
+createCard('Gold Membership', 'Exclusive benefits for gold members.');
+createCard('Silver Membership', 'Affordable benefits for silver members.');
+
+function createModal(title, description, price) {
+    const modal = document.createElement('div');
+    modal.className = 'modal'; 
+
+    const modalTitle = document.createElement('h3');
+    modalTitle.textContent = title;
+
+    const modalDescription = document.createElement('p');
+    modalDescription.textContent = description;
+
+    const modalPrice = document.createElement('p');
+    modalPrice.textContent = `Price: ${price}`;
+
+    modal.appendChild(modalTitle);
+    modal.appendChild(modalDescription);
+    modal.appendChild(modalPrice);
+
+    return modal;
+}
+
+
+const modalWrapper = document.querySelector('.modal-wrapper');
+modalWrapper.innerHTML = ''; // Clear existing modals
+membershipLevels.forEach(level => {
+    const modal = createModal(level.title, level.description, level.price);
+    modalWrapper.appendChild(modal);
 });
-
-function openModal(index, modalOverlay) {
-    const modal = document.getElementById(`modal-${index}`);
-    modal.classList.add("active");
-    modal.setAttribute("aria-hidden", "false");
-    modalOverlay.classList.add("active");
-}
-
-function closeModal(index, modalOverlay) {
-    const modal = document.getElementById(`modal-${index}`);
-    modal.classList.remove("active");
-    modal.setAttribute("aria-hidden", "true");
-    modalOverlay.classList.remove("active");
-}
-

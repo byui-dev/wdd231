@@ -1,0 +1,41 @@
+[
+    {
+        "id": "details1",
+        "name": "NP Membership Level",
+        "price": 0,
+        "benefits": [
+            "Special Support for Non Profit Organizations",
+            "Training"
+        ]
+    },
+    {
+        "id": "details2",
+        "name": "Bronze Membership Level",
+        "price": 10,
+        "benefits": [
+            "Special Events",
+            "Training"
+        ]
+    },
+    {
+        "id": "details3",
+        "name": "Silver Membership Level",
+        "price": 20,
+        "benefits": [
+            "Special Events",
+            "Training",
+            "Event Discounts"
+        ]
+    },
+    {
+        "id": "details4",
+        "name": "Gold Membership Level",
+        "price": 50,
+        "benefits": [
+            "Special Events",
+            "Training",
+            "Advertising through main website",
+            "Event Discounts"
+        ]
+    }
+]
