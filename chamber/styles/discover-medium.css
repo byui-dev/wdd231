@@ -1,0 +1,10 @@
+/* Medium screens: Two columns */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .places-grid {
+        grid-template-areas:
+            "card card"
+            "card card";
+        grid-template-columns: 1fr;
+    }
+}
+

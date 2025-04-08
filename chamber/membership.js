@@ -1,6 +1,7 @@
 // ...existing code...
 async function loadModals() {
     const wrapper = document.querySelector('.modal-wrapper');
+    wrapper.innerHTML = ''; // Clear existing modals
 
     data.forEach(modal => {
         // Create card
@@ -27,4 +28,11 @@ async function loadModals() {
         document.body.appendChild(dialog);
     });
 }
+
+const modalWrapper = document.querySelector('.modal-wrapper');
+modalWrapper.innerHTML = ''; // Clear existing modals
+data.forEach(level => {
+    const modal = createModal(level.name, level.benefits.join(', '), `$${level.price}`);
+    modalWrapper.appendChild(modal);
+});
 // ...existing code...

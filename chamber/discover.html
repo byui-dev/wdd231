@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obakeng Kennedy Diphala - Mahikeng Chamber of Commerce - Directory</title>
+    <meta name="description" content="This is the directory for the Mahikeng Chamber of Commerce website">
+    <meta name="author" content="Obakeng Kennedy Diphala">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Obakeng Kennedy Diphala - Mahikeng Chamber of Commerce - Directory">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/rFN2BsBk/mahikeng-pic.jpg">
+    <meta property="og:url" content="https://byui-dev.github.io/wdd231/chamber/index.html">
+
+    <!-- Normalizing the CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <!-- Mobile-First Styles -->
+    <link rel="stylesheet" href="styles/discover-small.css">
+
+    <link rel="stylesheet" href="styles/discover-medium.css">
+
+    <!-- Large Screen Styles -->
+    <link rel="stylesheet" href="styles/discover-large.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Scripts with defer attribute -->
+    <script src="scripts/date.js" defer></script>
+    <script type="module" src="scripts/discover.js"></script>
+    <script src="scripts/navigation.js" defer></script>
+
+    <link rel="icon" href="favicon_3.ico">
+</head>
+
+<body>
+    <header>
+        <img class="pic" src="images/mcc_logo.png" alt="Mahikeng Chamber of Commerce logo">
+        <span class="header-title">Mahikeng Chamber of Commerce</span>
+        <nav id="menuNav" class="mainNav">
+            <a href="index.html">Home</a>
+            <a href="directory.html">Directory</a>
+            <a href="join.html">Join</a>
+            <a href="discover.html">Discover</a>
+        </nav>
+        <!-- Hamburger Menu (visible only on mobile) -->
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <main>
+        <section id="myplaces" class="places-grid">
+           <!--Cards will be inserted here dynamically using JavaScript --> 
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <p>Mahikeng Chamber of Commerce</p>
+            <p>1st Street, Mahikeng Industrial Sites</p>
+            <p>Mahikeng, South Africa 2745</p>
+            <p><a href="mailto:info@mahikengccc.org">info@mahikengccc.org</a></p>
+            <p>+2718898970</p>
+        </div>
+        <div class="footer-right">
+            <p>&copy; <span id="year"></span> WDD231 Team Assignment</p>
+            <p>Obakeng Kennedy Diphala</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
+</body>
+
+</html>
