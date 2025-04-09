@@ -195,6 +195,48 @@ main {
     /* Consistent hover effect */
 }
 
+/* Footer Styles */
+footer {
+    padding: 3rem;
+    /* Add more padding for spaciousness */
+    font-size: 1.1rem;
+    /* Slightly larger font size */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Align footer-left and footer-right */
+    flex-wrap: wrap;
+    /* Ensure proper alignment on smaller large screens */
+}
+
+.footer-left {
+    text-align: left;
+    /* Align content to the left */
+    flex: 1;
+    /* Ensure equal space distribution */
+}
+
+.footer-right {
+    text-align: right;
+    /* Align content to the right */
+    flex: 1;
+    /* Ensure equal space distribution */
+}
+
+footer a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s;
+    /* Smooth hover effect */
+    font-size: 1.1rem;
+    /* Slightly larger footer links */
+}
+
+footer a:hover {
+    color: #0056b3;
+    /* Darker shade on hover */
+}
+
 /* Media Queries for larger screens */
 @media screen and (min-width: 1024px) {
     header {
