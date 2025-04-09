@@ -8,28 +8,22 @@
     <meta name="description" content="This is the directory for the Mahikeng Chamber of Commerce website">
     <meta name="author" content="Obakeng Kennedy Diphala">
 
-    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Obakeng Kennedy Diphala - Mahikeng Chamber of Commerce - Directory">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://i.postimg.cc/rFN2BsBk/mahikeng-pic.jpg">
     <meta property="og:url" content="https://byui-dev.github.io/wdd231/chamber/index.html">
 
-    <!-- Normalizing the CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 
-    <!-- Mobile-First Styles -->
     <link rel="stylesheet" href="styles/smaller.css">
 
-    <!-- Large Screen Styles -->
     <link rel="stylesheet" href="styles/larger.css">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
-    <!-- Scripts with defer attribute -->
     <script src="scripts/date.js" defer></script>
     <script src="scripts/membership.js" defer></script>
     <script src="scripts/navigation.js" defer></script>
@@ -39,6 +33,11 @@
 
 <body>
     <header>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <img class="pic" src="images/mcc_logo.png" alt="Mahikeng Chamber of Commerce logo">
         <span class="header-title">Mahikeng Chamber of Commerce</span>
         <nav id="menuNav" class="mainNav">
@@ -47,12 +46,6 @@
             <a href="join.html">Join</a>
             <a href="discover.html">Discover</a>
         </nav>
-        <!-- Hamburger Menu (visible only on mobile) -->
-        <div class="hamburger" id="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
     </header>
 
     <main>
@@ -60,71 +53,59 @@
             <div class="form-container">
                 <h2>Join the Mahikeng Chamber of Commerce</h2>
                 <form action="thank-you.html" method="post">
-                    <!--First name field-->
                     <label for="firstName" title="Enter your first name">
                         First Name:
                         <input type="text" id="firstName" name="first_name" title="Enter your first name"
                             autocomplete="given-name" required>
                     </label>
 
-                    <!--Last Name Field-->
                     <label for="lastName" title="Enter your last name">
                         Last Name:
                         . <input type="text" id="lastName" name="last_name" title="Enter your last name"
                             autocomplete="family-name" required>
                     </label>
 
-                    <!--Email Address Field-->
                     <label for="email" title="Enter your email address">
                         Email Address:
                         <input type="email" id="email" name="email" title="Enter your email address"
                             autocomplete="email" placeholder="example@domain.com" required>
                     </label>
 
-                    <!--Phone Number Field-->
                     <label for="mobile" title="Enter your phone number">
                         Phone Number:
                         <input type="tel" id="mobile" name="mobile_phone" title="Enter your phone number"
                             autocomplete="tel" placeholder="+27 123 456 7890" required>
                     </label>
 
-                    <!--Organization Name Field-->
                     <label for="organization" title="Enter your organization name">
                         Organization Name:
                         <input type="text" id="organization" name="organization_name"
                             title="Enter your organization name" autocomplete="organization" required>
                     </label>
 
-                    <!--Membership Level Field-->
                     <label for="membership" title="Select your membership level">
                         Membership Level:
                         <select id="membership" name="membership_level" title="Select your membership level" required>
                             <option value="" disabled selected>Select your membership level</option>
                             <option value="nonprofit">NP Membership</option>
-                            <option value="bronze">Bronze Membership/option>
-                            <option value="silver">Silver Membership/option>
+                            <option value="bronze">Bronze Membership</option>
+                            <option value="silver">Silver Membership</option>
                             <option value="gold">Gold Membership</option>
                         </select>
                     </label>
 
-                    <!--Business Description-->
                     <label for="description" title="Enter a brief description of your business">
                         Business Description:
                         <textarea id="description" name="business_description"
                             title="Enter a brief description of your business" rows="4" required></textarea>
                     </label>
 
-                    <!--Hidden Timestamp-->
                     <input type="hidden" id="timestamp" name="timestamp">
 
-                    <!--Submit Button-->
                     <button type="submit" id="submit" title="Submit your application">Submit</button>
                 </form>
             </div>
-
-            <div class="modals-section">
-                <h2 class="modals-heading">Membership Levels</h2>
-                <div class="modal-wrapper"></div>
+            <div id="modal-container">
             </div>
         </div>
     </main>

@@ -1,38 +1,50 @@
-// ...existing code...
-async function loadModals() {
-    const wrapper = document.querySelector('.modal-wrapper');
-    wrapper.innerHTML = ''; // Clear existing modals
+// scripts/membership.js
+document.addEventListener('DOMContentLoaded', async () => {
+    const container = document.getElementById('modal-container');
 
-    data.forEach(modal => {
-        // Create card
-        const card = document.createElement('div');
-        card.classList.add('modal-card');
-        card.innerHTML = `
-            <h3>${modal.name}</h3>
-            <p>$${modal.price}</p>
-            <button onclick="openModal('${modal.id}')">Show More</button>
-        `;
-        wrapper.appendChild(card);
+    try {
+        const response = await fetch('data/membershipLevels.json');
+        const data = await response.json();
 
-        // Create modal
-        const dialog = document.createElement('dialog');
-        dialog.classList.add('modal');
-        dialog.setAttribute('id', modal.id);
-        dialog.innerHTML = `
-            <h3>${modal.name}</h3>
-            <ul>
-                ${modal.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
-            </ul>
-            <button onclick="closeModal('${modal.id}')">Close</button>
-        `;
-        document.body.appendChild(dialog);
-    });
-}
+        data.levels.forEach(level => {
+            const dialog = document.createElement('dialog');
+            dialog.classList.add('modal-box');
+            dialog.setAttribute('aria-labelledby', `membership-title-${level.name.replace(/\s+/g, '-').toLowerCase()}`);
 
-const modalWrapper = document.querySelector('.modal-wrapper');
-modalWrapper.innerHTML = ''; // Clear existing modals
-data.forEach(level => {
-    const modal = createModal(level.name, level.benefits.join(', '), `$${level.price}`);
-    modalWrapper.appendChild(modal);
+            const titleId = `membership-title-${level.name.replace(/\s+/g, '-').toLowerCase()}`;
+
+            const benefitsList = level.benefits.map(benefit => `<li>${benefit}</li>`).join('');
+
+            dialog.innerHTML = `
+                <h3 id="${titleId}">${level.name}</h3>
+                <div class="modal-content hidden">
+                    <p>Price: ${level.price}</p>
+                    <h4>Benefits:</h4>
+                    <ul>${benefitsList}</ul>
+                </div>
+                <button class="toggle-btn" aria-expanded="false" aria-controls="${titleId}-content">Show More</button>
+            `;
+
+            container.appendChild(dialog);
+        });
+
+        container.addEventListener('click', (event) => {
+            if (event.target.classList.contains('toggle-btn')) {
+                const button = event.target;
+                const modal = button.closest('.modal-box');
+                const content = modal.querySelector('.modal-content');
+                const expanded = button.getAttribute('aria-expanded') === 'true' || false;
+
+                content.classList.toggle('hidden');
+                button.setAttribute('aria-expanded', !expanded);
+                button.textContent = !expanded ? 'Show Less' : 'Show More';
+            }
+        });
+
+    } catch (error) {
+        console.error('Error loading membership data:', error);
+        if (container) {
+            container.innerHTML = '<p class="error-message">Failed to load membership information.</p>';
+        }
+    }
 });
-// ...existing code...

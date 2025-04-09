@@ -1,88 +1,93 @@
-// JSON file 
-const data = [
-    { id: 'np', name: 'NP Membership Level', price: 0, benefits: ['Special Support for Non Profit Organizations', 'Training'] },
-    { id: 'bronze', name: 'Bronze Membership Level', price: 10, benefits: ['Special Events', 'Training'] },
-    { id: 'silver', name: 'Silver Membership Level', price: 20, benefits: ['Special Events', 'Training', 'Event Discounts'] },
-    { id: 'gold', name: 'Gold Membership Level', price: 50, benefits: ['Special Events', 'Training', 'Advertising through main website', 'Event Discounts'] }
-];
+// scripts/membership.js
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('modal-container');
 
-async function loadModals() {
-    const wrapper = document.querySelector('.modal-wrapper');
+    // Directly embed the JSON data
+    const membershipData = {
+        "levels": [
+            {
+                "name": "NP Membership",
+                "price": "Free",
+                "benefits": [
+                    "Listing in the online directory",
+                    "Access to member-only events (at a cost)"
+                ]
+            },
+            {
+                "name": "Bronze Membership",
+                "price": "R 500 per year",
+                "benefits": [
+                    "Enhanced listing in the online directory",
+                    "Discounted rates for events and workshops",
+                    "Networking opportunities"
+                ]
+            },
+            {
+                "name": "Silver Membership",
+                "price": "R 1200 per year",
+                "benefits": [
+                    "Premium listing in the online directory",
+                    "Significant discounts for events and workshops",
+                    "Featured in one newsletter per year",
+                    "Access to exclusive business resources",
+                    "Networking opportunities"
+                ]
+            },
+            {
+                "name": "Gold Membership",
+                "price": "R 2500 per year",
+                "benefits": [
+                    "Top-tier listing in the online directory",
+                    "Free admission to all chamber events",
+                    "Featured in two newsletters per year",
+                    "Priority access to business consulting services",
+                    "Sponsorship opportunities for select events",
+                    "Extensive networking opportunities"
+                ]
+            }
+        ]
+    };
 
-    data.forEach(modal => {
-        // Create card
-        const card = document.createElement('div');
-        card.classList.add('modal-card');
-        card.innerHTML = `
-            <h3>${modal.name}</h3>
-            <p>$${modal.price}</p>
-            <button onclick="openModal('${modal.id}')">Show More</button>
-        `;
-        wrapper.appendChild(card);
+    try {
+        membershipData.levels.forEach(level => {
+            const dialog = document.createElement('dialog');
+            dialog.classList.add('modal-box');
+            dialog.setAttribute('aria-labelledby', `membership-title-${level.name.replace(/\s+/g, '-').toLowerCase()}`);
 
-        // Create modal
-        const dialog = document.createElement('dialog');
-        dialog.classList.add('modal');
-        dialog.setAttribute('id', modal.id);
-        dialog.innerHTML = `
-            <h3>${modal.name}</h3>
-            <ul>
-                ${modal.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
-            </ul>
-            <button onclick="closeModal('${modal.id}')">Close</button>
-        `;
-        document.body.appendChild(dialog);
-    });
-}
+            const titleId = `membership-title-${level.name.replace(/\s+/g, '-').toLowerCase()}`;
 
-function openModal(id) {
-    const modal = document.getElementById(id);
-    modal.showModal();
-}
+            const benefitsList = level.benefits.map(benefit => `<li>${benefit}</li>`).join('');
 
-function closeModal(id) {
-    const modal = document.getElementById(id);
-    modal.close();
-}
+            dialog.innerHTML = `
+                <h3 id="${titleId}">${level.name}</h3>
+                <div class="modal-content hidden">
+                    <p>Price: ${level.price}</p>
+                    <h4>Benefits:</h4>
+                    <ul>${benefitsList}</ul>
+                </div>
+                <button class="toggle-btn" aria-expanded="false" aria-controls="${titleId}-content">Show More</button>
+            `;
 
-// Load modals when the document is ready
-document.addEventListener('DOMContentLoaded', loadModals);
+            container.appendChild(dialog);
+        });
 
-function createCard(title, description) {
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
-    document.querySelector('.card-container').appendChild(card);
-}
+        container.addEventListener('click', (event) => {
+            if (event.target.classList.contains('toggle-btn')) {
+                const button = event.target;
+                const modal = button.closest('.modal-box');
+                const content = modal.querySelector('.modal-content');
+                const expanded = button.getAttribute('aria-expanded') === 'true' || false;
 
-// Example usage
-createCard('Gold Membership', 'Exclusive benefits for gold members.');
-createCard('Silver Membership', 'Affordable benefits for silver members.');
+                content.classList.toggle('hidden');
+                button.setAttribute('aria-expanded', !expanded);
+                button.textContent = !expanded ? 'Show Less' : 'Show More';
+            }
+        });
 
-function createModal(title, description, price) {
-    const modal = document.createElement('div');
-    modal.className = 'modal'; 
-
-    const modalTitle = document.createElement('h3');
-    modalTitle.textContent = title;
-
-    const modalDescription = document.createElement('p');
-    modalDescription.textContent = description;
-
-    const modalPrice = document.createElement('p');
-    modalPrice.textContent = `Price: ${price}`;
-
-    modal.appendChild(modalTitle);
-    modal.appendChild(modalDescription);
-    modal.appendChild(modalPrice);
-
-    return modal;
-}
-
-
-const modalWrapper = document.querySelector('.modal-wrapper');
-modalWrapper.innerHTML = ''; // Clear existing modals
-membershipLevels.forEach(level => {
-    const modal = createModal(level.title, level.description, level.price);
-    modalWrapper.appendChild(modal);
+    } catch (error) {
+        console.error('Error processing membership data:', error);
+        if (container) {
+            container.innerHTML = '<p class="error-message">Failed to load membership information.</p>';
+        }
+    }
 });

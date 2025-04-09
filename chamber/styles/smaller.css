@@ -60,6 +60,11 @@ header span {
     flex-direction: column;
     width: 100%;
     background-color: #2c3e50;
+    position: absolute;
+    top: 60px;
+    /* Adjust based on header height */
+    left: 0;
+    z-index: 5;
 }
 
 .mainNav a {
@@ -80,7 +85,6 @@ header span {
     /* Change text color on hover */
 }
 
-/* Hamburger Menu Styles */
 .hamburger {
     display: flex;
     flex-direction: column;
@@ -88,332 +92,189 @@ header span {
     width: 30px;
     height: 30px;
     cursor: pointer;
+    z-index: 10;
 }
 
 .hamburger div {
-    background-color: #333;
-    height: 4px;
     width: 100%;
+    height: 4px;
+    background-color: white;
     border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    /* For the "X" animation */
 }
 
-/* Main content styles */
+.mainNav.active {
+    display: flex;
+    /* Show navigation when active class is present */
+}
+
+/* Hamburger toggle icon ("X") */
+.hamburger.open div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
 main {
     padding: 1rem;
-    background-color: #ffffff;
-    /* Add a clean background */
-    border-radius: 8px;
-    /* Soften edges */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* Add subtle shadow */
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #2c3e50;
-}
-
-/* View Toggle buttons - consolidated styles */
-.menu {
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.menu button {
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
-    border: none;
-    border-radius: 4px;
-    background-color: #007BFF;
-    color: white;
-    font-size: 1rem;
-    -webkit-transition: background-color 0.3s ease;
-    -moz-transition: background-color 0.3s ease;
-    -o-transition: background-color 0.3s ease;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.menu button:hover {
-    background-color: #0056b3;
-}
-
-.menu button.active {
-    background-color: #0056b3;
+    flex-direction: column;
+    /* Stack form and modals on smaller screens */
+    gap: 2rem;
+    /* Add some space between form and modals */
 }
 
 .form-and-modals {
     display: flex;
     flex-direction: column;
+    /* Stack form and modals on smaller screens */
     gap: 2rem;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    /* Add some space between form and modals */
 }
 
 .form-container {
-    flex: 1
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    /* Add some space below the form */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.modal-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
 }
 
-.modal-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-}
-
-.modal-details.open {
-    max-height: 500px;
-    /* Adjust as needed */
-}
-
-.modal-details p {
-    margin: 0.5rem 0;
+.form-container label {
+    display: block;
+    margin-bottom: 0.75rem;
     color: #555;
     font-size: 0.9rem;
-    line-height: 1.5;
 }
 
-/* General Form Styling */
-form {
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* Style the heading */
-h2 {
-    text-align: center;
-    color: #2c3e50;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-/* Label Styling */
-label {
-    font-weight: bold;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-/* Input fields Styling */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea,
-select {
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="tel"],
+.form-container select,
+.form-container textarea {
     width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border 0.3s ease-in-out;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    /* Ensure padding doesn't affect width */
 }
 
-/* Input focus effect */
-input:focus,
-textarea:focus,
-select:focus {
-    border-color: 2px solid #007BFF;
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
     outline: none;
+    border-color: #007bff;
+    /* Highlight on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Select dropdown */
-select {
-    cursor: pointer;
+.form-container select {
+    appearance: none;
+    /* Remove default arrow */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23333" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.75rem top 50%;
+    background-size: 1rem;
 }
 
-/* Textarea */
-textarea {
+.form-container textarea {
     resize: vertical;
-    min-height: 100px;
+    /* Allow vertical resizing */
 }
 
-/* Submit button styling */
-button[type="submit"] {
-    background-color: #007BFF;
+.form-container button[type="submit"] {
+    background-color: #28a745;
     color: white;
-    padding: 10px 20px;
+    padding: 0.8rem 1.5rem;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
-
-/* Submit button hover effect */
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.modals-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.modals-heading {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #222;
-    text-align: center;
-}
-
-@media (min-width: 769px) {
-
-    /* Larger screens styles */
-    .form-and-modals {
-        flex-direction: row;
-        align-items: flex-start
-    }
-
-    .modal-wrapper {
-        flex: 0 0 300px;
-        align-items: flex-start;
-    }
-
-    .form-container {
-        flex: 1;
-    }
-
-    .modals-section {
-        flex: 0 0 300px;
-    }
-
-    .modals-section {
-        text-align: left;
-    }
-
-    /* Footer Styles - consolidated */
-    footer {
-        background-color: #2c3e50;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-        font-size: 0.9rem;
-        /* Adjust font size for better balance */
-        letter-spacing: 0.5px;
-        /* Add spacing for readability */
-    }
-
-    .footer-left,
-    .footer-right {
-        margin-bottom: 1rem;
-    }
-
-    footer a {
-        color: #3498db;
-        text-decoration: none;
-        font-weight: 500;
-        /* Make links more prominent */
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-    }
-
-    /* Responsive Navigation */
-    .mainNav.responsive {
-        display: flex;
-    }
-
-    /* Hamburger Animation */
-    .hamburger.open div:nth-child(1) {
-        -webkit-transform: rotate(45deg) translate(5px, 5px);
-        -ms-transform: rotate(45deg) translate(5px, 5px);
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.open div:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.open div:nth-child(3) {
-        -webkit-transform: rotate(-45deg) translate(5px, -5px);
-        -ms-transform: rotate(-45deg) translate(5px, -5px);
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    /* Media Queries for additional responsiveness */
-    @media screen and (max-width: 600px) {
-        header {
-            flex-direction: column;
-            /* Stack header elements */
-            text-align: center;
-            /* Center-align content */
-        }
-
-        .menu {
-            flex-direction: column;
-            /* Stack buttons */
-        }
-
-        .menu button {
-            width: 100%;
-            /* Full-width buttons */
-        }
-    }
-}
-
-/* Helper classes */
-.hidden {
-    display: none;
-}
-
-.card-container .card {
-    margin: 10px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.hamburger div {
-    background-color: #333;
-    height: 4px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
     width: 100%;
-    border-radius: 2px;
+    /* Make button full width on mobile */
 }
 
-/* Hide navigation by default on mobile */
-.mainNav {
-    display: none;
+.form-container button[type="submit"]:hover {
+    background-color: #1e7e34;
 }
 
-.mainNav.active {
+#modal-container {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    position: absolute;
-    top: 50px;
-    right: 10px;
+    /* Stack modals vertically on smaller screens */
+    gap: 1rem;
+    width: 100%;
+    /* Make modals take full width on smaller screens */
+}
+
+.modal-box {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.modal-content.hidden {
+    display: none !important;
+    /* Ensure it's hidden */
+}
+
+.toggle-btn {
+    background-color: #eee;
+    color: #333;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.toggle-btn:hover {
+    background-color: #ddd;
+}
+
+/* Footer Styles - consolidated */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    /* Adjust font size for better balance */
+    letter-spacing: 0.5px;
+    /* Add spacing for readability */
+}
+
+.footer-left,
+.footer-right {
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    /* Make links more prominent */
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
