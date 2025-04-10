@@ -1,10 +1,23 @@
 /* Medium screens: Two columns */
-@media (min-width: 641px) and (max-width: 1024px) {
+@media only screen and (min-width: 38rem) {
     .places-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    #myplaces div {
+        grid-template-columns: auto 1fr;
         grid-template-areas:
-            "card card"
-            "card card";
-        grid-template-columns: 1fr;
+            "name name"
+            "photo desc"
+            "photo address"
+            "button button";
+        min-height: 300px;    
+    }
+
+    #myplaces div img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
     }
 }
-

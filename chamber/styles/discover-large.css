@@ -50,15 +50,22 @@ header span {
     /* Hide hamburger menu on larger screens */
 }
 
-/* Main content styles */
-main {
-    padding: 3rem;
-    /* Increase padding for spaciousness */
+.toggle-btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    background-color: #eee;
+    /* Consistent button style */
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-h2 {
-    font-size: 2.5rem;
-    /* Larger headings for better visibility */
+.toggle-btn:hover {
+    background-color: #ddd;
+    /* Consistent hover effect */
 }
 
 /* Footer Styles */
@@ -103,32 +110,24 @@ footer a:hover {
     /* Darker shade on hover */
 }
 
-/* Media Queries for larger screens */
-@media screen and (min-width: 1025px) {
+/* Media Queries for Responsiveness */
+@media screen and (min-width: 1024px) {
     header {
         justify-content: space-between;
-        /* Spread out header content */
     }
 
     .menu {
         justify-content: center;
-        /* Center the menu on the page */
         gap: 2rem;
-        /* Add spacing between buttons */
     }
 
     .menu button {
         font-size: 1.1rem;
-        /* Slightly larger buttons */
         background-color: #007BFF;
-        /* Primary button color */
         color: white;
-        border: none;
-        border-radius: 5px;
         padding: 0.5rem 1rem;
         cursor: pointer;
         transition: background-color 0.3s;
-        /* Smooth hover effect */
     }
 
     .menu button:hover {
@@ -136,40 +135,50 @@ footer a:hover {
         /* Darker shade on hover */
     }
 
-    .menu button.active {
-        background-color: #0056b3;
-        /* Active button state */
-        font-weight: bold;
+    .hamburger {
+        display: none;
+        /* Hide hamburger menu on larger screens */
     }
 
-    .places grid {
+    .menu {
+        display: flex;
+        /* Show menu on larger screens */
+    }
+
+    .places-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    #myplaces {
         display: grid;
-        grid-template-areas: 
-          "card card card"
-          "card card card";       
-        grid-template-columns: repeat(3,1fr);    
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
     }
-}
 
-/* Card layout */
-.place-card {
-    grid-area: card;
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    transition: transform 0.3s;
-}
+    #myplaces div {
+        margin: 0;
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "name name"
+            "photo desc"
+            "photo address"
+            "button button";
+    }
 
-.place-card:hover {
-    transform: scale(1.02);
-}
+    #myplaces div img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        object-position: center;
+    }
 
-.place-photo {
-  width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
+    #myplaces button {
+        width: calc(100% - 20px);
+        padding: 0.75rem 1.5rem;
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        height: 50px;
+    }
 }

@@ -137,6 +137,86 @@ header span {
     padding: 1rem;
 }
 
+#myplaces div {
+    margin: 1rem 8px;
+    border: 1px solid #0056b3;
+    background-color: #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas: 
+        "name"
+        "photo"
+        "desc"
+        "address"
+        "button";
+    gap: 0.5rem;    
+    height: 100%;
+    }
+    
+    #myplaces div h2 {
+        margin: 0.5rem 10px 0.5rem;
+        grid-area: name;
+    }
+    
+    #myplaces div img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+        grid-area: photo;
+    }
+    
+    #myplaces div p {
+        margin: 0.5rem 10px;
+        grid-area: desc;
+    }
+    
+    #myplaces div address { 
+        margin: 0.5rem 10px;
+        grid-area: address;
+    }
+
+    #myplaces button {
+        margin: 0.5rem 10px 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        grid-area: button;
+        width: calc(100% - 20px);
+        justify-self: center;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .learn-more {
+      background-color: #007BFF;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;  
+    }
+
+    .learn-more:hover {
+      background-color: #0056b3;  
+    }
+    
+    #myplaces button:hover {
+    background-color: #0056b3;
+    color: white;
+    /* Change text color on hover */
+    }  
+
 /* To place the cards in a single column on small screens */
 @media (max-width: 640px) {
     .places-grid {
