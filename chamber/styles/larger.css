@@ -33,7 +33,7 @@ header span {
     /* Center navigation links */
     gap: 3rem;
     /* Increase spacing between navigation links */
-    display: flex;
+    display: flex !important;
     /* Show navigation on larger screens */
     position: static;
 }
@@ -45,7 +45,7 @@ header span {
     /* Add padding for better clickability */
 }
 
-.hamburger {
+.hamburger-menu {
     display: none;
     /* Hide hamburger menu on larger screens */
 }

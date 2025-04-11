@@ -1,93 +1,94 @@
-// scripts/membership.js
 document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('modal-container');
+  // Fetch and render the membership modals
+  fetch('data/membershipLevels.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(memberships => {
+      const modalsContainer = document.getElementById('modals-container');
+      if (!modalsContainer) {
+        console.error('Could not find the modals container element.');
+        return;
+      }
 
-    // Directly embed the JSON data
-    const membershipData = {
-        "levels": [
-            {
-                "name": "NP Membership",
-                "price": "Free",
-                "benefits": [
-                    "Listing in the online directory",
-                    "Access to member-only events (at a cost)"
-                ]
-            },
-            {
-                "name": "Bronze Membership",
-                "price": "R 500 per year",
-                "benefits": [
-                    "Enhanced listing in the online directory",
-                    "Discounted rates for events and workshops",
-                    "Networking opportunities"
-                ]
-            },
-            {
-                "name": "Silver Membership",
-                "price": "R 1200 per year",
-                "benefits": [
-                    "Premium listing in the online directory",
-                    "Significant discounts for events and workshops",
-                    "Featured in one newsletter per year",
-                    "Access to exclusive business resources",
-                    "Networking opportunities"
-                ]
-            },
-            {
-                "name": "Gold Membership",
-                "price": "R 2500 per year",
-                "benefits": [
-                    "Top-tier listing in the online directory",
-                    "Free admission to all chamber events",
-                    "Featured in two newsletters per year",
-                    "Priority access to business consulting services",
-                    "Sponsorship opportunities for select events",
-                    "Extensive networking opportunities"
-                ]
-            }
-        ]
-    };
+      memberships.forEach(membership => {
+        // Create button to open modal
+        const openBtn = document.createElement('button');
+        openBtn.textContent = membership.name;
+        openBtn.classList.add('modal-button');
+        openBtn.setAttribute('aria-label', `Open ${membership.name} membership modal`);
 
-    try {
-        membershipData.levels.forEach(level => {
-            const dialog = document.createElement('dialog');
-            dialog.classList.add('modal-box');
-            dialog.setAttribute('aria-labelledby', `membership-title-${level.name.replace(/\s+/g, '-').toLowerCase()}`);
+        // Create dialog modal
+        const modal = document.createElement('dialog');
+        modal.innerHTML = `
+          <h2>${membership.name}</h2>
+          <p>Price: ${membership.price}</p>
+          <button class="show-more-info" aria-expanded="false">Show More Info</button> 
+          <div class="more-info" style="display: none;">
+            <ul>
+              ${membership.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+            </ul>
+          </div>
+          <button class="close-modal">Close</button>
+        `;
 
-            const titleId = `membership-title-${level.name.replace(/\s+/g, '-').toLowerCase()}`;
+        modalsContainer.appendChild(openBtn);
+        modalsContainer.appendChild(modal);
 
-            const benefitsList = level.benefits.map(benefit => `<li>${benefit}</li>`).join('');
-
-            dialog.innerHTML = `
-                <h3 id="${titleId}">${level.name}</h3>
-                <div class="modal-content hidden">
-                    <p>Price: ${level.price}</p>
-                    <h4>Benefits:</h4>
-                    <ul>${benefitsList}</ul>
-                </div>
-                <button class="toggle-btn" aria-expanded="false" aria-controls="${titleId}-content">Show More</button>
-            `;
-
-            container.appendChild(dialog);
+        // Open modal
+        openBtn.addEventListener('click', () => {
+          modal.showModal();
         });
 
-        container.addEventListener('click', (event) => {
-            if (event.target.classList.contains('toggle-btn')) {
-                const button = event.target;
-                const modal = button.closest('.modal-box');
-                const content = modal.querySelector('.modal-content');
-                const expanded = button.getAttribute('aria-expanded') === 'true' || false;
-
-                content.classList.toggle('hidden');
-                button.setAttribute('aria-expanded', !expanded);
-                button.textContent = !expanded ? 'Show Less' : 'Show More';
-            }
+        // Toggle more info
+        const showMoreBtn = modal.querySelector('.show-more-info');
+        const moreInfoDiv = modal.querySelector('.more-info');
+        showMoreBtn.addEventListener('click', () => {
+          const isVisible = moreInfoDiv.style.display === 'block';
+          moreInfoDiv.style.display = isVisible ? 'none' : 'block';
+          showMoreBtn.setAttribute('aria-expanded', !isVisible);
         });
 
-    } catch (error) {
-        console.error('Error processing membership data:', error);
-        if (container) {
-            container.innerHTML = '<p class="error-message">Failed to load membership information.</p>';
-        }
-    }
+        // Close modal with button
+        const closeBtn = modal.querySelector('.close-modal');
+        closeBtn.addEventListener('click', () => {
+          modal.close();
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (event) => {
+          if (event.target === modal) {
+            modal.close();
+          }
+        });
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching membership levels:', error);
+    });
+
+  // Handle form submission
+  const form = document.getElementById('membership-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const timestampField = document.getElementById('timestamp');
+      if (timestampField) {
+        timestampField.value = new Date().toISOString();
+      }
+
+      const formData = new FormData(form);
+      const params = new URLSearchParams();
+
+      for (const [key, value] of formData.entries()) {
+        params.append(key, value);
+      }
+
+      window.location.href = `thankyou.html?${params.toString()}`;
+    });
+  }
 });

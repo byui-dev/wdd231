@@ -67,6 +67,11 @@ header span {
     z-index: 5;
 }
 
+.mainNav .show {
+    display: flex;
+    /* Show navigation when hamburger is clicked */
+}
+
 .mainNav a {
     color: white;
     text-decoration: none;
@@ -85,170 +90,118 @@ header span {
     /* Change text color on hover */
 }
 
-.hamburger {
+main {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    z-index: 10;
 }
 
-.hamburger div {
-    width: 100%;
-    height: 4px;
-    background-color: white;
-    border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    /* For the "X" animation */
+.form-section {
+  padding: 1rem;
+  max-width: 600px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.mainNav.active {
+#membership-form {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem; 
+}
+
+label {
+   font-weight: bold;
+   display: flex;
+   flex-direction: column;
+}
+
+input,
+textarea,
+select {
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button[type="submit"] {
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+  /* Darker shade on hover */
+}
+
+.modals-section {
+    padding: 20px;
+}
+
+#modals-container {
     display: flex;
-    /* Show navigation when active class is present */
+    flex-direction: column;
 }
 
-/* Hamburger toggle icon ("X") */
-.hamburger.open div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.hamburger.open div:nth-child(2) {
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hamburger-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.open span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 5px);
+}
+
+.hamburger-menu.open span:nth-child(2) {
     opacity: 0;
 }
 
-.hamburger.open div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-main {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    /* Stack form and modals on smaller screens */
-    gap: 2rem;
-    /* Add some space between form and modals */
-}
-
-.form-and-modals {
-    display: flex;
-    flex-direction: column;
-    /* Stack form and modals on smaller screens */
-    gap: 2rem;
-    /* Add some space between form and modals */
-}
-
-.form-container {
-    background-color: #f9f9f9;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    /* Add some space below the form */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.form-container h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.form-container label {
-    display: block;
-    margin-bottom: 0.75rem;
-    color: #555;
-    font-size: 0.9rem;
-}
-
-.form-container input[type="text"],
-.form-container input[type="email"],
-.form-container input[type="tel"],
-.form-container select,
-.form-container textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    /* Ensure padding doesn't affect width */
-}
-
-.form-container input:focus,
-.form-container select:focus,
-.form-container textarea:focus {
-    outline: none;
-    border-color: #007bff;
-    /* Highlight on focus */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-.form-container select {
-    appearance: none;
-    /* Remove default arrow */
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23333" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 0.75rem top 50%;
-    background-size: 1rem;
-}
-
-.form-container textarea {
-    resize: vertical;
-    /* Allow vertical resizing */
-}
-
-.form-container button[type="submit"] {
-    background-color: #28a745;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease;
-    width: 100%;
-    /* Make button full width on mobile */
-}
-
-.form-container button[type="submit"]:hover {
-    background-color: #1e7e34;
-}
-
-#modal-container {
-    display: flex;
-    flex-direction: column;
-    /* Stack modals vertically on smaller screens */
-    gap: 1rem;
-    width: 100%;
-    /* Make modals take full width on smaller screens */
-}
-
-.modal-box {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    border-radius: 8px;
-}
-
-.modal-content.hidden {
-    display: none !important;
-    /* Ensure it's hidden */
-}
-
-.toggle-btn {
-    background-color: #eee;
-    color: #333;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-}
-
-.toggle-btn:hover {
-    background-color: #ddd;
+.hamburger-menu.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -5px);
 }
 
 /* Footer Styles - consolidated */
