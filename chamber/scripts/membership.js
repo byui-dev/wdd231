@@ -1,93 +1,76 @@
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Fetch and render the membership modals
+  const modalsContainer = document.getElementById('modals-container');
+  const form = document.getElementById('membership-form');
+
   fetch('data/membershipLevels.json')
     .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
       return response.json();
     })
     .then(memberships => {
-      const modalsContainer = document.getElementById('modals-container');
-      if (!modalsContainer) {
-        console.error('Could not find the modals container element.');
-        return;
-      }
-
       memberships.forEach(membership => {
-        // Create button to open modal
-        const openBtn = document.createElement('button');
-        openBtn.textContent = membership.name;
-        openBtn.classList.add('modal-button');
-        openBtn.setAttribute('aria-label', `Open ${membership.name} membership modal`);
+        // Modal card always visible
+        const modalCard = document.createElement('div');
+        modalCard.classList.add('membership-card');
 
-        // Create dialog modal
-        const modal = document.createElement('dialog');
-        modal.innerHTML = `
-          <h2>${membership.name}</h2>
+        modalCard.innerHTML = `
+          <h3>${membership.name}</h3>
           <p>Price: ${membership.price}</p>
-          <button class="show-more-info" aria-expanded="false">Show More Info</button> 
-          <div class="more-info" style="display: none;">
-            <ul>
-              ${membership.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
-            </ul>
-          </div>
-          <button class="close-modal">Close</button>
+          <button class="open-modal">More Info</button>
+          <dialog>
+            <h4>${membership.name} Benefits</h4>
+            <div class="benefits-section">
+              <ul class="benefits-list" hidden>
+                ${membership.benefits.map(b => `<li>${b}</li>`).join('')}
+              </ul>
+              <button class="toggle-info" aria-expanded="false">Show More Info</button>
+            </div>
+            <button class="close-modal">Close</button>
+          </dialog>
         `;
 
-        modalsContainer.appendChild(openBtn);
-        modalsContainer.appendChild(modal);
+        modalsContainer.appendChild(modalCard);
 
-        // Open modal
+        const dialog = modalCard.querySelector('dialog');
+        const openBtn = modalCard.querySelector('.open-modal');
+        const closeBtn = dialog.querySelector('.close-modal');
+        const toggleBtn = dialog.querySelector('.toggle-info');
+        const benefitsList = dialog.querySelector('.benefits-list');
+
         openBtn.addEventListener('click', () => {
-          modal.showModal();
+          dialog.showModal();
         });
 
-        // Toggle more info
-        const showMoreBtn = modal.querySelector('.show-more-info');
-        const moreInfoDiv = modal.querySelector('.more-info');
-        showMoreBtn.addEventListener('click', () => {
-          const isVisible = moreInfoDiv.style.display === 'block';
-          moreInfoDiv.style.display = isVisible ? 'none' : 'block';
-          showMoreBtn.setAttribute('aria-expanded', !isVisible);
-        });
-
-        // Close modal with button
-        const closeBtn = modal.querySelector('.close-modal');
         closeBtn.addEventListener('click', () => {
-          modal.close();
+          dialog.close();
         });
 
-        // Close modal when clicking outside
-        modal.addEventListener('click', (event) => {
-          if (event.target === modal) {
-            modal.close();
-          }
+        toggleBtn.addEventListener('click', () => {
+          const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+          benefitsList.hidden = isExpanded;
+          toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+          toggleBtn.textContent = isExpanded ? 'Show More Info' : 'Show Less Info';
+        });
+
+        // Optional: click outside dialog to close
+        dialog.addEventListener('click', (e) => {
+          if (e.target === dialog) dialog.close();
         });
       });
     })
-    .catch(error => {
-      console.error('Error fetching membership levels:', error);
-    });
+    .catch(error => console.error('Error fetching membership levels:', error));
 
-  // Handle form submission
-  const form = document.getElementById('membership-form');
+  // Form submission
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', e => {
       e.preventDefault();
-
       const timestampField = document.getElementById('timestamp');
       if (timestampField) {
         timestampField.value = new Date().toISOString();
       }
-
       const formData = new FormData(form);
-      const params = new URLSearchParams();
-
-      for (const [key, value] of formData.entries()) {
-        params.append(key, value);
-      }
-
+      const params = new URLSearchParams(formData);
       window.location.href = `thankyou.html?${params.toString()}`;
     });
   }

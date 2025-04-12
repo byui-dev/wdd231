@@ -21,12 +21,4 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeDateElements);
 } else {
     initializeDateElements();
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    const timestampInput = document.getElementById("timestamp");
-    if (timestampInput) {
-        const now = new Date();
-        timestampInput.value = now.toISOString();
-    }
-});
+}  

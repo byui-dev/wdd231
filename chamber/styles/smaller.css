@@ -1,233 +1,189 @@
-/* Base styles for mobile devices */
+/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  body {
     font-family: 'Roboto', Arial, sans-serif;
-    line-height: 1.8;
-    /* Enhance readability */
-    max-width: 1200px;
-    margin: 0 auto;
+    line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
-    /* Improve text contrast */
-}
-
-/* Header Styles*/
-header {
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  /* Header */
+  header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
     background-color: #2c3e50;
     color: white;
-    position: relative;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Add subtle shadow */
-}
-
-.header-title {
-    flex-grow: 1;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-header .pic {
-    max-width: 150px;
+    flex-wrap: wrap;
+  }
+  
+  header .pic {
+    max-width: 120px;
     height: auto;
-    margin-bottom: 0.5rem;
-}
-
-header span {
-    font-size: 1.2rem;
+  }
+  
+  .header-title {
+    font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
     flex-grow: 1;
-    text-transform: uppercase;
-    /* Improve text emphasis */
-    letter-spacing: 1px;
-    /* Add spacing for better readability */
-}
-
-/* Navigation Styles */
-.mainNav {
+  }
+  
+  .hamburger-menu {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Navigation */
+  .mainNav {
     display: none;
-    /* Hidden by default on small screens */
     flex-direction: column;
     width: 100%;
     background-color: #2c3e50;
-    position: absolute;
-    top: 60px;
-    /* Adjust based on header height */
-    left: 0;
-    z-index: 5;
-}
-
-.mainNav .show {
-    display: flex;
-    /* Show navigation when hamburger is clicked */
-}
-
-.mainNav a {
+  }
+  
+  .mainNav a {
+    padding: 0.75rem;
+    text-align: center;
     color: white;
     text-decoration: none;
-    padding: 0.5rem;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-weight: 500;
-    /* Make links more prominent */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    /* Smooth hover effect */
-}
-
-.mainNav a:hover {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .mainNav a:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    color: #f4f4f4;
-    /* Change text color on hover */
-}
-
-main {
+  }
+  
+  /* Form + Modal Layout */
+  main {
     display: flex;
     flex-direction: column;
-}
+    gap: 2rem;
+  }
+  
+  .layout-wrapper {
+     display: flex;
+     flex-direction: column;
+     gap: 2rem;
+     padding: 1rem;
+  }
 
-.form-section {
-  padding: 1rem;
-  max-width: 600px;
-  margin: auto;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-#membership-form {
-   display: flex;
-   flex-direction: column;
-   gap: 1rem; 
-}
-
-label {
-   font-weight: bold;
-   display: flex;
-   flex-direction: column;
-}
-
-input,
-textarea,
-select {
-  margin-top: 0.25rem;
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #fff;
-  transition: border-color 0.3s ease;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-button[type="submit"] {
-  padding: 0.75rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3;
-  /* Darker shade on hover */
-}
-
-.modals-section {
-    padding: 20px;
-}
-
-#modals-container {
+  .form-section, 
+  .modal-section {
     display: flex;
     flex-direction: column;
-}
+    gap: 1rem;
+  }
 
-dialog {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
+  .form-section h2,
+  .modal-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
 
-dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.hamburger-menu {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1;
-}
-
-.hamburger-menu span {
-    display: block;
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    margin-bottom: 5px;
-    transition: all 0.3s ease;
-}
-
-.hamburger-menu.open span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 5px);
-}
-
-.hamburger-menu.open span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger-menu.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -5px);
-}
-
-/* Footer Styles - consolidated */
-footer {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+  }
+  
+  form input,
+  form select,
+  form textarea {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  form button {
+    padding: 0.75rem;
     background-color: #2c3e50;
     color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #1a242f;
+  }
+  
+  /* Modal Cards */
+  #modals-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .membership-card {
     padding: 1rem;
+    border: 2px solid #ccc;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .membership-card button {
+    margin-top: 0.5rem;
+  }
+  
+  /* Dialog Box */
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 1.5rem;
+    max-width: 400px;
+    width: 90%;
+  }
+  
+  .more-info {
+    margin-top: 1rem;
+    display: none;
+  }
+  
+  .more-info.visible {
+    display: block;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 2rem 1rem;
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     text-align: center;
-    font-size: 0.9rem;
-    /* Adjust font size for better balance */
-    letter-spacing: 0.5px;
-    /* Add spacing for readability */
-}
-
-.footer-left,
-.footer-right {
-    margin-bottom: 1rem;
-}
-
-footer a {
-    color: #3498db;
+  }
+  
+  footer a {
+    color: #1abc9c;
     text-decoration: none;
-    font-weight: 500;
-    /* Make links more prominent */
-}
-
-footer a:hover {
+  }
+  
+  footer a:hover {
     text-decoration: underline;
-}
+  }
+  
