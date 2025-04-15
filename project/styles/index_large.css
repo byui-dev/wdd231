@@ -1,0 +1,24 @@
+@media screen and (max-width: 768px) {
+     .hamburger-menu {
+          display: block;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+        }
+
+     nav ul {
+        display: none;
+     } 
+
+     .hero {
+         height: 50vh;
+     }
+
+     .cards {
+        flex-direction: column;
+     }
+
+     .card {
+        margin: 20px 0;
+     }
+}

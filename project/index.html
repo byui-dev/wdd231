@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obakeng Kennedy Diphala - Mahikeng Chamber of Commerce - Directory</title>
+    <meta name="description" content="This website features some leading game reserves in South Africa">
+    <meta name="author" content="Obakeng Kennedy Diphala">
+
+    <meta property="og:title" content="Obakeng Kennedy Diphala - Mahikeng Chamber of Commerce - Homepage">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/15TpnxT3/zdenek-machacek-Ux-Hol6-Sw-Ly-M-unsplash.jpg">
+    <meta property="og:url" content="https://byui-dev.github.io/wdd231/chamber/index.html">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <link rel="stylesheet" href="styles/index_small.css">
+
+    <link rel="stylesheet" href="styles/index_large.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <script src="scripts/date.js" defer></script>
+    <script type="module" src="scripts/reserves.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+
+    <link rel="icon" href="favicon_4.ico">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="booking.html">Booking</a></li>
+            </ul>
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>South African Game Reserves</h1>
+            <h2>Welcome to Our Website</h2>
+            <p>Discover our amazing Game Reserves</p>
+            <button class="cta" onclick="window.location.href=directory.html">Learn More</button>
+        </div>
+    </section>
+    <div id="weather section">
+        <div id="current-weather"></div>
+        <div id="forecast-weather"></div>
+    </div>
+
+    <div id="reserves-section"></div>
+    <h2>Featured Game Reserves</h2>
+    <div id="highlighted-reserves"></div>
+    </div>
+
+    <footer>
+        <div class="footer-left">
+            <p>South African Game Reserves</p>
+            <p>1st Street, Pretoria Central</p>
+            <p>Pretoria, South Africa 0186</p>
+            <p><a href="mailto:info@sagamereserves.org">sagamereserves.org</a></p>
+            <p>+2712898990</p>
+        </div>
+        <div class="footer-right">
+            <p>&copy; <span id="year"></span> WDD231 Project</p>
+            <p>Obakeng Kennedy Diphala</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
+</body>
+
+</html>
