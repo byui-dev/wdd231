@@ -1,24 +1,75 @@
-@media screen and (max-width: 768px) {
-     .hamburger-menu {
-          display: block;
-          position: absolute;
-          top: 20px;
-          right: 20px;
-        }
+@media (min-width: 768px) {
+   .hamburger-menu {
+      display: none;
+   }
 
-     nav ul {
-        display: none;
-     } 
+   nav ul {
+      display: flex !important;
+      flex-direction: row;
+      justify-content: flex-end;
+      background-color: transparent;
+   }
 
-     .hero {
-         height: 50vh;
-     }
+   nav ul li {
+      margin-left: 1rem;
+   }
 
-     .cards {
-        flex-direction: column;
-     }
+   nav ul li a {
+      padding: 0.5rem 0.75rem;
+      font-weight: bold;
+   }
 
-     .card {
-        margin: 20px 0;
-     }
+   #weather-section {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+   }
+
+   #current-weather,
+   #forecast-weather {
+      flex: 1;
+   }
+
+   .hero {
+      padding: 5rem;
+   }
+
+
+   .cards {
+      flex-direction: column;
+   }
+
+   .card {
+      margin: 20px 0;
+   }
+
+   /* Highlighted reserves grid for large view */
+   #highlighted-reserves {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+   }
+
+   #highlighted-reserves div {
+      flex: 1 1 300px;
+      max-width: 400px;
+   }
+
+   /* Footer aligment on large screens*/
+   footer {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+      padding: 2rem 4rem;
+   }
+
+   .footer-left,
+   .footer-right {
+      flex: 1;
+   }
+
+   .footer-right {
+      text-align: right;
+   }
+}
 }

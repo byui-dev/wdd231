@@ -25,7 +25,7 @@
         rel="stylesheet">
 
     <script src="scripts/date.js" defer></script>
-    <script type="module" src="scripts/gamereserves.js" defer></script>
+    <script type="module" src="scripts/reserves.js" defer></script>
     <script src="scripts/navigation.js" defer></script>
 
     <link rel="icon" href="favicon_4.ico">
@@ -38,7 +38,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="directory.html">Directory</a></li>
-                <li><a href="booking.html"></a>Booking</li>
+                <li><a href="booking.html">Booking</a></li>
             </ul>
             <div class="hamburger-menu">
                 <span></span>
@@ -47,26 +47,37 @@
             </div>
         </nav>
     </header>
-    <h2>South African Game Reserves</h2>
+    <main>
+        <h2>South African Game Reserves</h2>
 
-    <label for="location-filter">Filter by location:</label>
-    <select id="location-filter">
-        <label for="price-filter">Max Price (Accomodation or Day Visit):</label>
-        <input type="number" id="price-filter" placeholder="Enter max price">
-        <option value="all">All</option>
-        <option value="Limpopo">Limpopo</option>
-        <option value="Eastern Cape">Eastern Cape</option>
-        <option value="KwaZulu-Natal">KwaZulu-Natal</option>
-        <option value="North West">North West</option>
-        <option value="Northern Cape">Northern Cape</option>
-        <option value="Western Cape">Western Cape</option>
-        <option value="Free State">Free State</option>
-        <option value="Mpumalanga">Mpumalanga</option>
-    </select>
+        <div class="controls">
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="location-filter">Filter by location:</label>
+                    <select id="location-filter">
+                        <option value="all">All</option>
+                        <option value="Limpopo">Limpopo</option>
+                        <option value="Eastern Cape">Eastern Cape</option>
+                        <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                        <option value="North West">North West</option>
+                        <option value="Northern Cape">Northern Cape</option>
+                        <option value="Western Cape">Western Cape</option>
+                        <option value="Free State">Free State</option>
+                        <option value="Mpumalanga">Mpumalanga</option>
+                    </select>
+                </div>
 
-    <div id="reserves-container" class="grid"></div>
+                <div class="filter-group">
+                    <label for="price-filter">Max Price (R):</label>
+                    <input type="number" id="price-filter" placeholder="Enter max price">
+                </div>
+            </div>
 
+            <button id="view-toggle" class="view-toggle-btn">📋 List View</button>
 
+        </div>
+        <div id="reserves-container" class="grid"></div>
+    </main>
     <footer>
         <div class="footer-left">
             <p>South African Game Reserves</p>

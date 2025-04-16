@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font: 'Roboto', sans-serif;
     margin: 0;
@@ -11,11 +15,35 @@ header {
     text-align: center;
 }
 
+nav {
+    background-color: #003300;
+    padding: 1rem;
+    color: white;
+    position: relative;
+}
+
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: #004400;
 }
+
+nav.show ul {
+    display: flex;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+
 
 nav li {
     display: inline-block;
@@ -28,7 +56,19 @@ nav a {
 }
 
 .hamburger-menu {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
 }
 
 .hero {
@@ -40,6 +80,44 @@ nav a {
     justify-content: center;
     align-items: center;
     color: #fff;
+}
+
+.hero-content h1, 
+.hero-content h2 {
+    margin: 0.5rem 0;
+}
+
+.hero .cta {
+  background-color: #388e3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;  
+}
+
+#weather-section {
+  padding: 1rem;
+  background-color: #f4f4f4;  
+}
+
+#current-weather,
+#forecast-weather {
+  margin-bottom: 1rem;  
+}
+
+#highlighted-reserves {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;  
+}
+
+#highlighted-reserves div {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background-color: #ffffff;  
 }
 
 .cards {
@@ -66,7 +144,6 @@ nav a {
 footer {
     padding: 2rem 1rem;
     background-color: #2E4053;
-    background-color: ;
     color: white;
     display: flex;
     flex-direction: column;
@@ -75,7 +152,7 @@ footer {
 }
 
 footer a {
-    color: #1abc9c;
+    color: white;
     text-decoration: none;
 }
 
