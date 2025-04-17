@@ -1,132 +1,92 @@
-/* Large Screen Styles for index.html */
-@media screen and (min-width: 768px) {
-   /* HEADER */
-   header {
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     padding: 1rem 5%;
-   }
- 
-   .logo h1 {
-     font-size: 1.8rem;
-   }
- 
-   /* Navigation */
-   #main-nav {
-     margin-top: 0;
-   }
- 
-   #nav-links {
-     display: flex !important;
-     flex-direction: row;
-     gap: 2rem;
-     background-color: transparent;
-   }
- 
-   #nav-links li {
-     margin: 0;
-   }
- 
-   #nav-links a {
-     padding: 0.5rem 0;
-   }
- 
-   .hamburger-menu {
-     display: none;
-   }
- 
-   /* Hero Section */
+header {
+   padding: 1.5rem 2rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.logo h1 {
+   font-size: 1.8rem;
+}
+
+#main-nav {
+   margin-top: 0;
+}
+
+#nav-links {
+   display: flex !important;
+   /* Override inline display: none */
+   flex-direction: row;
+   gap: 1.5rem;
+   background-color: transparent;
+   width: auto;
+}
+
+#nav-links li {
+   margin: 0;
+}
+
+.hamburger-menu {
+   display: none;
+   /* Hide hamburger menu on larger screens */
+}
+
+footer {
+   display: flex;
+   justify-content: space-between;
+   padding: 2.5rem 2rem;
+   text-align: left;
+}
+
+.footer-left,
+.footer-right {
+   margin-bottom: 0;
+}
+
+#lastModified {
+   text-align: right;
+}
+
+@media (min-width: 768px) {
    .hero {
-     height: 70vh;
+      height: 75vh;
+      /* Adjust for larger screens */
    }
- 
-   .hero-content {
-     max-width: 800px;
-   }
- 
+
    .hero h1 {
-     font-size: 3.5rem;
+      font-size: 3rem;
    }
- 
+
    .hero h2 {
-     font-size: 2rem;
+      font-size: 2rem;
    }
- 
+
    .hero p {
-     font-size: 1.3rem;
+      font-size: 1.2rem;
    }
- 
-   /* Weather Section */
-   #weather-section {
-     margin: 3rem 5%;
-     display: flex;
-     justify-content: space-between;
-     align-items: flex-start;
+
+   @media (min-width: 768px) {
+      #weather-section {
+         max-width: 960px;
+         /* Limit width on larger screens */
+         margin: 3rem auto;
+         display: flex;
+         gap: 2rem;
+      }
+
+      #current-weather {
+         flex: 1;
+      }
+
+      #forecast-weather {
+         flex: 2;
+         flex-direction: row;
+         justify-content: space-around;
+      }
+
+      .forecast-day {
+         flex: 1;
+         padding: 1.2rem;
+         text-align: center;
+      }
    }
- 
-   #current-weather {
-     flex: 1;
-     margin-bottom: 0;
-     margin-right: 2rem;
-   }
- 
-   #forecast-weather {
-     flex: 2;
-     flex-direction: row;
-     justify-content: space-between;
-   }
- 
-   /* Game Reserves Section */
-   #reserves-section {
-     padding: 2rem 5%;
-   }
- 
-   #reserves-section h2 {
-     font-size: 2.2rem;
-   }
- 
-   #highlighted-reserves {
-     grid-template-columns: repeat(3, 1fr);
-   }
- 
-   /* Footer */
-   footer {
-     display: flex;
-     justify-content: space-between;
-     align-items: flex-start;
-     padding: 3rem 5%;
-   }
- 
-   .footer-left, .footer-right {
-     margin-bottom: 0;
-   }
- 
-   .footer-left {
-     flex: 3;
-   }
- 
-   .footer-right {
-     flex: 2;
-     text-align: right;
-   }
- }
- 
- /* Very Large Screens */
- @media screen and (min-width: 1200px) {
-   header, #weather-section, #reserves-section {
-     padding: 1rem 10%;
-   }
- 
-   #weather-section {
-     margin: 3rem 10%;
-   }
- 
-   .hero-content {
-     max-width: 1000px;
-   }
- 
-   footer {
-     padding: 3rem 10%;
-   }
- }
