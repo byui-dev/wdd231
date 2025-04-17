@@ -12,7 +12,7 @@ export const gameReserves = [
             "Bush walks",
             "Self-drive tours"
         ],
-        image: "kruger.jpg"
+        image: "images/kruger_national.jpg"
     },
     {
         id: 2,
@@ -27,7 +27,7 @@ export const gameReserves = [
             "4x4 trails",
             "Birdwatching"
         ],
-        image: "addo-elephant.jpg"
+        image: "images/addo_national.jpg"
     },
     {
         id: 3,
@@ -41,7 +41,7 @@ export const gameReserves = [
             "Hot air balloon rides",
             "Guided game drives"
         ],
-        image: "pilanesberg.jpg"
+        image: "images/pilanesberg_game.jpg"
     },
     {
         id: 4,
