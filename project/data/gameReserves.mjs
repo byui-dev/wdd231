@@ -12,7 +12,7 @@ export const gameReserves = [
             "Bush walks",
             "Self-drive tours"
         ],
-        image: "kruger_national.jpg"
+        image: "images/kruger_national.jpg"
     },
     {
         id: 2,
@@ -55,7 +55,7 @@ export const gameReserves = [
             "Rhino conservation tours",
             "Photography hides"
         ],
-        image: "hluhluwe-imfolozi.jpg"
+        image: "images/hluhluwe_imfolozi.jpg"
     },
     {
         id: 5,
@@ -69,7 +69,7 @@ export const gameReserves = [
             "Cross-border safaris",
             "Star gazing experiences"
         ],
-        image: "kgalagadi.jpg"
+        image: "images/kgalagadi_transfrontier.jpg"
     },
     {
         id: 6,
@@ -83,7 +83,7 @@ export const gameReserves = [
             "Cultural heritage tours",
             "Scenic viewpoints"
         ],
-        image: "mapungubwe.jpg"
+        image: "images/mapungubwe.jpg"
     },
     {
         id: 7,
@@ -97,7 +97,7 @@ export const gameReserves = [
             "Mountain drives",
             "Bird of prey sightings"
         ],
-        image: "marakele.jpg"
+        image: "images/marakele.jpg"
     },
     {
         id: 8,
@@ -111,7 +111,7 @@ export const gameReserves = [
             "Luxury lodges",
             "Malaria-free safaris"
         ],
-        image: "madikwe.jpg"
+        image: "images/madikwe.jpg"
     },
     {
         id: 9,
@@ -125,7 +125,7 @@ export const gameReserves = [
             "Boat safaris",
             "Beach and dune exploration"
         ],
-        image: "isimangaliso.jpg"
+        image: "images/isimangaliso.jpg"
     },
     {
         id: 10,
@@ -139,7 +139,7 @@ export const gameReserves = [
             "Fossil trails",
             "4x4 eco-trails"
         ],
-        image: "karoo.jpg"
+        image: "images/karoo_national.jpg"
     },
     {
         id: 11,
@@ -153,7 +153,7 @@ export const gameReserves = [
             "Cheetah tracking",
             "Scenic drives"
         ],
-        image: "mountain-zebra.jpg"
+        image: "images/mountain_zebra.jpg"
     },
     {
         id: 12,
@@ -167,7 +167,7 @@ export const gameReserves = [
             "Rock formations",
             "Hiking trails"
         ],
-        image: "golden-gate.jpg"
+        image: "images/golden_gate.jpg"
     },
     {
         id: 13,
@@ -181,7 +181,7 @@ export const gameReserves = [
             "Waterfall viewing",
             "Night drives"
         ],
-        image: "augrabies.jpg"
+        image: "images/augrabies.jpg"
     },
     {
         id: 14,
@@ -195,7 +195,7 @@ export const gameReserves = [
             "Valley of Desolation",
             "Game viewing areas"
         ],
-        image: "camdeboo.jpg"
+        image: "images/camdeboo.jpg"
     },
     {
         id: 15,
@@ -209,6 +209,6 @@ export const gameReserves = [
             "Bontebok sightings",
             "River-based activities"
         ],
-        image: "bontebok.jpg"
+        image: "images/bontebok.jpg"
     }
 ];
