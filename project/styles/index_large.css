@@ -1,92 +1,139 @@
-header {
-   padding: 1.5rem 2rem;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-}
-
-.logo h1 {
-   font-size: 1.8rem;
-}
-
-#main-nav {
-   margin-top: 0;
-}
-
-#nav-links {
-   display: flex !important;
-   /* Override inline display: none */
-   flex-direction: row;
-   gap: 1.5rem;
-   background-color: transparent;
-   width: auto;
-}
-
-#nav-links li {
-   margin: 0;
-}
-
-.hamburger-menu {
-   display: none;
-   /* Hide hamburger menu on larger screens */
-}
-
-footer {
-   display: flex;
-   justify-content: space-between;
-   padding: 2.5rem 2rem;
-   text-align: left;
-}
-
-.footer-left,
-.footer-right {
-   margin-bottom: 0;
-}
-
-#lastModified {
-   text-align: right;
-}
-
+/* Large Screen Styles for index.html */
 @media (min-width: 768px) {
+   header {
+       padding: 1.5rem 2rem;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+   }
+
+   .logo h1 {
+       font-size: 1.8rem;
+   }
+
+   #main-nav {
+       margin-top: 0;
+   }
+
+   #nav-links {
+       display: flex !important; /* Override inline display: none */
+       flex-direction: row;
+       gap: 1.5rem;
+       background-color: transparent;
+       width: auto;
+   }
+
+   #nav-links li {
+       margin: 0;
+   }
+
+   .hamburger-menu {
+       display: none; /* Hide hamburger menu on larger screens */
+   }
+
    .hero {
-      height: 75vh;
-      /* Adjust for larger screens */
+       height: 75vh;
+       padding: 3rem 2rem;
    }
 
    .hero h1 {
-      font-size: 3rem;
+       font-size: 3rem;
    }
 
    .hero h2 {
-      font-size: 2rem;
+       font-size: 2rem;
    }
 
    .hero p {
-      font-size: 1.2rem;
+       font-size: 1.2rem;
    }
 
-   @media (min-width: 768px) {
-      #weather-section {
-         max-width: 960px;
-         /* Limit width on larger screens */
-         margin: 3rem auto;
-         display: flex;
-         gap: 2rem;
-      }
-
-      #current-weather {
-         flex: 1;
-      }
-
-      #forecast-weather {
-         flex: 2;
-         flex-direction: row;
-         justify-content: space-around;
-      }
-
-      .forecast-day {
-         flex: 1;
-         padding: 1.2rem;
-         text-align: center;
-      }
+   #weather-section {
+       padding: 2rem;
+       margin: 3rem auto;
+       max-width: 960px;
+       display: flex;
+       gap: 2rem;
    }
+
+   #current-weather {
+       flex: 1;
+       padding: 1.5rem;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       text-align: center;
+   }
+
+   #current-weather img {
+       max-width: 100px;
+   }
+
+   #forecast-weather {
+       flex: 2;
+       flex-direction: row;
+       justify-content: space-around;
+       align-items: center;
+   }
+
+   #forecast-weather h3 {
+       text-align: left;
+       flex-basis: 100%;
+       margin-bottom: 1rem;
+   }
+
+   #forecast-weather > div {
+       flex: 1;
+       padding: 1.2rem;
+       text-align: center;
+   }
+
+   #forecast-weather div img {
+       max-width: 70px;
+   }
+
+   #reserves-section {
+       padding: 2rem;
+       text-align: left;
+   }
+
+   #reserves-section h2 {
+       font-size: 2.2rem;
+       margin-bottom: 2rem;
+   }
+
+   #highlighted-reserves {
+       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+       padding: 1.5rem;
+   }
+
+   #highlighted-reserves > div {
+       padding: 2rem;
+   }
+
+   #highlighted-reserves > div h4 {
+       font-size: 1.5rem;
+       margin-bottom: 1rem;
+   }
+
+   #highlighted-reserves > div p {
+       font-size: 1rem;
+       margin-bottom: 0.75rem;
+   }
+
+   footer {
+       display: flex;
+       justify-content: space-between;
+       padding: 2.5rem 2rem;
+       text-align: left;
+   }
+
+   .footer-left,
+   .footer-right {
+       margin-bottom: 0;
+   }
+
+   #lastModified {
+       text-align: right;
+   }
+}
