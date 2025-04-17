@@ -20,14 +20,27 @@
    }
 
    #weather-section {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.5rem;
+      flex: row;
+      gap: 2rem;
    }
 
    #current-weather,
    #forecast-weather {
       flex: 1;
+   }
+
+   #forecast-weather div {
+      display: inline-block;
+      margin-right: 2rem;
+      padding-right: 2rem;
+      border-right: 1px solid #ddd;
+      border-bottom: none;
+   }
+
+   #forecast-weather div:last-child {
+      margin-right: 0;
+      padding-right: 0;
+      border-right: none;
    }
 
    .hero {
@@ -71,5 +84,4 @@
    .footer-right {
       text-align: right;
    }
-}
 }

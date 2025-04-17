@@ -9,10 +9,23 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #2E4053;
-  color: #fff;
   padding: 1em;
-  text-align: center;
+  }
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}  
+
+.logo img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
 }
 
 nav {
@@ -34,12 +47,6 @@ nav ul {
 
 nav.show ul {
   display: flex;
-  flex-direction: column;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 20px;
 }
 
 nav ul li a {
@@ -52,18 +59,7 @@ nav ul li a {
 nav ul li a:hover {
   background-color: #116611;
   border-radius: 4px;
-}
-
-
-nav li {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-}
+} 
 
 .hamburger-menu {
   display: flex;
@@ -72,6 +68,9 @@ nav a {
   width: 30px;
   height: 20px;
   cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .hamburger-menu span {
@@ -81,11 +80,16 @@ nav a {
   border-radius: 2px;
 }
 
-.main {
-  padding: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
+nav.show .hamburger-menu span:nth-child(1),
+nav.show .hamburger-menu span:nth-child(2),
+nav.show .hamburger-menu span:nth-child(3) {
+  display: none;
 }
+
+nav.show .hamburger-menu .close-icon {
+  display: block;
+}
+
 
 
 

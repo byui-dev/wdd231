@@ -1,82 +1,75 @@
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
     .hamburger-menu {
-        display: none;
-     }
-  
-     nav ul {
-        display: flex !important;
-        flex-direction: row;
-        justify-content: flex-end;
-        background-color: transparent;
-        gap: 1rem;
-     }
-  
-     nav ul li {
-        margin-left: 0;
-     }
-  
-     nav ul li a {
-        padding: 0.5rem 0.75rem;
-        font-weight: bold;
-        transition: background-color 0.3s ease, color 0.3s ease;
-     }
-
-     nav ul li a:hover {
-        background-color: #1c2c3a;
-        color: #fff;
-        border-radius: 4px;
-     }
-
+       display: none;
+    }
+ 
+    nav ul {
+       display: flex !important;
+       flex-direction: row;
+       justify-content: flex-end;
+       background-color: transparent;
+    }
+ 
+    nav ul li {
+       margin-left: 1rem;
+    }
+ 
+    nav ul li a {
+       padding: 0.5rem 0.75rem;
+       font-weight: bold;
+    }
+ 
+    #weather-section {
+       display: flex;
+       justify-content: space-between;
+       gap: 0.5rem;
+    }
+ 
+    #current-weather,
+    #forecast-weather {
+       flex: 1;
+    }
+ 
+    .hero {
+       padding: 5rem;
+    }
+ 
+ 
     .cards {
+       flex-direction: column;
+    }
+ 
+    .card {
+       margin: 20px 0;
+    }
+ 
+    /* Highlighted reserves grid for large view */
+    #highlighted-reserves {
        flex-direction: row;
        flex-wrap: wrap;
        justify-content: center;
-       gap: 1.5rem;
     }
-
-    .controls {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .filters {
-         flex-direction: row;
-         gap: 2rem;  
-    }
-
-    .filter-group {
-        flex: 1;
-        min-width: 200px;
-    }
-
-    /* Highlighted reserves grid for large view */
-    #highlighted-reserves {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
+ 
     #highlighted-reserves div {
-        flex: 1 1 300px;
-        max-width: 400px;
+       flex: 1 1 300px;
+       max-width: 400px;
     }
-
+ 
     /* Footer aligment on large screens*/
     footer {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-        padding: 2rem 4rem;
+       flex-direction: row;
+       justify-content: space-between;
+       text-align: left;
+       padding: 2rem 4rem;
     }
-
+ 
     .footer-left,
     .footer-right {
-        flex: 1;
+       flex: 1;
     }
-
+ 
     .footer-right {
-        text-align: right;
+       text-align: right;
     }
-}
+ }
+ 
