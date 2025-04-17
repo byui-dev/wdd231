@@ -12,7 +12,7 @@ export const gameReserves = [
             "Bush walks",
             "Self-drive tours"
         ],
-        image: "images/kruger_national.jpg"
+        image: "kruger_national.jpg"
     },
     {
         id: 2,
