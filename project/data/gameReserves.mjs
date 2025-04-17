@@ -32,7 +32,7 @@ export const gameReserves = [
     {
         id: 3,
         name: "Pilanesberg Game Reserve",
-        location: "North West Province",
+        location: "North West",
         bookingFees: {
             accommodation: 130,
             dayVisit: 30
@@ -102,7 +102,7 @@ export const gameReserves = [
     {
         id: 8,
         name: "Madikwe Game Reserve",
-        location: "North West Province",
+        location: "North West",
         bookingFees: {
             accommodation: 160,
             dayVisit: 35

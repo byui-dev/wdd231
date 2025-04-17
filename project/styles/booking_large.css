@@ -1,75 +1,106 @@
-@media (min-width: 768px) {
-    .hamburger-menu {
-       display: none;
-    }
- 
-    nav ul {
-       display: flex !important;
-       flex-direction: row;
-       justify-content: flex-end;
-       background-color: transparent;
-    }
- 
-    nav ul li {
-       margin-left: 1rem;
-    }
- 
-    nav ul li a {
-       padding: 0.5rem 0.75rem;
-       font-weight: bold;
-    }
- 
-    #weather-section {
-       display: flex;
-       justify-content: space-between;
-       gap: 0.5rem;
-    }
- 
-    #current-weather,
-    #forecast-weather {
-       flex: 1;
-    }
- 
-    .hero {
-       padding: 5rem;
-    }
- 
- 
-    .cards {
-       flex-direction: column;
-    }
- 
-    .card {
-       margin: 20px 0;
-    }
- 
-    /* Highlighted reserves grid for large view */
-    #highlighted-reserves {
-       flex-direction: row;
-       flex-wrap: wrap;
-       justify-content: center;
-    }
- 
-    #highlighted-reserves div {
-       flex: 1 1 300px;
-       max-width: 400px;
-    }
- 
-    /* Footer aligment on large screens*/
-    footer {
-       flex-direction: row;
-       justify-content: space-between;
-       text-align: left;
-       padding: 2rem 4rem;
-    }
- 
-    .footer-left,
-    .footer-right {
-       flex: 1;
-    }
- 
-    .footer-right {
-       text-align: right;
-    }
- }
- 
+/* Large Screen Styles for booking.html */
+@media screen and (min-width: 768px) {
+
+   /* HEADER */
+   header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 5%;
+   }
+
+   .logo h1 {
+      font-size: 1.8rem;
+   }
+
+   /* Navigation */
+   #main-nav {
+      margin-top: 0;
+   }
+
+   #nav-links {
+      display: flex !important;
+      flex-direction: row;
+      gap: 2rem;
+      background-color: transparent;
+   }
+
+   #nav-links li {
+      margin: 0;
+   }
+
+   #nav-links a {
+      padding: 0.5rem 0;
+   }
+
+   .hamburger-menu {
+      display: none;
+   }
+
+   /* Booking Form */
+   #booking-form {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2.5rem;
+   }
+
+   /* Form Layout - Two Columns */
+   #booking-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+   }
+
+   /* Elements that should span both columns */
+   #booking-form button {
+      grid-column: span 2;
+      max-width: 300px;
+      justify-self: center;
+   }
+
+   /* Thank You Page */
+   #thank-you-page {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2.5rem;
+   }
+
+   /* Footer */
+   footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 3rem 5%;
+   }
+
+   .footer-left,
+   .footer-right {
+      margin-bottom: 0;
+   }
+
+   .footer-left {
+      flex: 3;
+   }
+
+   .footer-right {
+      flex: 2;
+      text-align: right;
+   }
+}
+
+/* Very Large Screens */
+@media screen and (min-width: 1200px) {
+   header {
+      padding: 1rem 10%;
+   }
+
+   #booking-form,
+   #thank-you-page {
+      max-width: 1000px;
+      padding: 3rem;
+   }
+
+   footer {
+      padding: 3rem 10%;
+   }
+}

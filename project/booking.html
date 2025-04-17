@@ -25,7 +25,7 @@
         rel="stylesheet">
 
     <script src="scripts/date.js" defer></script>
-    <script src="scripts/booking.js" defer></script>
+    <script type="module" src="scripts/booking.js"></script>
     <script src="scripts/navigation.js" defer></script>
 
     <link rel="icon" href="favicon_4.ico">
@@ -34,21 +34,25 @@
 <body>
     <header>
         <div class="logo">
-            <img src="logo-image-url" alt="logo">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="directory.html">Directory</a></li>
-                    <li><a href="booking.html">Booking</a></li>
-                </ul>
-                <div class="hamburger-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span class="close-icon">&times;</span>
-                </div>
-            </nav>
-    </header>
+          <img src="images/logo.png" alt="Logo">
+          <h1>SA Game Reserves</h1>
+        </div>
+      
+        <nav id="main-nav">
+          <div class="hamburger-menu" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="close-icon">&times;</span>
+          </div>
+          <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="booking.html">Bookings</a></li>
+          </ul>
+        </nav>
+      </header>
+      
 
     <form id="booking-form">
 
@@ -88,11 +92,11 @@
 
         <h2>Thank your for your booking</h2>
 
-        <p id="booking-sumary"></p>
+        <p id="booking-summary"></p>
 
     </div>
 
-    <div id="modal-container style=" display: none;"></div>
+    <div id="modal-container" style="display: none;"></div>
 
     <footer>
         <div class="footer-left">

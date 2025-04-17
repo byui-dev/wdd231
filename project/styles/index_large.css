@@ -1,87 +1,132 @@
-@media (min-width: 768px) {
+/* Large Screen Styles for index.html */
+@media screen and (min-width: 768px) {
+   /* HEADER */
+   header {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 1rem 5%;
+   }
+ 
+   .logo h1 {
+     font-size: 1.8rem;
+   }
+ 
+   /* Navigation */
+   #main-nav {
+     margin-top: 0;
+   }
+ 
+   #nav-links {
+     display: flex !important;
+     flex-direction: row;
+     gap: 2rem;
+     background-color: transparent;
+   }
+ 
+   #nav-links li {
+     margin: 0;
+   }
+ 
+   #nav-links a {
+     padding: 0.5rem 0;
+   }
+ 
    .hamburger-menu {
-      display: none;
+     display: none;
    }
-
-   nav ul {
-      display: flex !important;
-      flex-direction: row;
-      justify-content: flex-end;
-      background-color: transparent;
-   }
-
-   nav ul li {
-      margin-left: 1rem;
-   }
-
-   nav ul li a {
-      padding: 0.5rem 0.75rem;
-      font-weight: bold;
-   }
-
-   #weather-section {
-      flex: row;
-      gap: 2rem;
-   }
-
-   #current-weather,
-   #forecast-weather {
-      flex: 1;
-   }
-
-   #forecast-weather div {
-      display: inline-block;
-      margin-right: 2rem;
-      padding-right: 2rem;
-      border-right: 1px solid #ddd;
-      border-bottom: none;
-   }
-
-   #forecast-weather div:last-child {
-      margin-right: 0;
-      padding-right: 0;
-      border-right: none;
-   }
-
+ 
+   /* Hero Section */
    .hero {
-      padding: 5rem;
+     height: 70vh;
    }
-
-
-   .cards {
-      flex-direction: column;
+ 
+   .hero-content {
+     max-width: 800px;
    }
-
-   .card {
-      margin: 20px 0;
+ 
+   .hero h1 {
+     font-size: 3.5rem;
    }
-
-   /* Highlighted reserves grid for large view */
+ 
+   .hero h2 {
+     font-size: 2rem;
+   }
+ 
+   .hero p {
+     font-size: 1.3rem;
+   }
+ 
+   /* Weather Section */
+   #weather-section {
+     margin: 3rem 5%;
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+   }
+ 
+   #current-weather {
+     flex: 1;
+     margin-bottom: 0;
+     margin-right: 2rem;
+   }
+ 
+   #forecast-weather {
+     flex: 2;
+     flex-direction: row;
+     justify-content: space-between;
+   }
+ 
+   /* Game Reserves Section */
+   #reserves-section {
+     padding: 2rem 5%;
+   }
+ 
+   #reserves-section h2 {
+     font-size: 2.2rem;
+   }
+ 
    #highlighted-reserves {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
+     grid-template-columns: repeat(3, 1fr);
    }
-
-   #highlighted-reserves div {
-      flex: 1 1 300px;
-      max-width: 400px;
-   }
-
-   /* Footer aligment on large screens*/
+ 
+   /* Footer */
    footer {
-      flex-direction: row;
-      justify-content: space-between;
-      text-align: left;
-      padding: 2rem 4rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     padding: 3rem 5%;
    }
-
-   .footer-left,
+ 
+   .footer-left, .footer-right {
+     margin-bottom: 0;
+   }
+ 
+   .footer-left {
+     flex: 3;
+   }
+ 
    .footer-right {
-      flex: 1;
+     flex: 2;
+     text-align: right;
    }
-
-   .footer-right {
-      text-align: right;
+ }
+ 
+ /* Very Large Screens */
+ @media screen and (min-width: 1200px) {
+   header, #weather-section, #reserves-section {
+     padding: 1rem 10%;
    }
-}
+ 
+   #weather-section {
+     margin: 3rem 10%;
+   }
+ 
+   .hero-content {
+     max-width: 1000px;
+   }
+ 
+   footer {
+     padding: 3rem 10%;
+   }
+ }

@@ -1,75 +1,121 @@
-@media (min-width: 768px) {
-    .hamburger-menu {
-       display: none;
-    }
+/* Large Screen Styles for directory.html */
+@media screen and (min-width: 768px) {
+   /* HEADER */
+   header {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 1rem 5%;
+   }
  
-    nav ul {
-       display: flex !important;
-       flex-direction: row;
-       justify-content: flex-end;
-       background-color: transparent;
-    }
+   .logo h1 {
+     font-size: 1.8rem;
+   }
  
-    nav ul li {
-       margin-left: 1rem;
-    }
+   /* Navigation */
+   #main-nav {
+     margin-top: 0;
+   }
  
-    nav ul li a {
-       padding: 0.5rem 0.75rem;
-       font-weight: bold;
-    }
+   #nav-links {
+     display: flex !important;
+     flex-direction: row;
+     gap: 2rem;
+     background-color: transparent;
+   }
  
-    #weather-section {
-       display: flex;
-       justify-content: space-between;
-       gap: 0.5rem;
-    }
+   #nav-links li {
+     margin: 0;
+   }
  
-    #current-weather,
-    #forecast-weather {
-       flex: 1;
-    }
+   #nav-links a {
+     padding: 0.5rem 0;
+   }
  
-    .hero {
-       padding: 5rem;
-    }
+   .hamburger-menu {
+     display: none;
+   }
  
+   /* Main Content */
+   main {
+     padding: 2rem 5%;
+   }
  
-    .cards {
-       flex-direction: column;
-    }
+   main h2 {
+     font-size: 2.2rem;
+   }
  
-    .card {
-       margin: 20px 0;
-    }
+   /* Controls Section */
+   .controls {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 1.5rem 2rem;
+   }
  
-    /* Highlighted reserves grid for large view */
-    #highlighted-reserves {
-       flex-direction: row;
-       flex-wrap: wrap;
-       justify-content: center;
-    }
+   .filters {
+     flex-direction: row;
+     gap: 2rem;
+     margin-bottom: 0;
+   }
  
-    #highlighted-reserves div {
-       flex: 1 1 300px;
-       max-width: 400px;
-    }
+   .view-toggle-btn {
+     width: auto;
+   }
  
-    /* Footer aligment on large screens*/
-    footer {
-       flex-direction: row;
-       justify-content: space-between;
-       text-align: left;
-       padding: 2rem 4rem;
-    }
+   /* Reserves Container */
+   #reserves-container.grid {
+     grid-template-columns: repeat(3, 1fr);
+   }
  
-    .footer-left,
-    .footer-right {
-       flex: 1;
-    }
+   /* List View */
+   #reserves-container.list .reserve-card {
+     flex-direction: row;
+   }
  
-    .footer-right {
-       text-align: right;
-    }
+   #reserves-container.list .reserve-card img {
+     width: 250px;
+     height: 100%;
+     object-fit: cover;
+   }
+ 
+   #reserves-container.list .reserve-card-content {
+     flex: 1;
+   }
+ 
+   /* Footer */
+   footer {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     padding: 3rem 5%;
+   }
+ 
+   .footer-left, .footer-right {
+     margin-bottom: 0;
+   }
+ 
+   .footer-left {
+     flex: 3;
+   }
+ 
+   .footer-right {
+     flex: 2;
+     text-align: right;
+   }
  }
  
+ /* Very Large Screens */
+ @media screen and (min-width: 1200px) {
+   header, main {
+     padding: 1rem 10% 2rem;
+   }
+ 
+   #reserves-container.grid {
+     grid-template-columns: repeat(4, 1fr);
+   }
+ 
+   footer {
+     padding: 3rem 10%;
+   }
+ }
