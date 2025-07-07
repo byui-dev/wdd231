@@ -1,9 +1,9 @@
 // For navigation.js
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.getElementById('hamburger');
-    const menuNav = document.getElementById('menuNav');
-    
-    hamburger.addEventListener('click', function() {
-      menuNav.classList.toggle('open');
-    });
-  });
+const navbutton = document.querySelector('#ham-btn');
+const navlinks = document.querySelector('#nav-bar');
+
+// Toggle the show class on and off
+navbutton.addEventListener('click', () => {
+  navbutton.classList.toggle('show');
+  navlinks.classList.toggle('show');
+});
