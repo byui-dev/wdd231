@@ -22,7 +22,23 @@
         font-size: 1.5rem;
     }
 
-    
+    .navigation {
+        display: block;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+    }
+
+    li {
+        flex: 1 1 100%;
+    }
+
+
 
     /* Main content adjustments */
     main {
@@ -100,10 +116,16 @@
         font-size: 1.8rem;
     }
 
-    /* Navigation adjustments */
-    .mainNav a {
-        padding: 18px 25px;
-        font-size: 1.1rem;
+    .navigation {
+        display: block;
+    }
+
+    nav ul {
+        display: flex;
+    }
+
+    li {
+        flex: 1 1 100%;
     }
 
     /* Main content adjustments */

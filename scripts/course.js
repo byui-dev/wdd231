@@ -17,7 +17,7 @@ function displayCourses(filteredCourses) {
 
     // Clear previous content
     container.innerHTML = '';
-    
+
     let totalCredits = 0;
 
     filteredCourses.forEach(course => {
@@ -29,7 +29,7 @@ function displayCourses(filteredCourses) {
 
         // Display subject and number together
         courseDiv.textContent = `${course.subject} ${course.number}`;
-        
+
         // Add click event for details
         courseDiv.onclick = () => showDetails(course);
 
@@ -37,7 +37,7 @@ function displayCourses(filteredCourses) {
     });
 
     // Update total credits display
-    totalCreditsDiv.textContent = `Total Credits: ${totalCredits}`;
+    totalCreditsDiv.textContent = `The total credits for course listed above is ${totalCredits}`;
 }
 
 /**
@@ -47,7 +47,7 @@ function displayCourses(filteredCourses) {
 function filterCourses(category) {
     const detailsContainer = document.getElementById('courseDetails');
     detailsContainer.innerHTML = '';
-    
+
     let filtered = courses;
 
     if (category !== 'all') {
@@ -73,6 +73,6 @@ function showDetails(course) {
 }
 
 // Initialize course display when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     filterCourses('all');
 });

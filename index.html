@@ -10,7 +10,6 @@
 
     <!-- Normalize first -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="styles/normalize.css">
 
     <!-- Mobile-First Styles -->
     <link rel="stylesheet" href="styles/small.css">
@@ -39,34 +38,33 @@
     <header>
         <img class="pic" src="images/obakeng_picture.jpg" alt="Picture of Obakeng K. Diphala">
         <span>Obakeng K. Diphala</span>
-        <button id="ham-btn" class="hamburger" </button>
+        <button id="ham-btn" class="hamburger"</button>
     </header>
 
     <nav id="nav-bar" class="navigation">
-        <ul> 
-            <li class="current" a href="index.html">Home</a></li>
-            <li><a href="#">Chamber</a></li>
-            <li><a href="#">GitHub Profile</a></li>
-            <li><a href="#">LinkedIn</a></li>
-        </ul>        
+        <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li><a href="#">Chamber Project</a></li>
+            <li><a href="#">Final Project</a></li>
+        </ul>
     </nav>
 
     <main>
         <h2>Home</h2>
         <div class="main-container">
             <section class="cards">
-                <h3>Course Work</h3>
-                <p>.</p>
-                <p>.</p>
-                <p>.</p>
-                <p>.</p>
+                <h3>About Me</h3>
+                <p>My name is Obakeng Kennedy Diphala, and I am originally from Mahikeng, in South Africa, which is also
+                    where I grew up.</p>
+                <p>I have a passion for web development and design, and I am currently pursuing a degree in this field.
+                </p>
+                <p>In my free time, I enjoy exploring new technologies and working on personal projects.</p>
+                <p>I am excited to share my journey and projects with you!</p>
             </section>
             <section class="cards">
-                <h2>Mahikeng, South Africa</h2>
+                <h2>Student Photo</h2>
                 <div class="card-image">
-                    <img id="image" src="images/mahikeng_pic.jpeg"
-                        alt="Historic Mahikeng Museum building in South Africa">
-                    <p>Mahikeng Museum</p>
+                    <img id="image" src="images/obakeng_picture.jpg" alt="Picture of Obakeng Diphala">
                 </div>
             </section>
         </div>
@@ -74,8 +72,6 @@
         <div class="container">
             <section class="filterCourses">
                 <h2>Web and Computer Programming Certificate</h2>
-
-                <div class="credits" id="totalCredits">Total Credits: 0</div>
 
                 <div class="buttons">
                     <button onclick="filterCourses('all')">All</button>
@@ -85,14 +81,25 @@
 
                 <div class="courses" id="courses"></div>
                 <div class="details" id="courseDetails"></div>
+
+                <div class="credits" id="totalCredits">The total credits for the course listed above is 0</div>
             </section>
         </div>
     </main>
 
     <footer>
+        <div class="social">
+            <a href="https://www.linkedin.com/in/obakengdiphala/" target="_blank"><img src="images/linkedin_2.svg"
+                    alt="LinkedIn" width="16" height="16"></a>
+            <a href="https://github.com/byui-dev/wdd231" target="_blank"><img src="images/github_2.svg" alt="GitHub"
+                    width="16" height="16"></a>
+            <a href="https://x.com/obakengkdiphala" target="_blank"><img src="images/twitter-x.svg" alt="X" width="16"
+                    height="16"></a>
+        </div>
+
         <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
         <p id="lastModified"></p>
-        <img src="images/south-african-flag.png" alt="South African flag representing the country of origin">
+
     </footer>
 </body>
 
