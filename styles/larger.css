@@ -75,20 +75,28 @@
 
     /* Footer adjustments */
     footer {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 20px;
-        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 30px;
+        text-align: center;
     }
 
-    footer p:first-child {
-        margin-right: auto;
+    .social {
+        display: flex;
+        justify-content: center;
+        column-gap: 12px;
+        margin-bottom: 12px;
     }
 
-    footer img {
-        width: 80px;
-        margin-top: 0;
-        margin-left: 20px;
+    .social a {
+        width: 44px;
+        height: 44px;
+    }
+
+    footer p {
+        margin: 4px 0;
+
     }
 }
 
@@ -164,5 +172,31 @@
 
     .button:hover {
         background-color: #0056b3;
+    }
+
+    /* Footer adjustments */
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 30px;
+        text-align: center;
+    }
+
+    .social {
+        display: flex;
+        justify-content: center;
+        column-gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .social a {
+        width: 44px;
+        height: 44px;
+    }
+
+    footer p {
+        margin: 4px 0;
+
     }
 }
