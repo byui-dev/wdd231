@@ -53,52 +53,56 @@ header span {
     /* Add spacing for better readability */
 }
 
-/* Navigation Styles */
-.mainNav {
-    display: none;
-    /* Hidden by default on small screens */
-    flex-direction: column;
-    width: 100%;
-    background-color: #2c3e50;
-}
-
-.mainNav a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-weight: 500;
-    /* Make links more prominent */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    /* Smooth hover effect */
-}
-
-.mainNav a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #f4f4f4;
-    /* Change text color on hover */
-}
-
-/* Hamburger Menu Styles */
-.hamburger {
-    display: block;
+hamburger {
+    background: none;
+    border: none;
+    color: #3D405B;
     cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    transition: all 0.3s ease;
-    border-radius: 2px;
-    /* Soften edges */
+.hamburger::before {
+    content: "\2630";
+    font-size: 2rem;
 }
+
+.hamburger.show::before {
+    content: "\00D7";
+}
+
+/*------------------------NAVIGATION----------------------------------*/
+.navigation {
+    display: none;
+}
+
+.navigation.show {
+    display: block;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation a {
+    display: block;
+    padding: .8rem 10px;
+    color: #3D405B;
+    text-decoration: none;
+    border-bottom: solid 1px #ddd;
+}
+
+.navigation li.current {
+    background-color: #eee;
+}
+
+.navigation a:hover {
+    background-color: #E07A5F;
+}
+
+
+
 
 /* Main content styles */
 main {
@@ -256,27 +260,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Responsive Navigation */
-.mainNav.responsive {
-    display: flex;
-}
 
-/* Hamburger Animation */
-.hamburger.open div:nth-child(1) {
-    -webkit-transform: rotate(45deg) translate(5px, 5px);
-    -ms-transform: rotate(45deg) translate(5px, 5px);
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.open div:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.open div:nth-child(3) {
-    -webkit-transform: rotate(-45deg) translate(5px, -5px);
-    -ms-transform: rotate(-45deg) translate(5px, -5px);
-    transform: rotate(-45deg) translate(5px, -5px);
-}
 
 /* Media Queries for additional responsiveness */
 @media screen and (max-width: 600px) {

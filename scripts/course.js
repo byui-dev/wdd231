@@ -31,7 +31,7 @@ function displayCourses(filteredCourses) {
         courseDiv.textContent = `${course.subject} ${course.number}`;
 
         // Add click event for details
-        courseDiv.onclick = () => showDetails(course);
+        courseDiv.addEventListener('click', () => showDetails(course));
 
         container.appendChild(courseDiv);
     });

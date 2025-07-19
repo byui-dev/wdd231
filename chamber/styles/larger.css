@@ -1,83 +1,87 @@
-/* Layout overrides */
-body {
-    max-width: 1600px;
-    font-size: 1.1rem;
+/* Tablet and larger screens (768px and up) */
+@media (min-width: 768px) {
+    body {
+        padding: 0 20px;
+    }
+
+    /* Header adjustments */
+    header {
+        padding: 15px 20px;
+        min-height: 100px;
+    }
+
+    header .pic {
+        width: 90px;
+        /* Larger but still fits in header */
+        height: 90px;
+        margin-right: 20px;
+        border-width: 3px;
+    }
+
+    header span {
+        font-size: 1.5rem;
+    }
+
+    .navigation {
+        display: block;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+    }
+
+    li {
+        flex: 1 1 100%;
+    }
+
+/* Desktop and larger screens (1024px and up) */
+@media (min-width: 1024px) {
+    body {
+        padding: 0 30px;
+    }
+
+    /* Header adjustments */
+    header {
+        padding: 20px 30px;
+        min-height: 120px;
+    }
+
+    header .pic {
+        width: 110px;
+        /* Larger but still fits in header */
+        height: 110px;
+        margin-right: 25px;
+        border-width: 4px;
+    }
+
+    header span {
+        font-size: 1.8rem;
+    }
+
+    .navigation {
+        display: block;
+    }
+
+    nav ul {
+        display: flex;
+    }
+
+    li {
+        flex: 1 1 100%;
+    }
 }
 
-header {
-    padding: 2rem;
-    flex-wrap: nowrap;
-}
+    /* Footer adjustments */
+    footer {
+        padding: 20px 30px;
+        font-size: 1.2rem;
+    }
 
-header .pic {
-    max-width: 200px;
-}
-
-.header-title {
-    font-size: 2rem;
-}
-
-/* Nav always visible on large screens */
-.mainNav {
-    display: flex !important;
-    flex-direction: row;
-    justify-content: center;
-    gap: 2rem;
-    background-color: transparent;
-    position: static;
-}
-
-.hamburger-menu {
-    display: none;
-}
-
-/* Main layout side by side */
-main {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 2rem;
-}
-
-.layout-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: flex-start;
-    padding: 2rem;
-}
-
-.form-section,
-.modal-section {
-    display: flex;
-    flex-direction: column;
-}
-
-form {
-    flex: 1;
-}
-
-#modals-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.membership-card {
-    height: 100%;
-}
-
-
-dialog {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Footer side-by-side */
-footer {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3rem;
-    text-align: left;
-}
+    footer p {
+        margin: 0;
+    }
+}    

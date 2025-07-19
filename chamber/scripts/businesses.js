@@ -113,28 +113,21 @@ if (document.readyState === 'loading') {
     initializeDirectory();
 }
 
-function initializeDirectory() {
-    var gridButton = document.getElementById('grid');
-    var listButton = document.getElementById('list');
-    var cardsContainer = document.getElementById('cards-container');
+const gridbutton = document.querySelector("#grid");
+const listbutton = document.querySelector("#list");
+const display = document.querySelector("article");
 
-    // Only init view toggle if elements exist
-    if (gridButton && listButton && cardsContainer) {
-        gridButton.addEventListener('click', function () {
-            cardsContainer.classList.remove('list');
-            cardsContainer.classList.add('grid');
-            gridButton.classList.add('active');
-            listButton.classList.remove('active');
-        });
+// The following code could be written cleaner. How? We may have to simplfiy our HTMl and think about a default view.
 
-        listButton.addEventListener('click', function () {
-            cardsContainer.classList.remove('grid');
-            cardsContainer.classList.add('list');
-            listButton.classList.add('active');
-            gridButton.classList.remove('active');
-        });
-    }
+gridbutton.addEventListener("click", () => {
+	// example using arrow function
+	display.classList.add("grid");
+	display.classList.remove("list");
+});
 
-    // Initialize card creation
-    createCardsFromJSON();
+listbutton.addEventListener("click", showList); // example using defined function
+
+function showList() {
+	display.classList.add("list");
+	display.classList.remove("grid");
 }
