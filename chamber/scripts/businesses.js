@@ -5,7 +5,7 @@ function displayError(message) {
     if (loadingElement) loadingElement.remove();
 
     if (container) {
-        let existingError = container.querySelector('.error');
+        let existingError = container.querySelector('.error-message');
         if (!existingError) {
             const errorElement = document.createElement('div');
             errorElement.className = 'error';
@@ -14,7 +14,6 @@ function displayError(message) {
         } else {
             existingError.textContent = message;
         }
-
     }
 }
 
@@ -40,7 +39,7 @@ function createCardsFromJSON() {
                 throw new Error('Cards container not found');
             }
 
-            if loadingElement) {
+            if (loadingElement) {
                 loadingElement.remove();
             }
 
@@ -60,12 +59,24 @@ function createCardsFromJSON() {
                 phone.textContent = `Phone: ${item.phone}`;
 
                 const website = document.createElement('a');
+                website.href = item.website;
+                website.textContent = 'website';
+                website.target = '_blank';
+                website.rel = 'noopener';
 
-
-
-
-            }
-
-
-
-}
+                const membership = document.createElement('p');
+                let membershipLevel = '';
+                switch (item.membership) {
+                    case '3':
+                        membershipLevel = 'Gold Member';
+                        break;
+                    case '2':
+                        membershipLevel = 'Silver Member';
+                        break;
+                    case '1':
+                        membershipLevel = 'Bronze Member';
+                        break;
+                    default:
+                        membershipLevel = 'Member';
+                }
+                membership.textContent = `Membership: ${membershipLevel}`;
