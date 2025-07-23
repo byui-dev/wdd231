@@ -38,50 +38,84 @@
         flex: 1 1 100%;
     }
 
-/* Desktop and larger screens (1024px and up) */
-@media (min-width: 1024px) {
-    body {
-        padding: 0 30px;
-    }
-
-    /* Header adjustments */
-    header {
-        padding: 20px 30px;
-        min-height: 120px;
-    }
-
-    header .pic {
-        width: 110px;
-        /* Larger but still fits in header */
-        height: 110px;
-        margin-right: 25px;
-        border-width: 4px;
-    }
-
-    header span {
-        font-size: 1.8rem;
-    }
-
-    .navigation {
-        display: block;
-    }
-
-    nav ul {
-        display: flex;
-    }
-
-    li {
-        flex: 1 1 100%;
-    }
-}
-
-    /* Footer adjustments */
     footer {
+        display: flex;
+        align-items: center;
         padding: 20px 30px;
         font-size: 1.2rem;
     }
 
-    footer p {
+    .footer-left {
+        text-align: left;
+    }
+
+    .footer-right {
+        text-align: right;
+    }
+
+    .footer-left p,
+    .footer-right p {
         margin: 0;
     }
-}    
+
+
+
+
+    /* Desktop and larger screens (1024px and up) */
+    @media (min-width: 1024px) {
+        body {
+            padding: 0 30px;
+        }
+
+        /* Header adjustments */
+        header {
+            padding: 20px 30px;
+            min-height: 120px;
+        }
+
+        header .pic {
+            width: 110px;
+            /* Larger but still fits in header */
+            height: 110px;
+            margin-right: 25px;
+            border-width: 4px;
+        }
+
+        header span {
+            font-size: 1.8rem;
+        }
+
+        .navigation {
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        li {
+            flex: 1 1 100%;
+        }
+    }
+
+    /* Footer adjustments */
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px;
+    }
+
+    .footer-left {
+        text-align: left;
+    }
+
+    .footer-right {
+        text-align: right;
+    }
+
+    .footer-left p,
+    .footer-right p {
+        margin: 0;
+    }
+}

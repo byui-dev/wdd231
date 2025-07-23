@@ -80,3 +80,53 @@ function createCardsFromJSON() {
                         membershipLevel = 'Member';
                 }
                 membership.textContent = `Membership: ${membershipLevel}`;
+
+                const image = document.createElement('img');
+                image.src = item.imageUrl;
+                image.alt = `${item.name} logo`;
+                image.className = 'card-image';
+                image.loading = 'lazy'; // Lazy loading for images
+
+                // Fallback for missing images
+                image.onerror = () => {
+                    image.src = 'images/placeholder.jpg'; // Default image path
+                    image.alt = 'Default placeholder logo';
+                };
+
+                card.append(image, name, address, phone, website, membership);
+                fragment.appendChild(card);
+            });
+
+            cardsContainer.appendChild(fragment);
+        })
+        .catch(error => {
+            displayError('Could not load business directory. Please try again later.');
+            console.error('Error fetching or processing data:', error);
+        });
+}
+
+function initializeViewSwitching() {
+    const gridBtn = document.getElementById('grid');
+    const listBtn = document.getElementById('list');
+    const cardsContainer = document.getElementById('cards-container');
+
+    if (gridBtn && listBtn && cardsContainer) {
+
+        gridBtn.addEventListener('click', () => {
+            cardsContainer.className = 'grid';
+            gridBtn.classList.add('active');
+            listBtn.classList.remove('active');
+        });
+
+        listBtn.addEventListener('click', () => {
+            cardsContainer.className = 'list';
+            listBtn.classList.add('active');
+            gridBtn.classList.remove('active');
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    createCardsFromJSON();
+    initializeViewSwitching();
+});

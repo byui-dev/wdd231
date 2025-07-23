@@ -155,6 +155,17 @@ h2 {
     background-color: #0056b3;
 }
 
+.error {
+    color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.1);
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+}
+
+
 /* Cards Container with fallbacks */
 #cards-container {
     display: block;
@@ -218,18 +229,17 @@ h2 {
     text-decoration: none;
 }
 
-#loading,
-.error-message {
+.card-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+#loading {
     text-align: center;
     padding: 2rem;
     font-size: 1.2rem;
-}
-
-.error-message {
-    color: #dc3545;
-    background-color: rgba(220, 53, 69, 0.1);
-    border: 1px solid #dc3545;
-    border-radius: 4px;
 }
 
 /* Footer Styles - consolidated */
@@ -244,10 +254,6 @@ footer {
     /* Add spacing for readability */
 }
 
-.footer-left,
-.footer-right {
-    margin-bottom: 1rem;
-}
 
 footer a {
     color: #3498db;
@@ -260,37 +266,14 @@ footer a:hover {
     text-decoration: underline;
 }
 
-
-
-/* Media Queries for additional responsiveness */
-@media screen and (max-width: 600px) {
-    .card h3 {
-        order: 1;
-    }
-
-    .card .weather-icon {
-        order: 2;
-    }
-
-    header {
-        flex-direction: column;
-        /* Stack header elements */
-        text-align: center;
-        /* Center-align content */
-    }
-
-    .menu {
-        flex-direction: column;
-        /* Stack buttons */
-    }
-
-    .menu button {
-        width: 100%;
-        /* Full-width buttons */
+@media (min-width: 768px) {
+    #cards-container.grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Helper classes */
-.hidden {
-    display: none;
+@media (min-width: 1024px) {
+    #cards-container.grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
