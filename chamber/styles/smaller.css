@@ -1,189 +1,226 @@
 /* Reset and base styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Roboto', Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-  
-  /* Header */
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #2c3e50;
-    color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    flex-wrap: wrap;
-  }
-  
-  header .pic {
-    max-width: 120px;
-    height: auto;
-  }
-  
-  .header-title {
-    font-size: 1.3rem;
-    font-weight: bold;
-    text-align: center;
-    flex-grow: 1;
-  }
-  
-  .hamburger-menu {
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-  
-  /* Navigation */
-  .mainNav {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #2c3e50;
-  }
-  
-  .mainNav a {
-    padding: 0.75rem;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .mainNav a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  /* Form + Modal Layout */
-  main {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .layout-wrapper {
-     display: flex;
-     flex-direction: column;
-     gap: 2rem;
-     padding: 1rem;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .form-section, 
-  .modal-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0 auto;
+  padding: 1rem;
+}
 
-  .form-section h2,
-  .modal-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #2c3e50;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  form label {
-    display: flex;
-    flex-direction: column;
-    font-weight: 500;
-  }
-  
-  form input,
-  form select,
-  form textarea {
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  form button {
-    padding: 0.75rem;
-    background-color: #2c3e50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  form button:hover {
-    background-color: #1a242f;
-  }
-  
-  /* Modal Cards */
-  #modals-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .membership-card {
-    padding: 1rem;
-    border: 2px solid #ccc;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .membership-card button {
-    margin-top: 0.5rem;
-  }
-  
-  /* Dialog Box */
-  dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-  
-  dialog {
-    border: none;
-    border-radius: 10px;
-    padding: 1.5rem;
-    max-width: 400px;
-    width: 90%;
-  }
-  
-  .more-info {
-    margin-top: 1rem;
-    display: none;
-  }
-  
-  .more-info.visible {
-    display: block;
-  }
-  
-  /* Footer */
-  footer {
-    padding: 2rem 1rem;
-    background-color: #2c3e50;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
-  
-  footer a {
-    color: #1abc9c;
-    text-decoration: none;
-  }
-  
-  footer a:hover {
-    text-decoration: underline;
-  }
-  
+header .pic {
+  max-width: 120px;
+  height: auto;
+}
+
+.header-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+}
+
+header span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+  text-transform: uppercase;
+  /* Improve text emphasis */
+  letter-spacing: 1px;
+  /* Add spacing for better readability */
+}
+
+
+hamburger {
+  background: none;
+  border: none;
+  color: #3D405B;
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.hamburger::before {
+  content: "\2630";
+  font-size: 2rem;
+}
+
+.hamburger.show::before {
+  content: "\00D7";
+}
+
+/*------------------------NAVIGATION----------------------------------*/
+.navigation {
+  display: none;
+}
+
+.navigation.show {
+  display: block;
+}
+
+.navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation a {
+  display: block;
+  padding: .8rem 10px;
+  color: #3D405B;
+  text-decoration: none;
+  border-bottom: solid 1px #ddd;
+}
+
+.navigation li.current {
+  background-color: #eee;
+}
+
+.navigation a:hover {
+  background-color: #E07A5F;
+}
+
+
+
+/* Form + Modal Layout */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.form-section,
+.modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-section h2,
+.modal-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+form input,
+form select,
+form textarea {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  padding: 0.75rem;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #1a242f;
+}
+
+/* Modal Cards */
+#modals-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.membership-card {
+  padding: 1rem;
+  border: 2px solid #ccc;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.membership-card button {
+  margin-top: 0.5rem;
+}
+
+/* Dialog Box */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+dialog {
+  border: none;
+  border-radius: 10px;
+  padding: 1.5rem;
+  max-width: 400px;
+  width: 90%;
+}
+
+.more-info {
+  margin-top: 1rem;
+  display: none;
+}
+
+.more-info.visible {
+  display: block;
+}
+
+/* Footer Styles - consolidated */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  /* Adjust font size for better balance */
+  letter-spacing: 0.5px;
+  /* Add spacing for readability */
+}
+
+
+footer a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  /* Make links more prominent */
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

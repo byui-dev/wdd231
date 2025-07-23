@@ -10,6 +10,15 @@
         min-height: 100px;
     }
 
+    .layout-wrapper {
+        gap: 2rem;
+    }
+
+    .form-section,
+    .modal-section {
+        padding: 0 1rem;
+    }
+
     header .pic {
         width: 90px;
         /* Larger but still fits in header */
@@ -96,6 +105,26 @@
         li {
             flex: 1 1 100%;
         }
+    }
+
+    .layout-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .form-section {
+        flex: 1;
+        max-width: 48%;
+    }
+
+    .modal-section {
+        flex: 1;
+        max-width: 48%;
+    }
+
+    #modals-container {
+        flex-direction: column;
     }
 
     /* Footer adjustments */
