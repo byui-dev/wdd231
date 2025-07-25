@@ -325,8 +325,8 @@ footer a:hover {
 
 /* Spotligh card content*/
 .spotlight-card img {
-    width: 50%;
-    height: 75px;
+    width: 60%;
+    height: 80px;
     border-radius: 8px;
     margin-bottom: 0.75rem;
 }
