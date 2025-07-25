@@ -26,6 +26,7 @@
 
     <script src="scripts/date.js" defer></script>
     <script src="scripts/membership.js" defer></script>
+    <script src="scripts/thankyou.js" defer></script>
     <script src="scripts/navigation.js" defer></script>
 
     <link rel="icon" href="favicon_3.ico">
@@ -53,7 +54,7 @@
         <section class="form-section">
             <h2>Join Our Chamber</h2>
 
-            <form id="membership-form">
+            <form id="membership-form" action="thankyou.html" method="GET">
                 <label for="firstName" title="Enter your first name">
                     First Name:
                     <input type="text" id="firstName" name="first_name" title="Enter your first name"
@@ -103,7 +104,8 @@
 
                 <input type="hidden" id="timestamp" name="timestamp">
 
-                <button type="submit" id="submit" title="Submit your application">Submit</button>
+                <button type="submit" id="submit" title="Submit your application">Join Us</button>
+            
             </form>
         </section>
 

@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   const modalsContainer = document.getElementById('modals-container');
   const form = document.getElementById('membership-form');

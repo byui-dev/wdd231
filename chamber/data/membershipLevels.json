@@ -1,6 +1,6 @@
 [
   {
-    "name": "NP Membership",
+    "name": "Non Profit Membership Level",
     "price": "Free",
     "benefits": [
       "Listing in the online directory",
@@ -8,7 +8,7 @@
     ]
   },
   {
-    "name": "Bronze Membership",
+    "name": "Bronze Membership Level",
     "price": "R 500 per year",
     "benefits": [
       "Enhanced listing in the online directory",
@@ -17,7 +17,7 @@
     ]
   },
   {
-    "name": "Silver Membership",
+    "name": "Silver Membership Level",
     "price": "R 1200 per year",
     "benefits": [
       "Premium listing in the online directory",
@@ -28,7 +28,7 @@
     ]
   },
   {
-    "name": "Gold Membership",
+    "name": "Gold Membership Level",
     "price": "R 2500 per year",
     "benefits": [
       "Top-tier listing in the online directory",
