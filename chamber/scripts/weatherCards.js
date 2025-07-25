@@ -133,8 +133,9 @@ async function createWeatherCards() {
     eventsCard.innerHTML = `
          <div class="card-content">
               <h3>Upcoming Events</h3>
-              <p>The Mahikeng Chamber of Commerce Annual General Meeting, 17 April 2025, Venue: Mahikeng Chamber of Commerce Building</p>
-         </div>
+              <p>The Mahikeng Chamber of Commerce Annual General Meeting, 17 August 2025, Venue: Mahikeng Chamber of Commerce Building</p>
+              <p>Mahikeng Chamber of Commerce Business Expo, 30 September 2025, Venue: Mahikeng Convention Center</p>
+        </div>
     `;
 
     // Append cards to container

@@ -38,6 +38,10 @@
         flex: 1 1 100%;
     }
 
+    #spotlight-section {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1frf));
+    }
+
     footer {
         display: flex;
         align-items: center;
@@ -96,6 +100,10 @@
         li {
             flex: 1 1 100%;
         }
+    }
+
+    #spotlight-section {
+        grid-template-columns: repeat(3, 1fr);
     }
 
     /* Footer adjustments */

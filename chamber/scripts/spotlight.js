@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // JSON data source
     const membersData = [
-                {
+        {
             "name": "Kagiso Technologies",
+            "type": "IT Services",
             "address": "48 Beyers Naude Drive, Mahikeng, 2745",
             "phone": "+27 18 392 6000",
             "website": "https://www.kagisotechnologies.co.za",
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "name": "Mahikeng Agricultural Supplies",
+            "type": "Agriculture",
             "address": "27 Loop Street, Industrial Area, Mahikeng, 2745",
             "phone": "+27 18 397 1234",
             "website": "https://www.mahikengag.com",
@@ -25,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "name": "Royal Bafokeng Platinum",
+            "type": "Mining",
             "address": "Lefaragae Office Park, Mahikeng, 2745",
             "phone": "+27 18 484 7000",
             "website": "https://www.royalbafokengplatinum.co.za",
@@ -33,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "name": "Mmabatho Printing Services",
+            "type": "Printing",
             "address": "22 Sekhing Street, CBD, Mahikeng, 2745",
             "phone": "+27 18 381 5678",
             "website": "https://www.mmabathoprint.co.za",
@@ -41,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "name": "Mahikeng Legal Consultants",
+            "type": "Legal Services",
             "address": "15 Modiri Molema Drive, Mahikeng, 2745",
             "phone": "+27 18 392 4567",
             "website": "https://www.mahikenglegal.com",
@@ -49,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "name": "Olive Tree Restaurant",
+            "type": "Restaurant",
             "address": "12 Boom Street, Mahikeng, 2745",
             "phone": "+27 18 381 2345",
             "website": "https://www.olivetreerestaurant.co.za",
@@ -57,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "name": "NorthWest Tech Solutions",
+            "type": "Software Development",
             "address": "45 Francis Baard Street, Mahikeng, 2745",
             "phone": "+27 18 397 8901",
             "website": "https://www.nwtech.co.za",
@@ -65,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "name": "Mahikeng Farmers Cooperative",
+            "type": "Farming Cooperative",
             "address": "33 Sekhing Road, Industrial Area, Mahikeng, 2745",
             "phone": "+27 18 392 2222",
             "website": "https://www.mahikengfarmers.co.za",
@@ -73,19 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // Validate membersData array
-    if (!Array.isArray(membersData) || membersData.length === 0) {
-        console.error("membersData is empty or not an array. Ensure it is populated correctly.");
-    }
-
     // Filter members based on membership levels 2 and 3
-    const filterMembers = membersData.filter(member => member.membershipLevel === 2 || member.membershipLevel === 3);
-    if (filterMembers.length === 0) {
-        console.warn("No members found with membershipLevel 2 or 3.");
-    }
-
-    // Log filtered members for debugging
-    console.log("Filtered Members:", filterMembers);
+    const filterMembers = membersData.filter(
+        member => member.membership === "2" || member.membership === "3"
+    );
 
     // Randomly select 2 or 3 spotlight items
     const getRandomSpotlights = (arr, num) => {
@@ -95,32 +94,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const spotlightItems = getRandomSpotlights(filterMembers, Math.floor(Math.random() * 2) + 2); // Picks 2 or 3 items
 
-    // Generate spotlight cards
-    spotlightItems.forEach(member => {
-        if (!member.imageUrl || !member.name || !member.type || !member.address || !member.phone || !member.website) {
-            console.warn("Incomplete member data:", member);
-            return;
-        }
+    spotlightItems.forEach((member, index) => {
         const card = document.createElement("div");
-        card.classList.add("spotlight-card");
+        card.classList.add("spotlight-card", "fade-in");
+        card.style.animationDelay = `${index = 0.3}s`;
+
         card.innerHTML = `
-            <img src="${member.imageUrl}" alt="${member.name}">
+            <img src="${member.imageUrl}" alt="${member.name}" loading="lazy">
             <h3>${member.name}</h3>
             <p><strong>Type:</strong> ${member.type}</p>
             <p><strong>Address:</strong> ${member.address}</p>
             <p><strong>Phone:</strong> ${member.phone}</p>
-            <a href="${member.website}" target="_blank">Visit Website</a>
+            <a href="${member.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
         `;
         spotlightContainer.appendChild(card);
     });
-
-    // Append spotlight cards to the container
-    if (spotlightContainer && spotlightItems.length > 0) {
-        console.log("Spotlight items successfully displayed.");
-    } else {
-        console.warn("No spotlight items to display.");
-    }
 });
+
 
 
 
