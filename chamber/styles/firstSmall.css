@@ -56,7 +56,7 @@ header span {
 hamburger {
     background: none;
     border: none;
-    color: #3D405B;
+    color: #2c3e50;
     cursor: pointer;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -88,13 +88,14 @@ hamburger {
 .navigation a {
     display: block;
     padding: .8rem 10px;
-    color: #3D405B;
+    color: #2c3e50;
     text-decoration: none;
     border-bottom: solid 1px #ddd;
 }
 
 .navigation li.current {
     background-color: #eee;
+    color: #3D405B;
 }
 
 .navigation a:hover {
@@ -136,10 +137,7 @@ h2 {
 }
 
 .hero:before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .hero-content {
@@ -157,13 +155,12 @@ h2 {
     letter-spacing: 1px;
 }
 
-.hero-content h2 {
+.hero-content h2, .hero-content p {
     color: #3498db;
+    background: hero image
 }
 
-.hero-content p {
-    color: #3498db;
-}
+
 
 .button {
     display: inline-block;
@@ -194,7 +191,7 @@ h2 {
     background-color: #f9f9f9;
     border-radius: 8px;
     padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     border: 1px solid #ddd;
 }
@@ -305,7 +302,7 @@ footer {
 }
 
 footer a {
-    color: #3498db;
+    color: #5dade2;
     text-decoration: none;
     font-weight: 500;
     /* Make links more prominent */
