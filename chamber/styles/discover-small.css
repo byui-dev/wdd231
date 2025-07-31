@@ -16,7 +16,7 @@ body {
     /* Improve text contrast */
 }
 
-/* Header Styles*/
+/* Header */
 header {
     display: flex;
     align-items: center;
@@ -24,22 +24,20 @@ header {
     padding: 10px;
     background-color: #2c3e50;
     color: white;
-    position: relative;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Add subtle shadow */
-}
-
-.header-title {
-    flex-grow: 1;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
+    flex-wrap: wrap;
 }
 
 header .pic {
-    max-width: 150px;
+    max-width: 120px;
     height: auto;
-    margin-bottom: 0.5rem;
+}
+
+.header-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
 }
 
 header span {
@@ -53,183 +51,157 @@ header span {
     /* Add spacing for better readability */
 }
 
-/* Navigation Styles */
-.mainNav {
-    display: none;
-    /* Hidden by default on small screens */
-    flex-direction: column;
-    width: 100%;
-    background-color: #2c3e50;
-}
-
-.mainNav a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-weight: 500;
-    /* Make links more prominent */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    /* Smooth hover effect */
-}
-
-.mainNav a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #f4f4f4;
-    /* Change text color on hover */
-}
-
-/* Hamburger Menu Styles */
 .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.hamburger div {
-    background-color: #333;
-    height: 4px;
-    width: 100%;
-    border-radius: 2px;
-}
-
-/* View Toggle buttons - consolidated styles */
-.menu {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.menu button {
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
+    background: none;
     border: none;
-    border-radius: 4px;
-    background-color: #007BFF;
-    color: white;
-    font-size: 1rem;
-    -webkit-transition: background-color 0.3s ease;
-    -moz-transition: background-color 0.3s ease;
-    -o-transition: background-color 0.3s ease;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    color: #3D405B;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.menu button:hover {
-    background-color: #0056b3;
+.hamburger::before {
+    content: "\2630";
+    font-size: 2rem;
 }
 
-.menu button.active {
-    background-color: #0056b3;
+.hamburger.show::before {
+    content: "\00D7";
+}
+
+/*------------------------NAVIGATION----------------------------------*/
+.navigation {
+    display: none;
+}
+
+.navigation.show {
+    display: block;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation a {
+    display: block;
+    padding: .8rem 10px;
+    color: #3D405B;
+    text-decoration: none;
+    border-bottom: solid 1px #ddd;
+}
+
+.navigation li.current {
+    background-color: #eee;
+}
+
+.navigation a:hover {
+    background-color: #E07A5F;
 }
 
 .places-grid {
     display: grid;
     gap: 1rem;
     padding: 1rem;
+    grid-template-columns: 1fr;
 }
 
 #myplaces div {
-    margin: 1rem 8px;
-    border: 1px solid #0056b3;
-    background-color: #eee;
-    border-radius: 8px;
-    overflow: hidden;
     display: grid;
-    grid-template-areas: 
+    grid-template-columns: 1fr;
+    grid-template-areas:
         "name"
         "photo"
         "desc"
         "address"
         "button";
-    gap: 0.5rem;    
-    height: 100%;
-    }
-    
-    #myplaces div h2 {
-        margin: 0.5rem 10px 0.5rem;
-        grid-area: name;
-    }
-    
-    #myplaces div img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        object-position: center;
-        grid-area: photo;
-    }
-    
-    #myplaces div p {
-        margin: 0.5rem 10px;
-        grid-area: desc;
-    }
-    
-    #myplaces div address { 
-        margin: 0.5rem 10px;
-        grid-area: address;
-    }
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 1rem;
+}
 
-    #myplaces button {
-        margin: 0.5rem 10px 1rem;
-        padding: 0.5rem 1rem;
-        background-color: #007BFF;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        grid-area: button;
-        width: calc(100% - 20px);
-        justify-self: center;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .learn-more {
-      background-color: #007BFF;
-      color: white;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;  
-    }
+#myplaces h3 {
+    margin: 0 0 0.5rem 0;
+    grid-area: name;
+}
 
-    .learn-more:hover {
-      background-color: #0056b3;  
-    }
-    
-    #myplaces button:hover {
+
+#myplaces img {
+    grid-area: photo;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+#myplaces p {
+    margin: 0.5rem 10px;
+    grid-area: desc;
+}
+
+#myplaces .desc {
+    grid-area: desc;
+}
+
+#myplaces .address {
+    grid-area: address;
+}
+
+#myplaces button {
+    margin: 0.5rem 10px 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    grid-area: button;
+    width: calc(100% - 20px);
+    justify-self: center;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.learn-more {
+    background-color: #007BFF;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more:hover {
+    background-color: #0056b3;
+}
+
+#myplaces button:hover {
     background-color: #0056b3;
     color: white;
     /* Change text color on hover */
-    }  
+}
 
 /* To place the cards in a single column on small screens */
 @media (max-width: 640px) {
     .places-grid {
-      grid-template-areas: 
-        "card"
-        "card"
-        "card";
-        grid-template-columns: 1fr;    
+        grid-template-areas:
+            "card"
+            "card"
+            "card";
+        grid-template-columns: 1fr;
     }
 }
 
- /* Footer Styles - consolidated */
- footer {
+/* Footer Styles - consolidated */
+footer {
     background-color: #2c3e50;
     color: white;
     padding: 1rem;
@@ -254,84 +226,4 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}
-
-/* Responsive Navigation */
-.mainNav.responsive {
-    display: flex;
-}
-
-/* Hamburger Animation */
-.hamburger.open div:nth-child(1) {
-    -webkit-transform: rotate(45deg) translate(5px, 5px);
-    -ms-transform: rotate(45deg) translate(5px, 5px);
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.open div:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.open div:nth-child(3) {
-    -webkit-transform: rotate(-45deg) translate(5px, -5px);
-    -ms-transform: rotate(-45deg) translate(5px, -5px);
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Media Queries for additional responsiveness */
-@media screen and (max-width: 600px) {
-    header {
-        flex-direction: column;
-        /* Stack header elements */
-        text-align: center;
-        /* Center-align content */
-    }
-
-    .menu {
-        flex-direction: column;
-        /* Stack buttons */
-    }
-
-    .menu button {
-        width: 100%;
-        /* Full-width buttons */
-    }
-}
-
-
-/* Helper classes */
-.hidden {
-display: none;
-}
-
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.hamburger div {
-    background-color: #333;
-    height: 4px;
-    width: 100%;
-    border-radius: 2px;
-}
-
-/* Hide navigation by default on mobile */
-.mainNav {
-    display: none;
-}
-
-.mainNav.active {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    border: 1px solid #ccc;
-    padding: 10px;
 }

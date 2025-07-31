@@ -1,184 +1,62 @@
-/* Base styles for larger devices */
-body {
-    max-width: 1600px;
-    /* Increase max width for larger screens */
-    margin: 0 auto;
-    font-size: 1.2rem;
-    /* Slightly larger font size for readability */
-}
-
-/* Header Styles */
-header {
-    flex-direction: row;
-    /* Ensure horizontal layout */
-    padding: 3rem;
-    /* Add more padding for spaciousness */
-}
-
-header .pic {
-    max-width: 250px;
-    /* Increase logo size for larger screens */
-}
-
-header span {
-    font-size: 2rem;
-    /* Larger font size for emphasis */
-}
-
-/* Navigation Styles */
-.mainNav {
-    flex-direction: row;
-    /* Horizontal navigation */
-    justify-content: center;
-    /* Center navigation links */
-    gap: 3rem;
-    /* Increase spacing between navigation links */
-    display: flex;
-    /* Show navigation on larger screens */
-    position: static;
-}
-
-.mainNav a {
-    font-size: 1.1rem;
-    /* Slightly larger font size */
-    padding: 0.5rem 1rem;
-    /* Add padding for better clickability */
-}
-
-.hamburger {
-    display: none;
-    /* Hide hamburger menu on larger screens */
-}
-
-.toggle-btn {
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-    margin-top: 1rem;
-    background-color: #eee;
-    /* Consistent button style */
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.toggle-btn:hover {
-    background-color: #ddd;
-    /* Consistent hover effect */
-}
-
-/* Footer Styles */
-footer {
-    padding: 3rem;
-    /* Add more padding for spaciousness */
-    font-size: 1.1rem;
-    /* Slightly larger font size */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* Align footer-left and footer-right */
-    flex-wrap: wrap;
-    /* Ensure proper alignment on smaller large screens */
-}
-
-.footer-left {
-    text-align: left;
-    /* Align content to the left */
-    flex: 1;
-    /* Ensure equal space distribution */
-}
-
-.footer-right {
-    text-align: right;
-    /* Align content to the right */
-    flex: 1;
-    /* Ensure equal space distribution */
-}
-
-footer a {
-    color: #007BFF;
-    text-decoration: none;
-    transition: color 0.3s;
-    /* Smooth hover effect */
-    font-size: 1.1rem;
-    /* Slightly larger footer links */
-}
-
-footer a:hover {
-    color: #0056b3;
-    /* Darker shade on hover */
-}
-
-/* Media Queries for Responsiveness */
-@media screen and (min-width: 1024px) {
-    header {
-        justify-content: space-between;
-    }
-
-    .menu {
-        justify-content: center;
-        gap: 2rem;
-    }
-
-    .menu button {
-        font-size: 1.1rem;
-        background-color: #007BFF;
-        color: white;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .menu button:hover {
-        background-color: #0056b3;
-        /* Darker shade on hover */
-    }
-
-    .hamburger {
-        display: none;
-        /* Hide hamburger menu on larger screens */
-    }
-
-    .menu {
-        display: flex;
-        /* Show menu on larger screens */
-    }
-
+@media (min-width: 1025px) {
     .places-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
     }
 
-    #myplaces {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-        gap: 2rem;
-        padding: 2rem;
-    }
-
     #myplaces div {
-        margin: 0;
         grid-template-columns: auto 1fr;
         grid-template-areas:
             "name name"
             "photo desc"
             "photo address"
             "button button";
+        padding: 1.5rem;
     }
 
     #myplaces div img {
         width: 300px;
-        height: 300px;
+        height: 200px;
         object-fit: cover;
-        object-position: center;
-    }
 
-    #myplaces button {
-        width: calc(100% - 20px);
-        padding: 0.75rem 1.5rem;
-        font-size: 1.1rem;
-        margin-top: 1rem;
-        height: 50px;
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            justify-content: space-between;
+            padding: 20px 30px;
+        }
+
+        header .pic {
+            width: 100px;
+            height: 100px;
+        }
+
+        nav ul {
+            justify-content: flex-end;
+        }
+
+        /* Footer adjustments */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+        }
+
+        .footer-left {
+            text-align: left;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-left p,
+        .footer-right p {
+            margin: 0;
+        }
     }
-}
