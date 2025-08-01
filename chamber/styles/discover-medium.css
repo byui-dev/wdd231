@@ -55,20 +55,22 @@
     }
 
     li {
-        flex: 1 1 100px;
+        flex: 1 1 100%;
     }
 
     footer {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         padding: 20px 30px;
         font-size: 1.2rem;
     }
 
-    .footer-left,
+    .footer-left {
+        text-align: left;
+    }
+
     .footer-right {
-        width: 50%;
+        text-align: right;
     }
 
     .footer-left p,

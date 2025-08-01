@@ -1,4 +1,4 @@
-/* Base styles for mobile devices */
+/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +7,11 @@
 
 body {
     font-family: 'Roboto', Arial, sans-serif;
-    line-height: 1.8;
-    /* Enhance readability */
-    max-width: 1200px;
-    margin: 0 auto;
+    line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
-    /* Improve text contrast */
+    margin: 0 auto;
+    padding: 1rem;
 }
 
 /* Header */
@@ -50,6 +48,7 @@ header span {
     letter-spacing: 1px;
     /* Add spacing for better readability */
 }
+
 
 .hamburger {
     background: none;
