@@ -1,20 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const confirmationDiv = document.getElementById('confirmation')
+
+  // Helper function to format keys
+  function formatKey(key) {
+    // Capitalize first letter and replace underscores with spaces
+    return key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
+  }
+
+  // Get all parameters from the URL
   const params = new URLSearchParams(window.location.search);
-  const confirmation = document.getElementById('confirmation')
 
-  if (!confirmation) return;
-
-  const entries = [...params.entries()];
-
-  if (entries.length === 0) {
-    confirmation.innerHTML = '<p>No data submitted.</p>';
-  }
-  else {
-    confirmation.innerHTML = '<h2>Thank You!</h2>';
-    entries.forEach(([key, value]) => {
-      const p = document.createElement('p');
-      p.textContent = `${key}: ${value}`;
-      confirmation.appendChild(p);
+  if (!params || [...params].length === 0) {
+    confirmationDiv.innerHTML = '<p>No confirmation data available.</p>';
+  } else {
+    const ul = document.createElement('ul');
+    params.forEach((value, key) => {
+      // Decode and create the key-value pair
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${formatKey(key)}:</strong> ${decodeURIComponent(value.replace(/\+/g, ' '))}`;
+      ul.appendChild(li);
     });
+    confirmationDiv.appendChild(ul);
   }
-  
+});
+

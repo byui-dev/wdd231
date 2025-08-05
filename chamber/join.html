@@ -67,44 +67,48 @@
                         autocomplete="family-name" required>
                 </label>
 
-                <label for="email" title="Enter your email address">
-                    Email Address:
-                    <input type="email" id="email" name="email" title="Enter your email address" autocomplete="email"
-                        placeholder="example@domain.com" required>
-                </label>
+                <label for="organizationalTitle" title="Enter your organizational title">
+                    Organizational Title:
+                    <input type="text" id="organizationalTitle" name="organizational_title"
+                        title="Enter your organizational title" autocomplete="organization-title"
+                        pattern="^[a-zA-Z\- ]{7,}" required>
 
-                <label for="mobile" title="Enter your phone number">
-                    Phone Number:
-                    <input type="tel" id="mobile" name="mobile_phone" title="Enter your phone number" autocomplete="tel"
-                        placeholder="+27 123 456 7890" required>
-                </label>
+                    <label for="email" title="Enter your email address">
+                        Email Address:
+                        <input type="email" id="email" name="email" title="Enter your email address"
+                            autocomplete="email" placeholder="example@domain.com" required>
+                    </label>
 
-                <label for="organization" title="Enter your organization name">
-                    Organization Name:
-                    <input type="text" id="organization" name="organization_name" title="Enter your organization name"
-                        autocomplete="organization" required>
-                </label>
+                    <label for="mobile" title="Enter your phone number">
+                        Phone Number:
+                        <input type="tel" id="mobile" name="mobile_phone" title="Enter your phone number"
+                            autocomplete="tel" placeholder="+27 123 456 7890" required>
+                    </label>
 
-                <label for="membership" title="Select your membership level">
-                    Membership Level:
-                    <select id="membership" name="membership_level" title="Select your membership level" required>
-                        <option value="" disabled selected>Select your membership level</option>
-                        <option value="nonprofit">NP Membership</option>
-                        <option value="bronze">Bronze Membership</option>
-                        <option value="silver">Silver Membership</option>
-                        <option value="gold">Gold Membership</option>
-                    </select>
-                </label>
+                    <label for="organization" title="Enter your organization name">
+                        Organization Name:
+                        <input type="text" id="organization" name="organization_name"
+                            title="Enter your organization name" autocomplete="organization" required>
+                    </label>
 
-                <label for="description" title="Enter a brief description of your business">
-                    Business Description:
-                    <textarea id="description" name="business_description"
-                        title="Enter a brief description of your business" rows="4" required></textarea>
-                </label>
+                    <label for="membership" title="Select your membership level">
+                        Membership Level:
+                        <select id="membership" name="membership_level" title="Select your membership level" required>
+                            <option value="" disabled selected>Select your membership level</option>
+                            <option value="nonprofit">NP Membership</option>
+                            <option value="bronze">Bronze Membership</option>
+                            <option value="silver">Silver Membership</option>
+                            <option value="gold">Gold Membership</option>
+                        </select>
+                    </label>
 
-                <input type="hidden" id="timestamp" name="timestamp">
+                    <label for="description" title="Enter a brief description of your business">
+                        Business Description:
+                        <textarea id="description" name="business_description"
+                            title="Enter a brief description of your business" rows="4" required></textarea>
+                    </label>
 
-                <button type="submit" id="submit" title="Submit your application">Join Us</button>
+                    <button type="submit" id="submit" title="Submit your application">Join Us</button>
 
             </form>
         </section>
@@ -125,11 +129,22 @@
             <p>+2718898970</p>
         </div>
         <div class="footer-right">
-            <p>&copy; <span id="year"></span> WDD231 Team Assignment</p>
+            <p>&copy; <span id="year"></span> WDD231 Team Assignment</span></p>
             <p>Obakeng Kennedy Diphala</p>
             <p id="lastModified"></p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const timestamp = document.getElementById('timestamp');
+            if (timestampInput) {
+                const now = new Date();
+                timestampInput.value = now.toLocaletring();
+            }
+        });
+    </script>
+
 </body>
 
 </html>
