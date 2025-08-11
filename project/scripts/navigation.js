@@ -1,8 +1,10 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.querySelector('.hamburger-menu');
-    const nav = document.querySelector("nav");
+// Store the selected items that we are going to use
+const navbutton = document.querySelector('#ham-btn');
+const navlinks = document.querySelector('#nav-bar');
 
-    hamburger.addEventListener('click', function () {
-        nav.classList.toggle('show');
-    });
-});  
+// Toggle the show class on and off
+navbutton.addEventListener('click', () => {
+    navbutton.classList.toggle('show');
+    navlinks.classList.toggle('show');
+});
+

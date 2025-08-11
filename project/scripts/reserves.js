@@ -67,7 +67,7 @@ function renderReserves(reserves) {
 
         if (currentView === 'grid') {
             card.innerHTML = `
-                <img src="images/${reserve.image}" alt="${reserve.name}">
+                <img src="images/${reserve.image}" alt="${reserve.name}" loading="lazy">
                 <h2>${reserve.name}</h2>
                 <p><strong>Location:</strong> ${reserve.location}</p>
                 <p><strong>Accommodation:</strong> R${reserve.bookingFees.accommodation}</p>
@@ -82,7 +82,7 @@ function renderReserves(reserves) {
         } else {
             card.innerHTML = `
                 <div class="list-image">
-                    <img src="images/${reserve.image}" alt="${reserve.name}">
+                    <img src="images/${reserve.image}" alt="${reserve.name}" loading="lazy">
                 </div>
                 <div class="list-content">
                     <h2>${reserve.name}</h2>

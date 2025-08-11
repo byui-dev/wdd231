@@ -48,6 +48,39 @@ header span {
   /* Add spacing for better readability */
 }
 
+#main-nav {
+  margin-top: 1rem;
+}
+
+#nav-links {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  background-color: var(--light-color);
+  width: 100%;
+}
+
+#nav-links.active {
+  display: flex;
+}
+
+#nav-links li {
+  margin: 0.5rem 0;
+}
+
+#nav-links a {
+  display: block;
+  padding: 0.5rem;
+  color: var(--text-color);
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#nav-links a:hover {
+  color: var(--secondary-color);
+  border-bottom-color: var(--secondary-color);
+}
 
 
 .hamburger {
