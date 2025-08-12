@@ -1,6 +1,6 @@
-/* =========================
-   SAFARI THEME LARGE SCREEN
-========================= */
+/*===============================
+   SAFARI THEME VARIABLES
+   ====================================*/
 :root {
     --primary-color: #2E5E4E;
     --secondary-color: #D4A373;
@@ -11,65 +11,78 @@
     --footer-text: #FAF3E0;
 }
 
-/* Desktop Breakpoint */
-@media (min-width: 768px) {
+/* Desktop breakpoint*/
+@media screen and (min-width: 768px) {
 
-    /* =========================
+    /*=============================
        HEADER
-    ========================= */
+       =============================*/
     header {
         padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .header-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        font-weight: 600;
     }
 
-    /* =========================
+    .pic {
+        width: 60px;
+        height: 60px;
+    }
+
+    /*=============================
        NAVIGATION
-    ========================= */
+       =============================*/
     .hamburger {
         display: none;
     }
 
     .navigation {
         display: block !important;
+        position: static;
         background: none;
+        box-shadow: none;
         padding: 0;
     }
 
     .navigation ul {
         display: flex;
         justify-content: center;
-        gap: 1.5rem;
+        gap: 2rem;
+        margin: 1rem 0;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 8px;
         list-style: none;
     }
 
     .navigation li {
+        margin: 0;
         border-bottom: none;
     }
 
     .navigation a {
-        color: white;
-        font-weight: 500;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
         transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: var(--dark-text);
+        font-weight: 500;
     }
 
-    .navigation a:hover {
+    .navigation a:hover,
+    .navigation .current a {
         background-color: var(--accent-color);
         color: white;
     }
 
-    .navigation li.current a {
-        background-color: var(--secondary-color);
-        color: var(--dark-text);
-    }
-
-    /* =========================
+    /*=============================
        HERO SECTION
-    ========================= */
+       =============================*/
     .hero {
         height: 80vh;
         background-attachment: fixed;
@@ -90,25 +103,47 @@
         margin: 0 auto 1.5rem;
     }
 
-    /* =========================
+    /*=============================
        MAIN CONTENT
-    ========================= */
+       =============================*/
     main {
         padding: 2rem;
     }
 
     h2 {
         font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
     }
-
 
     .reserve-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
     }
 
+    .reserve-card img:hover {
+        transform: scale(1.05);
+    }
+
+    .reserve-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .reserve-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /*=============================
+       WEATHER SECTION
+       =============================*/
     #weather-section {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -116,6 +151,9 @@
         padding: 2rem;
     }
 
+    /*=============================
+       RESERVES SECTIONS
+       =============================*/
     #reserves-section {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -130,38 +168,218 @@
         padding: 2rem;
     }
 
-    /* =========================
-       SPOTLIGHT / FEATURED SECTION
-    ========================= */
-    #spotlight-section {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-    }
-
-    .spotlight-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-
     .highlighted-reserves {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /*=============================
+       SPOTLIGHT / FEATURED SECTION
+       =============================*/
+    #spotlight-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .spotlight-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .spotlight-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .spotlight-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .spotlight-card img:hover {
+        transform: scale(1.1);
+    }
+
+    /* Footer styling */
     footer {
         display: flex;
         justify-content: space-between;
-        text-align: left;
+        align-items: flex-start;
         padding: 2rem;
+        gap: 2rem;
+        background-color: var(--footer-bg);
+        color: var(--footer-text);
+        text-align: left;
     }
 
     .footer-left,
     .footer-right {
+        flex: 1;
         margin-bottom: 0;
+    }
+
+    .footer-left {
+        text-align: left;
+    }
+
+    /*=============================
+       DESKTOP STYLES (1024px and up)
+       =============================*/
+    @media screen and (min-width: 1024px) {
+
+        /* Container for main content */
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Enhanced header for desktop */
+        header {
+            padding: 1.5rem 0;
+            border-bottom: 2px solid var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .header-title {
+            font-size: 2.2rem;
+        }
+
+        .pic {
+            width: 80px;
+            height: 80px;
+        }
+
+        /* Enhanced navigation */
+        .navigation ul {
+            gap: 3rem;
+            padding: 1.5rem;
+        }
+
+        .navigation a {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Enhanced hero section */
+        .hero {
+            height: 85vh;
+            padding: 6rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        /* Enhanced main content */
+        main {
+            padding: 3rem 2rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Enhanced sections */
+        #weather-section {
+            gap: 3rem;
+            padding: 3rem;
+        }
+
+        #reserves-section {
+            gap: 3rem;
+            padding: 3rem;
+        }
+
+        #highlighted-reserves {
+            gap: 3rem;
+            padding: 3rem;
+        }
+
+        #spotlight-section {
+            gap: 3rem;
+            padding: 3rem;
+        }
+
+        /* Enhanced cards */
+        .reserve-card {
+            padding: 2rem;
+        }
+
+        .reserve-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        .reserve-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--dark-text);
+        }
+
+        .spotlight-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            padding: 1rem;
+            margin: 0;
+        }
+
+        .spotlight-card p {
+            padding: 0 1rem 1rem;
+            color: var(--dark-text);
+            line-height: 1.5;
+        }
+
+        /* Enhanced footer */
+        footer {
+            padding: 3rem 2rem;
+        }
+
+        .footer-left,
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-left p,
+        .footer-right p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .footer-left a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-left a:hover {
+            text-decoration: underline;
+        }
     }
 }
