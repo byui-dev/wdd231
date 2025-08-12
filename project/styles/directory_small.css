@@ -8,10 +8,15 @@
     --footer-text: #FAF3E0;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Roboto', Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
     background-color: var(--light-bg);
     color: var(--dark-text);
     padding: 0 1rem;
@@ -19,24 +24,71 @@ body {
     margin: 0 auto;
 }
 
-/* Keep header & nav consistent */
 header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.5rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    position: relative;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
 }
 
+.header-title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/*===============================
+ Hamburger Menu
+===============================*/
+hamburger {
+    background: none;
+    border: none;
+    color: #2c3e50;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.hamburger::before {
+    content: "\2630"; /* Unicode for hamburger icon */
+    font-size: 2rem;
+
+}
+
+.hamburger.show::before {
+    content: "\2716"; /* Unicode for close icon */
+}
+
+/*===============================
+ Navigation Styles
+===============================*/
 .navigation {
+    display: none;
     background-color: var(--secondary-color);
 }
 
-.navigation a {
-    color: var(--dark-text);
-    padding: 0.75rem;
+.navigation.show {
     display: block;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .navigation a {
