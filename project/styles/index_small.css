@@ -28,11 +28,11 @@
 
 body {
     font-family: 'Roboto', Arial, sans-serif;
-    line-height: 1.8;
-    max-width: 1200px;
-    margin: 0 auto;
+    line-height: 1.6;
     background-color: var(--light-bg);
     color: var(--dark-text);
+    margin: 0;
+    padding: 0;
 }
 
 /* =========================
@@ -42,49 +42,50 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 1rem;
     background-color: var(--primary-color);
     color: white;
     position: relative;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    border-bottom: 3px solid var(--secondary-color);
 }
 
 .header-title {
     flex-grow: 1;
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 header .pic {
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 0.5rem;
-}
-
-header span {
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-    flex-grow: 1;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+    object-fit: cover;
 }
 
 /* =========================
    HAMBURGER MENU
 ========================= */
-hamburger {
+.hamburger {
     background: none;
     border: none;
-    color: #2c3e50;
+    color: white;
     cursor: pointer;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .hamburger::before {
     content: "\2630";
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .hamburger.show::before {
@@ -96,48 +97,88 @@ hamburger {
 ========================= */
 .navigation {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 12px 12px;
+    z-index: 1000;
 }
 
 .navigation.show {
     display: block;
+    animation: slideDown 0.3s ease;
 }
 
 .navigation ul {
     list-style-type: none;
+    padding: 0.5rem 0;
+}
+
+.navigation li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.navigation li:last-child {
+    border-bottom: none;
 }
 
 .navigation a {
     display: block;
-    padding: .8rem 10px;
-    color: var(--primary-color);
+    padding: 1rem 1.5rem;
+    color: var(--dark-text);
     text-decoration: none;
-    border-bottom: solid 1px #ddd;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-.navigation li.current {
+.navigation li.current a {
     background-color: var(--secondary-color);
     color: var(--dark-text);
+    font-weight: 600;
 }
 
 .navigation a:hover {
     background-color: var(--accent-color);
     color: white;
+    padding-left: 2rem;
 }
 
 /* =========================
-   MAIN CONTENT
+   MAIN CONTENT - IMPROVED
 ========================= */
 main {
-    padding: 1rem;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Section spacing */
+main>section,
+main>div {
+    margin-bottom: 2rem;
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 0 1rem;
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
 }
 
 /* =========================
@@ -147,40 +188,218 @@ h2 {
     background-image: url('https://i.postimg.cc/15TpnxT3/zdenek-machacek-Ux-Hol6-Sw-Ly-M-unsplash.jpg');
     background-size: cover;
     background-position: center;
-    height: 75vh;
+    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     padding: 2rem 1rem;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, rgba(46, 94, 78, 0.7), rgba(224, 122, 95, 0.5));
     z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
+    max-width: 90%;
 }
 
 .hero h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    line-height: 1.2;
 }
 
-.hero-content h2,
-.hero-content p {
+.hero-content h2 {
     color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content h2::after {
+    display: none;
+}
+
+.hero-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* =========================
+   WEATHER SECTION - MOBILE OPTIMIZED
+========================= */
+#weather-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    margin: 0 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#current-weather,
+#forecast-weather {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-color);
+    position: relative;
+    min-height: 120px;
+}
+
+#current-weather::before,
+#forecast-weather::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+#current-weather h3,
+#forecast-weather h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+/* Weather loading states */
+.weather-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+.weather-error {
+    color: var(--accent-color);
+    text-align: center;
+    padding: 1rem;
+    background: rgba(224, 122, 95, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(224, 122, 95, 0.2);
+}
+
+/* =========================
+   SPOTLIGHT SECTION - ENHANCED
+========================= */
+#spotlight-section {
+    padding: 1rem;
+    background: white;
+    margin: 0 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#highlighted-reserves {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.spotlight-card {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.spotlight-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+}
+
+.spotlight-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.spotlight-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.spotlight-card img:hover {
+    transform: scale(1.05);
+}
+
+.spotlight-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.spotlight-card p {
+    color: var(--dark-text);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.spotlight-card a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+}
+
+.spotlight-card a::after {
+    content: "→";
+    transition: transform 0.3s ease;
+}
+
+.spotlight-card a:hover {
+    background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.spotlight-card a:hover::after {
+    transform: translateX(3px);
 }
 
 /* =========================
@@ -189,18 +408,24 @@ h2 {
 .button,
 .cta {
     display: inline-block;
-    background-color: var(--accent-color);
+    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
+    padding: 1rem 2rem;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
 }
 
 .button:hover,
 .cta:hover {
-    background-color: #c65a46;
+    background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* =========================
@@ -209,102 +434,46 @@ h2 {
 footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
-    padding: 1rem;
+    padding: 2rem 1rem 1rem;
     text-align: center;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
+    margin-top: 2rem;
 }
 
 .footer-left,
 .footer-right {
     margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
 footer a {
     color: var(--secondary-color);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 footer a:hover {
+    color: white;
     text-decoration: underline;
-}
-
-/* =========================
-   WEATHER SECTION
-========================= */
-#weather-section {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem;
-}
-
-#current-weather,
-#forecast-weather {
-    flex: 1;
-    background: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-#reserves-section {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.reserve-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* =========================
-   SPOTLIGHT SECTION
-========================= */
-#spotlight-section {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.spotlight-card img {
-    width: 60%;
-    height: 80px;
-    border-radius: 8px;
-    margin-bottom: 0.75rem;
-}
-
-.spotlight-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-}
-
-.spotlight-card a {
-    display: inline-block;
-    margin-top: 0.5rem;
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.spotlight-card a:hover {
-    text-decoration: underline;
-}
-
-.highlighted-reserves {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
 }
 
 /* =========================
    ANIMATIONS
 ========================= */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -316,4 +485,54 @@ footer a:hover {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Loading animation */
+.loading-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   UTILITY CLASSES
+========================= */
+.text-center {
+    text-align: center;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.p-1 {
+    padding: 1rem;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.rounded {
+    border-radius: 8px;
+}
+
+.shadow {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
