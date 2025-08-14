@@ -14,9 +14,7 @@
     <meta property="og:url" content="https://byui-dev.github.io/wdd231/chamber/index.html">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-
     <link rel="stylesheet" href="styles/booking_small.css">
-
     <link rel="stylesheet" href="styles/booking_large.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +36,6 @@
         <button id="ham-btn" class="hamburger"></button>
     </header>
 
-
     <nav id="nav-bar" class="navigation">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -47,27 +44,14 @@
         </ul>
     </nav>
 
-
-
     <div class="booking-container">
         <div class="booking-form-section">
             <form id="booking-form">
-
                 <label for="reserve-name">Reserve Name:</label>
-
                 <select name="reserve-name" id="reserve-name"></select>
 
-                <!--Options will be populated dynamically-->
-
-                </select>
-
-                <label for="accommodation-type">Accomodation Type:</label>
-
-                <select name="accommodation-type" id="accommodation-type">
-
-                    <!--Options will be populated dynamically-->
-
-                </select>
+                <label for="accommodation-type">Accommodation Type:</label>
+                <select name="accommodation-type" id="accommodation-type"></select>
 
                 <div class="date-input-group">
                     <label for="arrival-date">Arrival Date:</label>
@@ -78,36 +62,34 @@
                 </div>
 
                 <label for="number-of-guests">Number of Guests:</label>
-
                 <input type="number" id="number-of-guests" name="number-of-guests">
 
-                <button type="submit">Book Now</button>
-
+                <button type="submit" aria-label="Submit Booking">Book Now</button>
             </form>
 
             <div id="thank-you-page" style="display: none;">
-
-                <h2>Thank your for your booking</h2>
-
+                <h2>Thank you for your booking</h2>
+                <div id="booking-summary"></div>
             </div>
 
-            <div class="booking-modal-section">
-                <div id="modal-container" style="display: none;"></div>
+            <div id="modal-container" style="display: none;"></div>
+        </div>
+    </div>
 
-                <footer>
-                    <div class="footer-left">
-                        <p>South African Game Reserves</p>
-                        <p>1st Street, Pretoria Central</p>
-                        <p>Pretoria, South Africa 0186</p>
-                        <p><a href="mailto:info@sagamereserves.org">sagamereserves.org</a></p>
-                        <p>+2712898990</p>
-                    </div>
-                    <div class="footer-right">
-                        <p>&copy; <span id="year"></span> WDD231 Project</p>
-                        <p>Obakeng Kennedy Diphala</p>
-                        <p id="lastModified"></p>
-                    </div>
-                </footer>
+    <footer>
+        <div class="footer-left">
+            <p>South African Game Reserves</p>
+            <p>1st Street, Pretoria Central</p>
+            <p>Pretoria, South Africa 0186</p>
+            <p><a href="mailto:info@sagame.org">sagame.org</a></p>
+            <p>+2712898990</p>
+        </div>
+        <div class="footer-right">
+            <p>&copy; <span id="year"></span> WDD231 Project</p>
+            <p>Obakeng Kennedy Diphala</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
 </body>
 
 </html>

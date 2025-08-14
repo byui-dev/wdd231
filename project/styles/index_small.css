@@ -58,12 +58,13 @@ header {
     letter-spacing: 0.5px;
 }
 
-header .pic {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: 2px solid var(--secondary-color);
-    object-fit: cover;
+header span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* =========================
@@ -243,91 +244,253 @@ h2::after {
    WEATHER SECTION - MOBILE OPTIMIZED
 ========================= */
 #weather-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+    display: grid;
+    gap: 1.5rem; 
+    padding: 1.5rem; 
     background: white;
-    margin: 0 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add a subtle pattern in the background*/
+#weather-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-image: linear-gradient(90deg, var(--primary-color), var(--accent-color, var(--secondary-color));
 }
 
 #current-weather,
 #forecast-weather {
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-    padding: 1.5rem;
+    background: linear-gradient(135deg, #ffffff, #f8fbff);
+    padding: 2rem;
     border-radius: 12px;
-    border-left: 4px solid var(--accent-color);
+    border: 1 solid rgba(46, 98, 78, 0.1);
     position: relative;
-    min-height: 120px;
+    min-height: 140px;
+    transition: all;
 }
 
-#current-weather::before,
-#forecast-weather::before {
-    content: "";
+#current-weather::hover,
+#forecast-weather::hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+#current-weather::before {
+    content: "🌤️";
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 40px;
-    height: 40px;
-    background: var(--secondary-color);
-    border-radius: 50%;
-    opacity: 0.1;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+#forecast-weather::before {
+    content: "📅";
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    opacity: 0.3;
 }
 
 #current-weather h3,
 #forecast-weather h3 {
     color: var(--primary-color);
-    font-size: 1.3rem;
-    margin-bottom: 0.75rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.5rem;
 }
 
-/* Weather loading states */
+#current-weather h3::after,
+#forecast-weather h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--accent-color);
+    border-radius: 1px;
+}
+
+/* Current Weather Content Styling */
+#current-weather img {
+    width: 64px;
+    height: 64px;
+    float: right;
+    margin: -10px 0 10px 10px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+#current-weather p {
+    color: var(--dark-text);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#current-weather p:first-of-type{
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* Forecast Day Styling */
+.forecast-day {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.forecast-day:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.forecast-day:last-child {
+    margin-bottom: 0;
+}
+
+.forecast-day img {
+    width: 40px;
+    height: 40px;
+    margin: 0 0.5rem;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+}
+
+.forecast-day p {
+   margin: 0;
+   font-size: 0.9rem;
+   color: var(--dark-text);
+   flex: 1;
+   text-align: left;
+}
+
+.forecast-day p:first-child {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    flex: 2;
+}
+
+
+/* Weather loading & error states */
 .weather-loading {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 80px;
+    flex-direction: column;
+    min-height: 100px;
     color: var(--primary-color);
     font-style: italic;
+    gap: 1rem;
+}
+
+.weather-loading::before {
+    content: "⏳";
+    font-size: 2rem;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    from { transform: rotate(360deg); }
 }
 
 .weather-error {
     color: var(--accent-color);
     text-align: center;
-    padding: 1rem;
-    background: rgba(224, 122, 95, 0.1);
-    border-radius: 8px;
-    border: 1px solid rgba(224, 122, 95, 0.2);
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(224, 122, 95, 0.08), rgba(224, 122, 95, 0.12));
+    border-radius: 12px;
+    border: 12px solid rgba(224, 122, 95, 0.2);
+    font-weight: 500;
+}
+
+.weather-error::before {
+    content: "⚠️";
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 /* =========================
-   SPOTLIGHT SECTION - ENHANCED
+   SPOTLIGHT SECTION 
 ========================= */
 #spotlight-section {
-    padding: 1rem;
-    background: white;
-    margin: 0 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem 1.5rem;
+    background: linear-gradient(135deg, #ffffff, #f8fbff);
+    margin: 1rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+#spotlight-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color), var(--primary-color));
+}
+
+#spotlight-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 1rem;
+} 
+
+#spotlight-section h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+    border-radius: 2px;
 }
 
 #highlighted-reserves {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    display: grid;
+    gap: 2rem;
 }
 
 .spotlight-card {
     background: linear-gradient(135deg, #ffffff, #f8f9fa);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid #e9ecef;
-    transition: all 0.3s ease;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .spotlight-card::before {
@@ -336,97 +499,85 @@ h2::after {
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    transition: height 0.3s ease;
 }
+
+.spotlight-card:hover::before {
+    height: 8px;
+} 
 
 .spotlight-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-.spotlight-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease;
-}
-
-.spotlight-card img:hover {
-    transform: scale(1.05);
-}
-
-.spotlight-card h3 {
+/* Content styling for cards */
+.spotlight-card h4 {
     color: var(--primary-color);
-    margin-bottom: 0.75rem;
-    font-size: 1.4rem;
-    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-weight: 700;
     line-height: 1.3;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.spotlight-card h4::before {
+    content: "🦁";
+    position: absolute;
+    left: -0.5rem;
+    top: 0;
+    font-size: 1.2rem;
 }
 
 .spotlight-card p {
     color: var(--dark-text);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
-.spotlight-card a {
+.spotlight-card p strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.spotlight-card .cta-button {
     display: inline-flex;
     align-items: center;
-    padding: 0.6rem 1.2rem;
-    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
     color: white;
     text-decoration: none;
     font-weight: 600;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-    gap: 0.5rem;
-}
-
-.spotlight-card a::after {
-    content: "→";
-    transition: transform 0.3s ease;
-}
-
-.spotlight-card a:hover {
-    background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.spotlight-card a:hover::after {
-    transform: translateX(3px);
-}
-
-/* =========================
-   BUTTONS
-========================= */
-.button,
-.cta {
-    display: inline-block;
-    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
-    color: white;
-    padding: 1rem 2rem;
     border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
     transition: all 0.3s ease;
+    font-size: 1rem;
+    gap: 0.5rem;
+    margin-top: 1rem;
     border: none;
     cursor: pointer;
-    text-align: center;
-    font-size: 1rem;
 }
 
-.button:hover,
-.cta:hover {
-    background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+.spotlight-card .cta-button::after {
+    content: "→";
+    transition: 0.3s ease;
+    font-size: 1.2rem;
 }
+
+.spotlight-card .cta-button:hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    transform: translate(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.spotlight-card .cta-button:hover::after {
+    transform: translate(4px);
+}
+
 
 /* =========================
    FOOTER
